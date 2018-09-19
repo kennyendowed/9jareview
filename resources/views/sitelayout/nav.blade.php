@@ -44,8 +44,12 @@
           </li>
 
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="{{ route('logout') }}">{{ __('Logout') }}</a>
-            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            <!-- <form method="POST" action="{{route('logout')}}">
+                  @csrf
+                  <button type="submit"><i class="demo-pli-unlock icon-lg icon-fw"></i> Logout</button>
+                  </form> -->
+            <a class="nav-link js-scroll-trigger" href="{{route('logout') }}">{{ __('Logout') }}</a>
+            <form id="logout-form" action="{{route('logout') }}" method="POST" style="display: none;">
                 @csrf
             </form>
           </li>
