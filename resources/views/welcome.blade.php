@@ -1,95 +1,125 @@
-<!doctype html>
-<html lang="{{ app()->getLocale() }}">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@include('sitelayout.header')
 
-        <title>Laravel</title>
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+            @include('sitelayout.nav')
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Raleway', sans-serif;
-                font-weight: 100;
-                height: 100vh;
-                margin: 0;
-            }
+                              <div class="content-wrapper">
+                                <!-- Main content -->
+                                     <section class="content">
 
-            .full-height {
-                height: 100vh;
-            }
+                                   @yield('content')
+                                   <!-- About Section -->
+                 <section id="about" class="about-section text-center">
+                   <div class="container">
+                     <div class="row">
+                       <!-- Sidebar Widgets Column -->
+                       <div class="col-md-4">
 
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
 
-            .position-ref {
-                position: relative;
-            }
+                         <!-- Categories Widget -->
+                         <div class="card my-4">
+                           <h5 class="card-header">Categories</h5>
+                           <div class="card-body">
 
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
+                             <!-- <div class="row">
+                               <div class="col-lg-6"> -->
+                                 <ul class="list-unstyled mb-0">
+                   <li><a href="#exampledropdownDropdown" aria-expanded="true" data-toggle="collapse" class=""> <i class="icon-interface-windows"></i>Bank </a>
+                            <span class="caret"></span></a>
+                                <ul id="exampledropdownDropdown" class="list-unstyled collapse" style="">
+                                 <li><a href="Topic.php?Page=Topic">Page</a></li>
+                                 <li><a href="Topic.php?Page=Topic">Page</a></li>
+                                 <li><a href="#">Page</a></li>
+                               </ul>
+                             </li>
+                                       </ul>
+                             <ul class="list-unstyled mb-0">
+                               <li><a href="#exampledropdownDropdown1" aria-expanded="true" data-toggle="collapse" class=""> <i class="icon-interface-windows"></i>Oil </a>
+                                        <span class="caret"></span></a>
+                                            <ul id="exampledropdownDropdown1" class="list-unstyled collapse" style="">
+                                             <li><a href="#">Page</a></li>
+                                             <li><a href="#">Page</a></li>
+                                             <li><a href="#">Page</a></li>
+                                           </ul>
+                                         </li>
+                                                   </ul>
+                                                   <ul class="list-unstyled mb-0">
+                                     <li><a href="#exampledropdownDropdown2" aria-expanded="true" data-toggle="collapse" class=""> <i class="icon-interface-windows"></i>Telecommunication </a>
+                                              <span class="caret"></span></a>
+                                                  <ul id="exampledropdownDropdown2" class="list-unstyled collapse" style="">
+                                                   <li><a href="#">Page</a></li>
+                                                   <li><a href="#">Page</a></li>
+                                                   <li><a href="#">Page</a></li>
+                                                 </ul>
+                                               </li>
+                                                         </ul>
+                                               <ul class="list-unstyled mb-0">
+                                                 <li><a href="#exampledropdownDropdown3" aria-expanded="true" data-toggle="collapse" class=""> <i class="icon-interface-windows"></i>Entertainment </a>
+                                                          <span class="caret"></span></a>
+                                                              <ul id="exampledropdownDropdown3" class="list-unstyled collapse" style="">
+                                                               <li><a href="#">Page</a></li>
+                                                               <li><a href="#">Page</a></li>
+                                                               <li><a href="#">Page</a></li>
+                                                             </ul>
+                                                           </li>
+                                                                     </ul>
 
-            .content {
-                text-align: center;
-            }
 
-            .title {
-                font-size: 84px;
-            }
+                               <!-- </div>
+                             </div> -->
+                           </div>
+                         </div>
 
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
 
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-                        <a href="{{ route('register') }}">Register</a>
-                    @endauth
-                </div>
-            @endif
 
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
+                       </div>
+                             <div class="col-md-8">
+                       <!-- Blog Post -->
+                       <div class="card mb-4">
+                         <div class="card-body">
+                           <h2 class="card-title">ajah Branch</h2>
+                           <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
+                           <a href="#" class="btn btn-primary">Read More &rarr;</a>
+                         </div>
+                         <div class="card-footer text-muted">
+                           Posted on January 1, 2017 by
+                           <a href="#">Start Bootstrap</a>
+                         </div>
+                       </div>
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
-            </div>
-        </div>
-    </body>
-</html>
+                       <div class="card mb-4">
+                         <div class="card-body">
+                           <h2 class="card-title">Zone Branch</h2>
+                           <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
+                           <a href="#" class="btn btn-primary">Read More &rarr;</a>
+                         </div>
+                         <div class="card-footer text-muted">
+                           Posted on January 1, 2017 by
+                           <a href="#">Start Bootstrap</a>
+                         </div>
+                       </div>      <div class="card mb-4">
+                               <div class="card-body">
+                                 <h2 class="card-title">Mile50 Branch</h2>
+                                 <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
+                                 <a href="#" class="btn btn-primary">Read More &rarr;</a>
+                               </div>
+                               <div class="card-footer text-muted">
+                                 Posted on January 1, 2017 by
+                                 <a href="#">Start Bootstrap</a>
+                               </div>
+                             </div>
+                   </div>
+                 </div>
+                   </div>
+                 </section>
+
+              <!-- <section id="profile" class="signup-section">
+              </section> -->
+                                     @yield('footer')
+                                  </section>
+                           </div>
+                      <br>
+
+            @include('sitelayout.footer')
+
+@include('sitelayout.footerscript')
