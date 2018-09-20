@@ -54,7 +54,7 @@
 
 
                        </div>
-                             <div class="col-md-8">
+
                        <!-- Blog Post -->
                        <div class="col-md-8">
 
@@ -76,7 +76,7 @@
                      {{$additional_info}}  data found
                 @endif
              </div>
-                   </div>
+                
                  </div>
                    </div>
                  </section>
