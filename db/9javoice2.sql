@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.6deb5
+-- version 4.8.2
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Sep 20, 2018 at 04:45 PM
--- Server version: 5.7.23-0ubuntu0.18.04.1
--- PHP Version: 7.1.19-1+ubuntu17.10.1+deb.sury.org+1
+-- Host: 127.0.0.1
+-- Generation Time: Sep 19, 2018 at 04:35 PM
+-- Server version: 10.1.34-MariaDB
+-- PHP Version: 7.2.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -29,18 +31,8 @@ SET time_zone = "+00:00";
 CREATE TABLE `industries` (
   `id` int(11) NOT NULL,
   `ind_id` int(20) NOT NULL,
-  `name` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL
+  `name` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `industries`
---
-
-INSERT INTO `industries` (`id`, `ind_id`, `name`, `updated_at`, `created_at`) VALUES
-(1, 16947009, 'Entertainment', '2018-09-20 09:55:53', '2018-09-20 09:55:53'),
-(2, 4685697, 'Fashion', '2018-09-20 09:55:53', '2018-09-20 09:55:53');
 
 -- --------------------------------------------------------
 
@@ -88,18 +80,8 @@ CREATE TABLE `sub_industries` (
   `id` int(11) NOT NULL,
   `sub_ind_id` int(20) NOT NULL,
   `ind_id` int(20) NOT NULL,
-  `name` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL
+  `name` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `sub_industries`
---
-
-INSERT INTO `sub_industries` (`id`, `sub_ind_id`, `ind_id`, `name`, `updated_at`, `created_at`) VALUES
-(1, 28198832, 4685697, 'Access', '2018-09-20 11:04:22', '2018-09-20 11:04:22'),
-(2, 58101426, 4685697, 'Gtb', '2018-09-20 11:04:22', '2018-09-20 11:04:22');
 
 -- --------------------------------------------------------
 
@@ -117,14 +99,6 @@ CREATE TABLE `topics` (
   `description` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table `topics`
---
-
-INSERT INTO `topics` (`id`, `created_at`, `sub_in_id`, `topic_id`, `created_by`, `name`, `description`) VALUES
-(1, '2018-09-18 05:00:16', 58101426, 78585563, 3, 'bad service', 'FatalErrorException in RedirectIfNotAHandleExceptions->handleShutdown()'),
-(2, '2018-09-12 09:26:00', 58101426, 78585563, 2, 'unreliable', 'FatalErrorException in RedirectIfNotAManager.php line 16: Call line\' => \'16\')) in t Hand');
-
 -- --------------------------------------------------------
 
 --
@@ -136,7 +110,6 @@ CREATE TABLE `users` (
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `phone` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `username` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `isadmin` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `ip_address` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -149,10 +122,8 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `phone`, `username`, `isadmin`, `ip_address`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'myckhel ishola', '08110000606', 'myckhel', 'default', NULL, 'myckhel1@hotmail.com', '$2y$10$vDh4s8sFye0/UHVdTE3MV.W1LSHNjTKvnk1B0Pth9q2peP0PB.hDi', 'nKoN2PiPFXbPHZY7AQzZI1OlPwG8FsgmGToYJv7j0cXJG4uxDenyfUlkedF2', '2018-09-19 11:09:59', '2018-09-19 11:09:59'),
-(2, 'kennyendowed@ymail.com', '08120960876', 'kennyendowed', 'admin', '::1', 'kennyendowed@ymail.com', '$2y$10$BzwVpaf/cDUAyyObFBg61uJiye2Zjt.PFN.KteuYatBwI3UXzynxe', 'G2mQsd48qZKXnnfYGaGMv7aQLKsjMNkxzimeJS4UVI0gV1F7zWJrRE7bP1V0', '2018-09-20 08:26:27', '2018-09-20 08:26:27'),
-(3, 'favour peters', '0564564564', 'fav401', 'default', '::1', 'fav401@gmail.com', '$2y$10$dlXUeg2uV0Kq2OMAacO71Okdu1l2gugwMHZn08fenO0LJEYWPqoam', NULL, '2018-09-20 11:07:27', '2018-09-20 11:07:27');
+INSERT INTO `users` (`id`, `name`, `phone`, `username`, `ip_address`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'myckhel ishola', '08110000606', 'myckhel', NULL, 'myckhel1@hotmail.com', '$2y$10$vDh4s8sFye0/UHVdTE3MV.W1LSHNjTKvnk1B0Pth9q2peP0PB.hDi', 'nKoN2PiPFXbPHZY7AQzZI1OlPwG8FsgmGToYJv7j0cXJG4uxDenyfUlkedF2', '2018-09-19 11:09:59', '2018-09-19 11:09:59');
 
 --
 -- Indexes for dumped tables
@@ -197,27 +168,33 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `industries`
 --
 ALTER TABLE `industries`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
 --
 -- AUTO_INCREMENT for table `sub_industries`
 --
 ALTER TABLE `sub_industries`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `topics`
 --
 ALTER TABLE `topics`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
