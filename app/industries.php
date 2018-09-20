@@ -7,4 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class industries extends Model
 {
     //
+    protected $fillable = [
+        'ind_id', 'name',
+    ];
 }

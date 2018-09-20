@@ -14,10 +14,10 @@
              <a class="nav-link js-scroll-trigger"  href="{{ url('/') }}">Admin Home</a>
            </li>
            <li class="nav-item">
-             <a class="nav-link js-scroll-trigger" href="#about">Reviews</a>
+             <a class="nav-link js-scroll-trigger" href="{{ url('create_industry') }}">Create Industries</a>
            </li>
            <li class="nav-item">
-             <a class="nav-link js-scroll-trigger" href="/profile">Profile</a>
+             <a class="nav-link js-scroll-trigger" href="#sub_industry">Sub Industries</a>
            </li>
            <li class="nav-item">
              <a class="nav-link js-scroll-trigger" href="#scontact">Contact</a>
