@@ -1,7 +1,8 @@
-@include('sitelayout.header')
+@extends('layouts.site')
 
+@section('title') -Industry  @endsection
 
-            @include('sitelayout.nav')
+@section('content')
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-md-8">
@@ -37,9 +38,9 @@
                                         <div class="col-md-6">
                                             <input id="catname[]" type="text" placeholder="Enter Industries Name...." class="form-control{{ $errors->has('catname') ? ' is-invalid' : '' }}" name="catname[]" value="{{ old('catname') }}" required autofocus>
 
-                                            @if ($errors->has('name'))
+                                            @if ($errors->has('catname'))
                                                 <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $errors->first('name') }}</strong>
+                                                    <strong>{{ $errors->first('catname') }}</strong>
                                                 </span>
                                             @endif
                                         </div>
@@ -62,12 +63,12 @@
             </div>
 
 
-            @include('sitelayout.footer')
-
-  @include('sitelayout.footerscript')
+  @endsection
 
 
-<script >
+  @section ('footer')
+  <script >
+
   var room = 1;
 function cat_fields() {
 
@@ -84,3 +85,5 @@ function remove_cat_fields(rid) {
   $('.removeclass'+rid).remove();
 }
 </script>
+
+@endsection
