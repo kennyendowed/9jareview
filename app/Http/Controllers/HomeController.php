@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\industries;
+use App\sub_industries;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,7 +24,8 @@ class HomeController extends Controller
      */
     public function index()
     {
+      $subitems = sub_industries::all(['ind_id','sub_ind_id', 'name']);
       $items = industries::all(['ind_id', 'name']);
-       return view('welcome', compact('items',$items));
+       return view('welcome', compact('items',$items,'subitems',$subitems));
     }
 }
