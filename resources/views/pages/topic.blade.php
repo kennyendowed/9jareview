@@ -27,7 +27,7 @@
                <ul id="exampledropdownDropdown_{{$page->name}}" class="list-unstyled collapse" style="">
                   @foreach($subitems as $spage)
                   @if($spage->ind_id == $page->ind_id)
-                <li><a href="{{route('topic',$spage->sub_ind_id)}}">{{$spage->name}}</a></li>
+                <li><a href="{{route('topic',$spage->name)}}">{{$spage->name}}</a></li>
                 @endif
                    @endforeach
               </ul>
@@ -42,43 +42,26 @@
         </div>
 
 
-
       </div>
             <div class="col-md-8">
-      <!-- Blog Post -->
-      <div class="card mb-4">
-        <div class="card-body">
-          <h2 class="card-title">ajah Branch</h2>
-          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-          <a href="#" class="btn btn-primary">Read More &rarr;</a>
-        </div>
-        <div class="card-footer text-muted">
-          Posted on January 1, 2017 by
-          <a href="#">Start Bootstrap</a>
-        </div>
-      </div>
 
+                @if(count($additional_info) > 0)
+                  @foreach($additional_info as $pages)
+                <!-- Blog Post -->
       <div class="card mb-4">
         <div class="card-body">
-          <h2 class="card-title">Zone Branch</h2>
-          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-          <a href="#" class="btn btn-primary">Read More &rarr;</a>
+          <h2 class="card-title">{{$pages->name}} </h2>
+          <p class="card-text">{{html_entity_decode(str_limit($pages->description, 100)) }}</p>
+          <a href="{{route('comment',$pages->name)}}" class="btn btn-primary">Read More &rarr;</a>
         </div>
         <div class="card-footer text-muted">
-          Posted on January 1, 2017 by
-          <a href="#">Start Bootstrap</a>
-        </div>
-      </div>      <div class="card mb-4">
-              <div class="card-body">
-                <h2 class="card-title">Mile50 Branch</h2>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-                <a href="#" class="btn btn-primary">Read More &rarr;</a>
-              </div>
-              <div class="card-footer text-muted">
-                Posted on January 1, 2017 by
-                <a href="#">Start Bootstrap</a>
-              </div>
-            </div>
+          Posted on  {{$pages->created_at->format('d/m/Y') }}  by 	{{$pages->created_by}}
+          </div>
+      </div>
+     @endforeach
+     @else
+          {{$additional_info}}  data found
+     @endif
   </div>
 </div>
   </div>

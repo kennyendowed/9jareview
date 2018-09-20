@@ -32,7 +32,12 @@
                                 <ul id="exampledropdownDropdown_{{$page->name}}" class="list-unstyled collapse" style="">
                                    @foreach($subitems as $spage)
                                    @if($spage->ind_id == $page->ind_id)
-                                 <li><a href="{{route('topic',$spage->sub_ind_id)}}">{{$spage->name}}</a></li>
+                        <li><a href="{{route('topic',$spage->name)}}">{{$spage->name}}</a>
+                                 <form method="POST" action="{{route('topic',$spage->sub_ind_id)}}">
+                                      <input type="hidden" value="{{$spage->sub_ind_id}}" name="id" />
+         @csrf
+                                 </form>
+                        </li>
                                  @endif
                                     @endforeach
                                </ul>
