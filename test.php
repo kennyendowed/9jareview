@@ -1,4 +1,5 @@
 
+
         <div>
             @if(count($additional_info) > 0)
                 Here are the rows that has Null values: <br/>
