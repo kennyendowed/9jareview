@@ -11,7 +11,7 @@ class CreateUsersTable extends Migration
      *
      * @return void
      */
-    /*public function up()
+    public function up()
     {
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
@@ -21,10 +21,12 @@ class CreateUsersTable extends Migration
             $table->string('ip_address');
             $table->string('email')->unique();
             $table->string('password');
+           $table->string('isadmin')->default('default');
+            // $table->boolean('isAdmin')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
-    }*/
+    }
 
     /**
      * Reverse the migrations.

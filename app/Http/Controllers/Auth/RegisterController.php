@@ -72,6 +72,7 @@ class RegisterController extends Controller
             'phone' => $data['phone'],
             'password' => Hash::make($data['password']),
              'ip_address' =>  request()->ip(),
+             'type' => User::DEFAULT_TYPE,
         ]);
     }
 }

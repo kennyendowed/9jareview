@@ -8,57 +8,86 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ml-auto">
-        @guest
-        <li class="nav-item">
-          <a class="nav-link js-scroll-trigger"  href="{{ url('/') }}">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="#about">Reviews</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="/profile">Profile</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="#scontact">Contact</a>
-        </li>
+        @auth
+        @if(Auth::user()->isAdmin())
+           <li class="nav-item">
+             <a class="nav-link js-scroll-trigger"  href="{{ url('/') }}">Admin Home</a>
+           </li>
+           <li class="nav-item">
+             <a class="nav-link js-scroll-trigger" href="#about">Reviews</a>
+           </li>
+           <li class="nav-item">
+             <a class="nav-link js-scroll-trigger" href="/profile">Profile</a>
+           </li>
+           <li class="nav-item">
+             <a class="nav-link js-scroll-trigger" href="#scontact">Contact</a>
+           </li>
 
-        <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="{{ route('login') }}">Login</a>
-            </li>
-          <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="{{ route('register') }}">Register</a>
-            </li>
-    @else
+           <li class="nav-item">
+             <!-- <form method="POST" action="{{route('logout')}}">
+                   @csrf
+                   <button type="submit"><i class="demo-pli-unlock icon-lg icon-fw"></i> Logout</button>
+                   </form> -->
+             <a class="nav-link js-scroll-trigger" href="{{route('logout') }}">{{ __('Logout') }}</a>
+             <form id="logout-form" action="{{route('logout') }}" method="POST" style="display: none;">
+                 @csrf
+             </form>
+           </li>
+          @elseif(Auth::user()->isGuest())
+           <li class="nav-item">
+             <a class="nav-link js-scroll-trigger"  href="{{ url('/') }}">Guest Home</a>
+           </li>
+           <li class="nav-item">
+             <a class="nav-link js-scroll-trigger" href="#about">Reviews</a>
+           </li>
+           <li class="nav-item">
+             <a class="nav-link js-scroll-trigger" href="/profile">Profile</a>
+           </li>
+           <li class="nav-item">
+             <a class="nav-link js-scroll-trigger" href="#scontact">Contact</a>
+           </li>
 
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger"  href="{{ url('/') }}">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#about">Reviews</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="/profile">Profile</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#scontact">Contact</a>
-          </li>
+           <li class="nav-item">
+             <!-- <form method="POST" action="{{route('logout')}}">
+                   @csrf
+                   <button type="submit"><i class="demo-pli-unlock icon-lg icon-fw"></i> Logout</button>
+                   </form> -->
+             <a class="nav-link js-scroll-trigger" href="{{route('logout') }}">{{ __('Logout') }}</a>
+             <form id="logout-form" action="{{route('logout') }}" method="POST" style="display: none;">
+                 @csrf
+             </form>
+           </li>
 
-          <li class="nav-item">
-            <!-- <form method="POST" action="{{route('logout')}}">
-                  @csrf
-                  <button type="submit"><i class="demo-pli-unlock icon-lg icon-fw"></i> Logout</button>
-                  </form> -->
-            <a class="nav-link js-scroll-trigger" href="{{route('logout') }}">{{ __('Logout') }}</a>
-            <form id="logout-form" action="{{route('logout') }}" method="POST" style="display: none;">
-                @csrf
-            </form>
-          </li>
-
-            @endguest
+           @else
+               I don't have any records!
+           @endif
+@endauth
 
 
 
 
+
+@unless (Auth::check())
+<li class="nav-item">
+  <a class="nav-link js-scroll-trigger"  href="{{ url('/') }}">Home</a>
+</li>
+<li class="nav-item">
+  <a class="nav-link js-scroll-trigger" href="#about">Reviews</a>
+</li>
+<li class="nav-item">
+  <a class="nav-link js-scroll-trigger" href="/profile">Profile</a>
+</li>
+<li class="nav-item">
+  <a class="nav-link js-scroll-trigger" href="#scontact">Contact</a>
+</li>
+<li class="nav-item">
+  <a class="nav-link js-scroll-trigger" href="{{ route('login') }}">Login</a>
+    </li>
+  <li class="nav-item">
+  <a class="nav-link js-scroll-trigger" href="{{ route('register') }}">Register</a>
+    </li>
+
+@endunless
       </ul>
     </div>
   </div>
