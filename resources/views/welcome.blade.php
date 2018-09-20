@@ -12,7 +12,7 @@
                  <section id="about" class="about-section text-center">
                    <div class="container">
                      <div class="row">
-    
+
                        <!-- Sidebar Widgets Column -->
                        <div class="col-md-4">
 
@@ -32,7 +32,7 @@
                                 <ul id="exampledropdownDropdown_{{$page->name}}" class="list-unstyled collapse" style="">
                                    @foreach($subitems as $spage)
                                    @if($spage->ind_id == $page->ind_id)
-                                 <li><a href="Topic.php?Page=Topic">{{$spage->name}}</a></li>
+                                 <li><a href="{{route('topic',$spage->sub_ind_id)}}">{{$spage->name}}</a></li>
                                  @endif
                                     @endforeach
                                </ul>

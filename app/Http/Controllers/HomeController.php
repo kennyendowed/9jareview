@@ -28,4 +28,13 @@ class HomeController extends Controller
       $items = industries::all(['ind_id', 'name']);
        return view('welcome', compact('items',$items,'subitems',$subitems));
     }
+
+public function load_topic($id)
+{
+  $subitems = sub_industries::all(['ind_id','sub_ind_id', 'name']);
+  $items = industries::all(['ind_id', 'name']);
+return view('pages.topic', compact('items',$items,'subitems',$subitems));
+}
+
+
 }
