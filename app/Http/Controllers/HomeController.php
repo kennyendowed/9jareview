@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\industries;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +23,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('welcome');
+      $items = industries::all(['ind_id', 'name']);
+       return view('welcome', compact('items',$items));
     }
 }

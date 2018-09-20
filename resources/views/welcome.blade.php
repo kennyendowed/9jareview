@@ -23,46 +23,18 @@
 
                              <!-- <div class="row">
                                <div class="col-lg-6"> -->
-                                 <ul class="list-unstyled mb-0">
-                   <li><a href="#exampledropdownDropdown" aria-expanded="true" data-toggle="collapse" class=""> <i class="icon-interface-windows"></i>Bank </a>
+                                @foreach($items as $page)
+                                     <ul class="list-unstyled mb-0">
+                   <li><a href="#exampledropdownDropdown" aria-expanded="true" data-toggle="collapse" class=""> <i class="icon-interface-windows"></i>{{$page->name}}</a>
                             <span class="caret"></span></a>
                                 <ul id="exampledropdownDropdown" class="list-unstyled collapse" style="">
-                                 <li><a href="Topic.php?Page=Topic">Page</a></li>
-                                 <li><a href="Topic.php?Page=Topic">Page</a></li>
+                                 <li><a href="Topic.php?Page=Topic">topic</a></li>
+                                 <li><a href="Topic.php?Page=Topic">topic</a></li>
                                  <li><a href="#">Page</a></li>
                                </ul>
                              </li>
                                        </ul>
-                             <ul class="list-unstyled mb-0">
-                               <li><a href="#exampledropdownDropdown1" aria-expanded="true" data-toggle="collapse" class=""> <i class="icon-interface-windows"></i>Oil </a>
-                                        <span class="caret"></span></a>
-                                            <ul id="exampledropdownDropdown1" class="list-unstyled collapse" style="">
-                                             <li><a href="#">Page</a></li>
-                                             <li><a href="#">Page</a></li>
-                                             <li><a href="#">Page</a></li>
-                                           </ul>
-                                         </li>
-                                                   </ul>
-                                                   <ul class="list-unstyled mb-0">
-                                     <li><a href="#exampledropdownDropdown2" aria-expanded="true" data-toggle="collapse" class=""> <i class="icon-interface-windows"></i>Telecommunication </a>
-                                              <span class="caret"></span></a>
-                                                  <ul id="exampledropdownDropdown2" class="list-unstyled collapse" style="">
-                                                   <li><a href="#">Page</a></li>
-                                                   <li><a href="#">Page</a></li>
-                                                   <li><a href="#">Page</a></li>
-                                                 </ul>
-                                               </li>
-                                                         </ul>
-                                               <ul class="list-unstyled mb-0">
-                                                 <li><a href="#exampledropdownDropdown3" aria-expanded="true" data-toggle="collapse" class=""> <i class="icon-interface-windows"></i>Entertainment </a>
-                                                          <span class="caret"></span></a>
-                                                              <ul id="exampledropdownDropdown3" class="list-unstyled collapse" style="">
-                                                               <li><a href="#">Page</a></li>
-                                                               <li><a href="#">Page</a></li>
-                                                               <li><a href="#">Page</a></li>
-                                                             </ul>
-                                                           </li>
-                                                                     </ul>
+                                  @endforeach
 
 
                                <!-- </div>
