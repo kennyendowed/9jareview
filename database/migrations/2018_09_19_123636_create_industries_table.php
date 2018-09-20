@@ -11,15 +11,16 @@ class CreateIndustriesTable extends Migration
      *
      * @return void
      */
-    // public function up()
-    // {
-    //     Schema::create('industries', function (Blueprint $table) {
-    //         $table->increments('id', 11);
-    //         $table->timestamps();
-    //         $table->string('name', 30);
-    //         $table->integer('ind_id', 20)->unique();
-    //     });
-    // }
+    public function up()
+    {
+        Schema::create('industries', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('ind_id', 20)->unique();
+            $table->string('name', 30);
+            $table->timestamps();
+
+        });
+    }
 
     /**
      * Reverse the migrations.

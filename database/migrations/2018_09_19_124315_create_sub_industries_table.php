@@ -11,15 +11,15 @@ class CreateSubIndustriesTable extends Migration
      *
      * @return void
      */
-    // public function up()
-    // {
-    //     Schema::create('sub_industries', function (Blueprint $table) {
-    //         $table->increments('id');
-    //         $table->integer('sub_ind_id', 20);
-    //         $table->string('name', 30);
-    //         $table->timestamps();
-    //     });
-    // }
+    public function up()
+    {
+        Schema::create('sub_industries', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('sub_ind_id', 20);
+            $table->string('name', 30);
+            $table->timestamps();
+        });
+    }
 
     /**
      * Reverse the migrations.

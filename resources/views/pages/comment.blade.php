@@ -58,22 +58,22 @@
        @endforeach
       <hr />
      <ul class="feed-elements list-unstyled">
-
+@foreach($comment as $comment)
        <!-- List-->
        <li class="">
          <div class="feed  justify-content-between">
            <div class="feed-body  justify-content-between comment"><a href="#" class="feed-profile"><img src="img/profile/user2-160x160.jpg" alt="person" class="img-fluid2 rounded-circle"></a>
-             <div class="content"><strong>Jason Doe</strong>
-               <div class="full-date"><small>Today 5:60 pm - 12.06.2014</small></div>
+             <div class="content"><strong>{{$comment->user_id}}</strong>
+               <div class="full-date"><small>{{$comment->created_at->format('d/m/Y')}}</small></div>
              </div>
            </div>
-           <div class="date"><small>5min ago</small></div>
+           <!-- <div class="date"><small>5min ago</small></div> -->
          </div>
-         <div class="message-card"> <small>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. Over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</small></div>
+         <div class="message-card"> <small>{{$comment->message}}</small></div>
          <!-- <div class="CTAs pull-right"><a href="#" class="btn btn-xs btn-dark"><i class="fa fa-thumbs-up"> </i>Like</a></div> -->
        </li>
        <!-- List-->
-
+     @endforeach
      </ul>
   <hr />
 
