@@ -27,12 +27,8 @@ class HomeController extends Controller
     {
       $subitems = sub_industries::all(['ind_id','sub_ind_id', 'name']);
       $items = industries::all(['ind_id', 'name']);
-      $additional_info = topics::
-                              // ->whereNull('address')
-                              // ->orWhereNull('name')
-                              // ->orWhereNull('number')
-                              where('name', '=', $id)
-                              ->get();
+      $additional_info = topics::orderBy('id')->take(5)->get();
+
        return view('welcome', compact('items',$items,'subitems',$subitems,'additional_info','$additional_info'));
     }
 
