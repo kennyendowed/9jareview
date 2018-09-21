@@ -10,6 +10,8 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
+
+
     /**
      * Create a new controller instance.
      *
@@ -17,7 +19,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        //$this->middleware('auth');
     }
 
     /**
@@ -64,8 +66,6 @@ public function load_comment($name,$id)
 
 return view('pages.comment', compact('items',$items,'subitems',$subitems,'additional_info',$additional_info,'comment',$comment,'post',$post,'topicname',$topicname));
 }
-
-
 
 
 }

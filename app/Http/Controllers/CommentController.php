@@ -7,10 +7,13 @@ use App\comments;
 use App\sub_industries;
 use App\topics;
 use App\User;
+use willvincent\Rateable\Rateable;
 use Illuminate\Http\Request;
 
 class CommentController extends Controller
 {
+
+     use Rateable;
   /**
    * Create a new controller instance.
    *
@@ -42,5 +45,46 @@ class CommentController extends Controller
           return redirect()->back()->with('status', $message);
     }
 
+    public function rate(Request $request)
 
+       {
+
+       $post = Comments::find($request->id);
+
+    $rating = new willvincent\Rateable\Rating;
+    $rating->rating = 5;
+    $rating->user_id = \Auth::id();
+
+    $post->ratings()->save($rating);
+
+    dd(Post::first()->ratings);
+
+    }
+
+
+    public function ratePost(Request $request)
+
+       {
+
+           request()->validate(['rate' => 'required']);
+
+           $post = Comments::find($request->id);
+
+
+
+           $rating = new \willvincent\Rateable\Rating;
+
+           $rating->rating = $request->rate;
+
+           $rating->user_id = auth()->user()->id;
+
+
+
+           $post->ratings()->save($rating);
+
+
+
+        return redirect()->back();
+
+       }
 }

@@ -13,13 +13,13 @@ class CreateComment extends Migration
      */
     public function up()
     {
-        Schema::create('comment', function (Blueprint $table) {
-          $table->increments('id');
-          $table->integer('topic_id');
-          $table->integer('created_by');
-          $table->string('description');
-            $table->timestamps();
-        });
+        // Schema::create('comment', function (Blueprint $table) {
+        //   $table->increments('id');
+        //   $table->integer('topic_id');
+        //   $table->integer('created_by');
+        //   $table->string('description');
+        //     $table->timestamps();
+        // });
     }
 
     /**

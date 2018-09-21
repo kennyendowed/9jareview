@@ -46,7 +46,26 @@
          <div class="feed  justify-content-between">
            <div class="feed-body  justify-content-between comment"><a href="#" class="feed-profile"><img src="{{url('img/profile/user2-160x160.jpg')}}" alt="person" class="img-fluid2 rounded-circle"></a>
              <div class="content"><strong>{{$post->user->name}}</strong>
-               <div class="full-date"><small>{{$comment->created_at->diffForHumans() }}</small></div>
+               <div class="full-date"><small>{{$comment->created_at->diffForHumans() }}</small>
+
+             <!-- <form action="{{ route('posts.post') }}" method="POST">
+
+                                        {{ csrf_field() }}
+
+                   <input id="input-1" name="input-1" class="rating rating-loading" data-min="0" data-max="5" data-step="0.1" value="{{$comment->averageRating }}" data-size="xs" disabled="">
+
+                    <input type="hidden" name="id" required="" value="{{ $post->id }}">
+
+                    <span class="review-no">422 reviews</span>
+
+                    <br/>
+
+                    <button class="btn btn-success">Submit Review</button>
+            </form> -->
+</div>
+
+
+
              </div>
            </div>
            <!-- <div class="date"><small>5min ago</small></div> -->
@@ -91,7 +110,10 @@
 @endsection
 
   @section ('footer')
-  <script >
+
+  <script type="text/javascript">
+
+      $("#input-id").rating();
 
 
 </script>
