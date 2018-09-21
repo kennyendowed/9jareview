@@ -40,11 +40,12 @@
       <hr />
      <ul class="feed-elements list-unstyled">
 @foreach($comment as $comment)
+
        <!-- List-->
        <li class="">
          <div class="feed  justify-content-between">
            <div class="feed-body  justify-content-between comment"><a href="#" class="feed-profile"><img src="{{url('img/profile/user2-160x160.jpg')}}" alt="person" class="img-fluid2 rounded-circle"></a>
-             <div class="content"><strong>{{$comment->user_id}}</strong>
+             <div class="content"><strong>{{$post->user->name}}</strong>
                <div class="full-date"><small>{{$comment->created_at->diffForHumans() }}</small></div>
              </div>
            </div>

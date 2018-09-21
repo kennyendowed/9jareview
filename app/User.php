@@ -36,4 +36,11 @@ class User extends Authenticatable
     public function isGuest()    {
         return ($this->isadmin === self::DEFAULT_TYPE) ? true : false;
     }
+
+    public function comment()
+    {
+      return $this->hasMany('App\comments');
+    }
+
+
 }

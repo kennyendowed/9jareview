@@ -6,6 +6,7 @@ use App\industries;
 use App\comments;
 use App\sub_industries;
 use App\topics;
+use App\User;
 use Illuminate\Http\Request;
 
 class CommentController extends Controller
@@ -27,7 +28,8 @@ class CommentController extends Controller
    */
    public function index()
    {
-
+     $post = Post::find(1);
+                echo $post->user->name;
 }
     public function store_comment(Request $request)
     {
