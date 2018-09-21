@@ -25,10 +25,6 @@
                                <div class="col-lg-6">
 
                              @include('layouts.sidebar')
-                             </div>
-                             </div>
-                           </div>
-                         </div>
 
 
 
@@ -47,7 +43,7 @@
                      <a href="{{route('comment',['name'=>$pages->name,'id'=>$pages->topic_id])}}" class="btn btn-primary">Read More &rarr;</a>
                    </div>
                    <div class="card-footer text-muted">
-                     Posted on  {{$pages->created_at->format('d/m/Y') }}  by 	{{$pages->created_by}}
+                     Posted on  {{$pages->created_at->diffForHumans() }}  by 	{{$pages->created_by}}
                      </div>
                  </div>
                 @endforeach

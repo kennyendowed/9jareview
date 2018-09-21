@@ -20,10 +20,7 @@
               <div class="col-lg-6">
 
             @include('layouts.sidebar')
-            </div>
-            </div>
-          </div>
-        </div>
+
 
 
       </div>
