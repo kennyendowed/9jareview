@@ -44,7 +44,7 @@
                    <div class="card-body">
                      <h2 class="card-title">{{$pages->name}} </h2>
                      <p class="card-text">{{html_entity_decode(str_limit($pages->description, 100)) }}</p>
-                     <a href="{{route('comment',['name'=>$pages->name,'id'=>$spage->sub_ind_id])}}" class="btn btn-primary">Read More &rarr;</a>
+                     <a href="{{route('comment',['name'=>$pages->name,'id'=>$pages->topic_id])}}" class="btn btn-primary">Read More &rarr;</a>
                    </div>
                    <div class="card-footer text-muted">
                      Posted on  {{$pages->created_at->format('d/m/Y') }}  by 	{{$pages->created_by}}

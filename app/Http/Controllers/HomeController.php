@@ -51,9 +51,13 @@ public function load_comment($name,$id)
 {
   $subitems = sub_industries::all(['ind_id','sub_ind_id', 'name']);
   $items = industries::all(['ind_id', 'name']);
-  $additional_info = topics::where('name', '=', $id)->get();
+  $additional_info = topics::where('name', '=', $name)->get();
   $comment = comments::where('topic_id', '=',$id)->get();
 
 return view('pages.comment', compact('items',$items,'subitems',$subitems,'additional_info',$additional_info,'comment',$comment));
 }
+
+
+
+
 }

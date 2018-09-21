@@ -46,9 +46,9 @@
        <!-- List-->
        <li class="">
          <div class="feed  justify-content-between">
-           <div class="feed-body  justify-content-between comment"><a href="#" class="feed-profile"><img src="img/profile/user2-160x160.jpg" alt="person" class="img-fluid2 rounded-circle"></a>
+           <div class="feed-body  justify-content-between comment"><a href="#" class="feed-profile"><img src="{{url('img/profile/user2-160x160.jpg')}}" alt="person" class="img-fluid2 rounded-circle"></a>
              <div class="content"><strong>{{$comment->user_id}}</strong>
-               <div class="full-date"><small>{{$comment->created_at->format('d/m/Y')}}</small></div>
+               <div class="full-date"><small>{{$comment->created_at->diffForHumans() }}</small></div>
              </div>
            </div>
            <!-- <div class="date"><small>5min ago</small></div> -->
@@ -56,11 +56,29 @@
          <div class="message-card"> <small>{{$comment->message}}</small></div>
          <!-- <div class="CTAs pull-right"><a href="#" class="btn btn-xs btn-dark"><i class="fa fa-thumbs-up"> </i>Like</a></div> -->
        </li>
+       <hr />
        <!-- List-->
      @endforeach
      </ul>
   <hr />
+  <form method="POST" action="{{ route('comment') }}" aria-label="{{ __('Comment') }}">
+      @csrf
+  <div class="box-footer">
+                    <div class="input-group">
+                      <input class="form-control" type="hidden" name="topic_id" value="{{$pages->topic_id}}" placeholder="">
+                      <input type="text" class="form-control" name="comment" placeholder="Type message...">
+                      @if ($errors->has('comment'))
+                          <span class="invalid-feedback" role="alert">
+                              <strong>{{ $errors->first('comment') }}</strong>
+                          </span>
+                      @endif
+                      <div class="input-group-btn">
+                        <button type="submit" class="btn btn-success"><i class="fa fa-plus"></i></button>
+                      </div>
+                    </div>
 
+                </div><!-- /.box (chat box) -->
+  </form>
   </div>
 
   </div>
