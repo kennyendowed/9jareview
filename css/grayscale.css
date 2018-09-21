@@ -5,6 +5,33 @@
  */
 
 /* //data-toggle */
+
+/* 
+
+x-navigation li > a {
+    display: block;
+    float: left;
+    width: 100%;
+    line-height: 19px;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 400;
+    padding: 15px 10px 15px 15px;
+    text-decoration: none;
+    border-bottom: 1px solid #2f3c48;
+    vertical-align: text-bottom;
+}
+
+
+
+
+ */
+
+
+
+
+
+
 @media (max-width: 1199px)
 .side-navbar ul li a {
     font-size: .7rem;
