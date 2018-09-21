@@ -33,7 +33,7 @@ class HomeController extends Controller
        return view('welcome', compact('items',$items,'subitems',$subitems,'additional_info','$additional_info'));
     }
 
-public function load_topic($request)
+public function load_topic($name,$id)
 {
   $subitems = sub_industries::all(['ind_id','sub_ind_id', 'name']);
   $items = industries::all(['ind_id', 'name']);
@@ -41,13 +41,13 @@ public function load_topic($request)
                           // ->whereNull('address')
                           // ->orWhereNull('name')
                           // ->orWhereNull('number')
-                          where('sub_ind_id', '=',$request)
+                          where('sub_in_id',$id)
                           ->get();
 
 return view('pages.topic', compact('items',$items,'subitems',$subitems,'additional_info','$additional_info'));
 }
 
-public function load_comment($id)
+public function load_comment($name)
 {
   $subitems = sub_industries::all(['ind_id','sub_ind_id', 'name']);
   $items = industries::all(['ind_id', 'name']);
