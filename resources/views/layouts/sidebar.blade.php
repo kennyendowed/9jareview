@@ -6,6 +6,7 @@
 <li><a href="#Dropdown_{{$page->name}}" aria-expanded="true" data-toggle="collapse" class=""> <i class="icon-interface-windows"></i>{{$page->name}}</a>
 <span class="caret"></span></a>
   @foreach($subitems as $spage)
+  </hr>
       <ul id="Dropdown_{{$page->name}}" class="list-unstyled collapse" style="">
 
       @if($spage->ind_id == $page->ind_id)

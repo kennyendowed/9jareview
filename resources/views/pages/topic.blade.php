@@ -17,7 +17,7 @@
           <h5 class="card-header">Categories</h5>
           <div class="card-body">
             <div class="row">
-              <div class="col-lg-6">
+              <div class="col-lg-10">
 
             @include('layouts.sidebar')
 

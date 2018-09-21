@@ -19,7 +19,7 @@
           <h5 class="card-header">Categories</h5>
           <div class="card-body">
             <div class="row">
-              <div class="col-lg-6">
+              <div class="col-lg-10">
 
             @include('layouts.sidebar')
 
@@ -70,7 +70,8 @@
                           </span>
                       @endif
                       <div class="input-group-btn">
-                        <button type="submit" class="btn btn-success"><i class="fa fa-plus"></i></button>
+
+                          <button type="submit" class="pull-right btnv btn-default" id="sendEmail">Send <i class="fa fa-arrow-circle-right"></i></button>
                       </div>
                     </div>
 
