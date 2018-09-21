@@ -17,7 +17,7 @@
              <a class="nav-link js-scroll-trigger" href="{{ url('create_industry') }}">Create Industries</a>
            </li>
            <li class="nav-item">
-             <a class="nav-link js-scroll-trigger" href="{{ route('_industry') }}">Sub Industries</a>
+             <a class="nav-link js-scroll-trigger" href="{{ route('_industry') }}">Create Companies</a>
            </li>
            <li class="nav-item">
              <a class="nav-link js-scroll-trigger" href="#scontact">Contact</a>

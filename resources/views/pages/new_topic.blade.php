@@ -33,60 +33,82 @@
                                     <label for="name" class="col-md-4 col-form-label text-md-right">Industries</label>
 
                                     <div class="col-md-6">
-                                           <select name="country" class="form-control">
+                                           <select name="country" class="form-control{{ $errors->has('country') ? ' is-invalid' : '' }}">
                                                <option value="">--Select Industries--</option>
                                                @foreach ($items as  $value)
                                                <option value="{{ $value->ind_id }}"> {{ $value->name }}</option>
                                                @endforeach
                                            </select>
                                        </div>
-                                       @if ($errors->has('country'))
+                                       <!-- @if ($errors->has('country'))
                                              <span class="alert alert-danger">
                                                    <strong>{{ $errors->first('country') }}</strong>
                                                </span>
-                                           @endif
+                                           @endif -->
                           </div>
                           <div class="form-group row">
-                                    <label for="name" class="col-md-4 col-form-label text-md-right">Sub Industries</label>
+                                    <label for="name" class="col-md-4 col-form-label text-md-right">Companies</label>
                                      <div class="col-md-4">
-                                           <select name="state" class="form-control">
+                                           <select name="state" class="form-control{{ $errors->has('state') ? ' is-invalid' : '' }}">
                                             <option>--Sub--</option>
 
                                         </select>
 
                                     </div>
-                                    @if ($errors->has('state'))
+                                    <!-- @if ($errors->has('state'))
                                        <span class="alert alert-danger">
                                               <strong>{{ $errors->first('state') }}</strong>
                                           </span>
-                                      @endif
+                                      @endif -->
                           </div>
 
 
 
                                         <div class="form-group row">
-                                        <label for="name" class="col-md-4 col-form-label text-md-right">Name</label>
-
-                                        <div class="col-md-6">
-                                            <input id="topicname" type="text" placeholder="Enter Topic Name...." class="form-control{{ $errors->has('catname') ? ' is-invalid' : '' }}" name="topicname" value="{{ old('catname') }}" autofocus>
+                                            <label for="name" class="col-md-2 col-form-label text-md-right"></label>
+                                          <div class="col-md-3">
+                                            <input id="location" type="text" placeholder="location" class="form-control{{ $errors->has('location') ? ' is-invalid' : '' }}" name="location" value="{{ old('location') }}" autofocus>
 
 
                                         </div>
-                                        @if ($errors->has('topicname'))
+                                        <!-- @if ($errors->has('location'))
                                              <span class="alert alert-danger">
-                                                <strong>{{ $errors->first('topicname') }}</strong>
+                                                <strong>{{ $errors->first('location') }}</strong>
                                             </span>
-                                        @endif
+                                        @endif -->
+
+                                          <div class="col-md-3">
+                                            <input id="city" type="text" placeholder="city" class="form-control{{ $errors->has('city') ? ' is-invalid' : '' }}" name="city" value="{{ old('city') }}" autofocus>
+
+
+                                        </div>
+                                        <!-- @if ($errors->has('city'))
+                                             <span class="alert alert-danger">
+                                                <strong>{{ $errors->first('city') }}</strong>
+                                            </span>
+                                        @endif -->
+                                        <div class="col-md-3">
+                                          <input id="state2" type="text" placeholder="state" class="form-control{{ $errors->has('state2') ? ' is-invalid' : '' }}" name="state2" value="{{ old('state2') }}" autofocus>
+
+
+                                      </div>
+                                      <!-- @if ($errors->has('state2'))
+                                           <span class="alert alert-danger">
+                                              <strong>{{ $errors->first('state2') }}</strong>
+                                          </span>
+                                      @endif -->
+
                                     </div>
                                     <div class="form-group  row">
 
 
-                                                 <textarea placeholder="Error Description" name="message" rows="10" class="form-control"></textarea>
-                                            @if ($errors->has('message'))
+                                                 <textarea placeholder="Error Description" name="message" rows="10" class="form-control{{ $errors->has('message') ? ' is-invalid' : '' }}"></textarea>
+                                            <!-- @if ($errors->has('message'))
                                              <span class="alert alert-danger">
                                                  <strong>{{ $errors->first('message') }}</strong>
                                              </span>
-                                         @endif  </div>
+                                         @endif  -->
+                                        </div>
                                     <div class="form-group row mb-0">
                                         <div class="col-md-6 offset-md-4">
                                             <button type="submit" class="btn btn-primary">

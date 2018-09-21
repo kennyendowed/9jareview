@@ -36,12 +36,12 @@
                            <!-- Blog Post -->
                  <div class="card mb-4">
                    <div class="card-body">
-                     <h2 class="card-title">{{$pages->name}} </h2>
+                     <h2 class="card-title">{{$pages->location}} / {{$pages->city}} / {{$pages->state}} </h2>
                      <p class="card-text">{{html_entity_decode(str_limit($pages->description, 100)) }}</p>
-                     <a href="{{route('comment',['name'=>$pages->name,'id'=>$pages->topic_id])}}" class="btn btn-primary">Read More &rarr;</a>
+                     <a href="{{route('comment',['name'=>$pages->location,'id'=>$pages->topic_id])}}" class="btn btn-primary">Read More &rarr;</a>
                    </div>
                    <div class="card-footer text-muted">
-                     Posted on  {{$pages->created_at->diffForHumans() }}  by 	{{$pages->created_by}}
+                     Posted on  {{$pages->created_at->diffForHumans() }}  by 	{{$post->user->name}}
                      </div>
                  </div>
                 @endforeach

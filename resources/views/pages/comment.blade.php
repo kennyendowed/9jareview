@@ -27,14 +27,14 @@
 
       </div>
             <div class="col-md-8">
-<h1 class="mx-auto my-0 text-uppercase">9ja - Voice</h1>Comment
+<h1 class="mx-auto my-0 text-uppercase">9ja - Voice</h1>
 <div class="card mb-4">
 
   <div class="card mb-4">
    <div class="card-body">
        @foreach($additional_info as $pages)
-     <h2 class="card-title">{{$pages->name}}</h2>
-     <p class="card-text">{{html_entity_decode(str_limit($pages->description, 100)) }}</p>
+     <h2 class="card-title">{{$pages->location}} / {{$pages->city}} / {{$pages->state}} </h2>
+  <hr />   <p class="card-text">{{html_entity_decode(str_limit($pages->description, 100)) }}</p>
      <!-- <a href="#" class="btn btn-primary">Read More &rarr;</a> -->
        @endforeach
       <hr />

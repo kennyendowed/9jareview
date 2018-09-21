@@ -25,18 +25,18 @@
 
       </div>
             <div class="col-md-8">
-
+<h1 class="mx-auto my-0 text-uppercase">9ja - Voice</h1>
                 @if(count($additional_info) > 0)
                   @foreach($additional_info as $pages)
                 <!-- Blog Post -->
       <div class="card mb-4">
         <div class="card-body">
-          <h2 class="card-title">{{$pages->name}} </h2>
+           <h2 class="card-title">{{$topicname->name}} / {{$pages->location}} / {{$pages->city}} / {{$pages->state}} </h2>
           <p class="card-text">{{html_entity_decode(str_limit($pages->description, 100)) }}</p>
-          <a href="{{route('comment',$pages->name)}}" class="btn btn-primary">Read More &rarr;</a>
+                             <a href="{{route('comment',['name'=>$pages->location,'id'=>$pages->topic_id])}}" class="btn btn-primary">Read More &rarr;</a>
         </div>
         <div class="card-footer text-muted">
-          Posted on  {{$pages->created_at->format('d/m/Y') }}  by 	{{$pages->created_by}}
+          Posted on  {{$pages->created_at->format('d/m/Y') }}  by 		{{$post->user->name}}
           </div>
       </div>
      @endforeach

@@ -19,8 +19,10 @@ class CreateTopicsTable extends Migration
           $table->integer('sub_in_id');
           $table->integer('topic_id');
           $table->integer('created_by');
-          $table->string('name');
           $table->string('description');
+          $table->string('location');
+          $table->string('city');
+          $table->string('state');
         });
     }
 

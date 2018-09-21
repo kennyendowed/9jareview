@@ -29,8 +29,7 @@ class CommentController extends Controller
    public function index()
    {
      $post = Post::find(1);
-                echo $post->user->name;
-}
+  }
     public function store_comment(Request $request)
     {
               $post = comments::create(array(

@@ -45,15 +45,20 @@ class TopicController extends Controller
       $this->validate($request, [
        'country' => 'required|numeric|min:0',
        'state' => 'required|numeric|min:0',
-       'topicname' => 'required|string|min:0',
        'message' => 'required|string|min:0',
+       'state2' => 'required|string|min:0',
+       'city' => 'required|string|min:0',
+       'location' => 'required|string|min:0',
+
    ]);
 
       $post = topics::create(array(
         'sub_in_id'=>$request->state,
        'topic_id' =>mt_rand(13, rand(100, 99999990)),
        'description' => $request->message,
-       'name' => $request->topicname,
+       'location' => $request->location,
+       'city' => $request->city,
+       'state' => $request->state2,
      'created_by' => Auth::user()->id
    ));
 
