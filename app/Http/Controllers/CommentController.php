@@ -52,11 +52,12 @@ class CommentController extends Controller
        $post = Comments::find($request->id);
 
     $rating = new willvincent\Rateable\Rating;
-    $rating->rating = 5;
-    $rating->user_id = \Auth::id();
+    $rating->rating = 1;
+    $rating->user_id = auth()->user()->id;
 
     $post->ratings()->save($rating);
 
+      //return redirect()->back();
     dd(Post::first()->ratings);
 
     }
