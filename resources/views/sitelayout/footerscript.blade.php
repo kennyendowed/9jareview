@@ -7,6 +7,7 @@
   <!-- Custom scripts for this template -->
   <script src="{{URL::asset('public/js/grayscale.min.js')}}"></script>
 
+<?php include('js/custom.php'); ?>
 </body>
 
 </html>

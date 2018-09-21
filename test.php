@@ -1,3 +1,5 @@
+<div class="col-md-2"><span id="loader"><i class="fa fa-spinner fa-3x fa-spin"></i></span></div>
+
 
 
         <div>

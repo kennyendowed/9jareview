@@ -34,4 +34,7 @@ Route::post('/store_industry','AdminController@store_industry')->name('store_ind
 Route::get('/create_sub_industry', 'AdminController@create_sub_industry')->name('_industry');
 Route::post('/store_sub_industry','AdminController@store_sub_industry')->name('store_sub_industry');
 Route::post('/comment','CommentController@store_comment')->name('savecomment');
+Route::get('/create_topic', 'TopicController@index')->name('create_topic');
+Route::get('/subinds/{id?}', 'TopicController@getSubindustry')->name('subinds');
+Route::post('/save_new_topic','TopicController@create')->name('save_new_topic');
 });
