@@ -58,7 +58,7 @@
      @endforeach
      </ul>
   <hr />
-  <form method="POST" action="{{ route('comment') }}" aria-label="{{ __('Comment') }}">
+  <form method="POST" action="{{ route('savecomment') }}" aria-label="{{ __('Comment') }}">
       @csrf
   <div class="box-footer">
                     <div class="input-group">
