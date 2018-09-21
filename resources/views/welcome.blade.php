@@ -21,16 +21,16 @@
                          <div class="card my-4">
                            <h5 class="card-header">Categories</h5>
                            <div class="card-body">
+                             <div class="row">
+                               <div class="col-lg-6">
 
-                             <!-- <div class="row">
-                               <div class="col-lg-6"> -->
-                             <ul class="list-unstyled mb-0">
                                   @foreach($items as $page)
-
-                   <li><a href="#exampledropdownDropdown_{{$page->name}}" aria-expanded="true" data-toggle="collapse" class=""> <i class="icon-interface-windows"></i>{{$page->name}}</a>
+                                 <ul class="list-unstyled mb-0">
+                   <li><a href="#Dropdown_{{$page->name}}" aria-expanded="true" data-toggle="collapse" class=""> <i class="icon-interface-windows"></i>{{$page->name}}</a>
                             <span class="caret"></span></a>
-                                <ul id="exampledropdownDropdown_{{$page->name}}" class="list-unstyled collapse" style="">
-                                   @foreach($subitems as $spage)
+                               @foreach($subitems as $spage)
+                                   <ul id="Dropdown_{{$page->name}}" class="list-unstyled collapse" style="">
+
                                    @if($spage->ind_id == $page->ind_id)
                         <li><a href="{{route('topic',$spage->name)}}">{{$spage->name}}</a>
                                  <form method="POST" action="{{route('topic',$spage->sub_ind_id)}}">
@@ -39,15 +39,16 @@
                                  </form>
                         </li>
                                  @endif
+                                        </ul>
                                     @endforeach
-                               </ul>
+
                              </li>
+                       </ul>
+                                  @endforeach -->
 
-                                  @endforeach
-     </ul>
-
-                               <!-- </div>
-                             </div> -->
+route('artist',['name' => $spage->name, 'id' => $spage->sub_ind_id])
+                             </div>
+                             </div>
                            </div>
                          </div>
 
@@ -76,7 +77,7 @@
                      {{$additional_info}}  data found
                 @endif
              </div>
-                
+
                  </div>
                    </div>
                  </section>
