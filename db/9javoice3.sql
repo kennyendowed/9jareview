@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Sep 21, 2018 at 09:23 AM
+-- Generation Time: Sep 20, 2018 at 04:45 PM
 -- Server version: 5.7.23-0ubuntu0.18.04.1
 -- PHP Version: 7.1.19-1+ubuntu17.10.1+deb.sury.org+1
 
@@ -19,28 +19,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `9javoice`
 --
-
--- --------------------------------------------------------
-
---
--- Table structure for table `comments`
---
-
-CREATE TABLE `comments` (
-  `id` int(11) NOT NULL,
-  `topic_id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `message` text NOT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `comments`
---
-
-INSERT INTO `comments` (`id`, `topic_id`, `user_id`, `message`, `updated_at`, `created_at`) VALUES
-(1, 78585563, 3, 'nice one', '2018-09-18 06:00:20', '2018-09-25 07:20:00');
 
 -- --------------------------------------------------------
 
@@ -62,9 +40,7 @@ CREATE TABLE `industries` (
 
 INSERT INTO `industries` (`id`, `ind_id`, `name`, `updated_at`, `created_at`) VALUES
 (1, 16947009, 'Entertainment', '2018-09-20 09:55:53', '2018-09-20 09:55:53'),
-(2, 4685697, 'Fashion', '2018-09-20 09:55:53', '2018-09-20 09:55:53'),
-(6, 10980625, 'games', '2018-09-20 15:59:04', '2018-09-20 15:59:04'),
-(7, 57332968, 'music', '2018-09-20 15:59:04', '2018-09-20 15:59:04');
+(2, 4685697, 'Fashion', '2018-09-20 09:55:53', '2018-09-20 09:55:53');
 
 -- --------------------------------------------------------
 
@@ -123,9 +99,7 @@ CREATE TABLE `sub_industries` (
 
 INSERT INTO `sub_industries` (`id`, `sub_ind_id`, `ind_id`, `name`, `updated_at`, `created_at`) VALUES
 (1, 28198832, 4685697, 'Access', '2018-09-20 11:04:22', '2018-09-20 11:04:22'),
-(2, 58101426, 4685697, 'Gtb', '2018-09-20 11:04:22', '2018-09-20 11:04:22'),
-(3, 6504617, 57332968, 'record label', '2018-09-20 16:00:39', '2018-09-20 16:00:39'),
-(4, 52250635, 57332968, 'music video', '2018-09-20 16:00:39', '2018-09-20 16:00:39');
+(2, 58101426, 4685697, 'Gtb', '2018-09-20 11:04:22', '2018-09-20 11:04:22');
 
 -- --------------------------------------------------------
 
@@ -177,19 +151,12 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `phone`, `username`, `isadmin`, `ip_address`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, 'myckhel ishola', '08110000606', 'myckhel', 'default', NULL, 'myckhel1@hotmail.com', '$2y$10$vDh4s8sFye0/UHVdTE3MV.W1LSHNjTKvnk1B0Pth9q2peP0PB.hDi', 'nKoN2PiPFXbPHZY7AQzZI1OlPwG8FsgmGToYJv7j0cXJG4uxDenyfUlkedF2', '2018-09-19 11:09:59', '2018-09-19 11:09:59'),
-(2, 'kennyendowed@ymail.com', '08120960876', 'kennyendowed', 'admin', '::1', 'kennyendowed@ymail.com', '$2y$10$BzwVpaf/cDUAyyObFBg61uJiye2Zjt.PFN.KteuYatBwI3UXzynxe', '38cKWtyR0WS9XiGFaEYqAnZy2emdbSDqcO5LSzxhb9jKzIPyDeZmXMSbWzMk', '2018-09-20 08:26:27', '2018-09-20 08:26:27'),
-(3, 'favour peters', '0564564564', 'fav401', 'default', '::1', 'fav401@gmail.com', '$2y$10$dlXUeg2uV0Kq2OMAacO71Okdu1l2gugwMHZn08fenO0LJEYWPqoam', 'OeGSmDgulcUnNki8MAJdJygbE7LVXePcAwYWk7tFzX6u9kFeQKmKgNnBxAT1', '2018-09-20 11:07:27', '2018-09-20 11:07:27'),
-(4, 'peace', '0564564564', 'emi', 'default', '::1', 'kenneyg50@gmail.com', '$2y$10$qC5FiJl3IUzk4YysmM8qLOVYal4rhonB6vJciGH/6j3ICZA5LwzXC', NULL, '2018-09-20 16:01:43', '2018-09-20 16:01:43');
+(2, 'kennyendowed@ymail.com', '08120960876', 'kennyendowed', 'admin', '::1', 'kennyendowed@ymail.com', '$2y$10$BzwVpaf/cDUAyyObFBg61uJiye2Zjt.PFN.KteuYatBwI3UXzynxe', 'G2mQsd48qZKXnnfYGaGMv7aQLKsjMNkxzimeJS4UVI0gV1F7zWJrRE7bP1V0', '2018-09-20 08:26:27', '2018-09-20 08:26:27'),
+(3, 'favour peters', '0564564564', 'fav401', 'default', '::1', 'fav401@gmail.com', '$2y$10$dlXUeg2uV0Kq2OMAacO71Okdu1l2gugwMHZn08fenO0LJEYWPqoam', NULL, '2018-09-20 11:07:27', '2018-09-20 11:07:27');
 
 --
 -- Indexes for dumped tables
 --
-
---
--- Indexes for table `comments`
---
-ALTER TABLE `comments`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `industries`
@@ -227,15 +194,10 @@ ALTER TABLE `users`
 --
 
 --
--- AUTO_INCREMENT for table `comments`
---
-ALTER TABLE `comments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
---
 -- AUTO_INCREMENT for table `industries`
 --
 ALTER TABLE `industries`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `migrations`
 --
@@ -245,7 +207,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `sub_industries`
 --
 ALTER TABLE `sub_industries`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `topics`
 --
@@ -255,7 +217,7 @@ ALTER TABLE `topics`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
