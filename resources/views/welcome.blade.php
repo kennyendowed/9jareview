@@ -25,6 +25,7 @@
                              <!-- <div class="row">
                                <div class="col-lg-6"> -->
                              <ul class="list-unstyled mb-0">
+                               <form method="POST" action="{{route('topic')}}">
                                   @foreach($items as $page)
 
                    <li><a href="#exampledropdownDropdown_{{$page->name}}" aria-expanded="true" data-toggle="collapse" class=""> <i class="icon-interface-windows"></i>{{$page->name}}</a>
@@ -32,11 +33,11 @@
                                 <ul id="exampledropdownDropdown_{{$page->name}}" class="list-unstyled collapse" style="">
                                    @foreach($subitems as $spage)
                                    @if($spage->ind_id == $page->ind_id)
-                        <li><a href="{{route('topic',$spage->name)}}">{{$spage->name}}</a>
-                                 <form method="POST" action="{{route('topic',$spage->sub_ind_id)}}">
+                        <li><a href="{{ route('topic', ['name'=>$spage->name,'id'=>$spage->sub_ind_id] ) }}">{{$spage->name}}</a>
+
                                       <input type="hidden" value="{{$spage->sub_ind_id}}" name="id" />
          @csrf
-                                 </form>
+
                         </li>
                                  @endif
                                     @endforeach
@@ -44,6 +45,7 @@
                              </li>
 
                                   @endforeach
+                                  </form>
      </ul>
 
                                <!-- </div>
@@ -76,7 +78,7 @@
                      {{$additional_info}}  data found
                 @endif
              </div>
-                
+
                  </div>
                    </div>
                  </section>

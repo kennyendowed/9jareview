@@ -26,7 +26,7 @@ Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
   Route::get('/admin', 'AdminController@admin')
       ->middleware('admin')
       ->name('admin');
-Route::get('/topic/{id}', 'HomeController@load_topic')->name('topic');
+Route::get('/topic/{name?}/{id?}', 'HomeController@load_topic')->name('topic');
 Route::get('/comment/{id}', 'HomeController@load_comment')->name('comment');
 Route::group([ 'middleware' => [ 'auth'] ], function(){
 Route::get('/create_industry', 'AdminController@create_industry')->name('industry');
