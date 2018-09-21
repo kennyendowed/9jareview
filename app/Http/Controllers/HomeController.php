@@ -47,7 +47,7 @@ public function load_topic($name,$id)
 return view('pages.topic', compact('items',$items,'subitems',$subitems,'additional_info','$additional_info'));
 }
 
-public function load_comment($name)
+public function load_comment($name,$id)
 {
   $subitems = sub_industries::all(['ind_id','sub_ind_id', 'name']);
   $items = industries::all(['ind_id', 'name']);

@@ -36,7 +36,7 @@
                                    <ul id="Dropdown_{{$page->name}}" class="list-unstyled collapse" style="">
 
                                    @if($spage->ind_id == $page->ind_id)
-                        <li><a href="{{ route('topic', ['name'=>$spage->name,'id'=>$spage->sub_ind_id] ) }}">{{$spage->name}}</a>
+                        <li><a href="{{ route('topic',['name'=>$spage->name,'id'=>$spage->sub_ind_id]) }}">{{$spage->name}}</a>
 
                                       <input type="hidden" value="{{$spage->sub_ind_id}}" name="id" />
          @csrf
@@ -50,7 +50,7 @@
                                   </form>
      </ul>
 
-route('artist',['name' => $spage->name, 'id' => $spage->sub_ind_id])
+
                              </div>
                              </div>
                            </div>
@@ -70,7 +70,7 @@ route('artist',['name' => $spage->name, 'id' => $spage->sub_ind_id])
                    <div class="card-body">
                      <h2 class="card-title">{{$pages->name}} </h2>
                      <p class="card-text">{{html_entity_decode(str_limit($pages->description, 100)) }}</p>
-                     <a href="{{route('comment',$pages->name)}}" class="btn btn-primary">Read More &rarr;</a>
+                     <a href="{{route('comment',['name'=>$pages->name,'id'=>$spage->sub_ind_id])}}" class="btn btn-primary">Read More &rarr;</a>
                    </div>
                    <div class="card-footer text-muted">
                      Posted on  {{$pages->created_at->format('d/m/Y') }}  by 	{{$pages->created_by}}
