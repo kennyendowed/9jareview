@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>{{ config('app.name', '9ja - Voice') }}</title>
+    <title>{{ config('app.name', 'Naija - Reviews') }}</title>
     <meta name="description" content="">
          <meta name="Author" content="9ja Voice">
 

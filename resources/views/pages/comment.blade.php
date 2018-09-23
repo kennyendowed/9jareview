@@ -27,7 +27,7 @@
 
       </div>
             <div class="col-md-8">
-<h1 class="mx-auto my-0 text-uppercase">9ja - Voice</h1>
+<h1 class="mx-auto my-0 text-uppercase">Naija - Reviews</h1>
 <div class="card mb-4">
 
   <div class="card mb-4">
@@ -68,7 +68,7 @@
 
                </form>
              </div>
-  
+
 
 
 </div>

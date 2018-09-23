@@ -25,7 +25,7 @@
 
       </div>
             <div class="col-md-8">
-<h1 class="mx-auto my-0 text-uppercase">9ja - Voice</h1>
+<h1 class="mx-auto my-0 text-uppercase">Naija - Reviews</h1>
                 @if(count($additional_info) > 0)
                   @foreach($additional_info as $pages)
                 <!-- Blog Post -->
