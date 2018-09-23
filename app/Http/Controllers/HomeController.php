@@ -57,6 +57,7 @@ return view('pages.topic', compact('items',$items,'subitems',$subitems,'addition
 
 public function load_comment($name,$id)
 {
+   $cpost = comments::find($id);
   $topicname = sub_industries::find(1);
   $post = comments::find(1);
   $subitems = sub_industries::all(['ind_id','sub_ind_id', 'name']);
@@ -64,7 +65,7 @@ public function load_comment($name,$id)
   $additional_info = topics::where('location', '=', $name)->get();
   $comment = comments::where('topic_id', '=',$id)->get();
 
-return view('pages.comment', compact('items',$items,'subitems',$subitems,'additional_info',$additional_info,'comment',$comment,'post',$post,'topicname',$topicname));
+return view('pages.comment', compact('items',$items,'subitems',$subitems,'cpost',$cpost,'additional_info',$additional_info,'comment',$comment,'post',$post,'topicname',$topicname));
 }
 
 

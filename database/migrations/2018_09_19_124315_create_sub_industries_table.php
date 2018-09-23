@@ -13,12 +13,12 @@ class CreateSubIndustriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('sub_industries', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('sub_ind_id', 20);
-            $table->string('name', 30);
-            $table->timestamps();
-        });
+        // Schema::create('sub_industries', function (Blueprint $table) {
+        //     $table->increments('id');
+        //     $table->integer('sub_ind_id');
+        //     $table->string('name', 30);
+        //     $table->timestamps();
+        // });
     }
 
     /**

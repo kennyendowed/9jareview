@@ -38,7 +38,6 @@ Route::get('/create_topic', 'TopicController@index')->name('create_topic');
 Route::get('/subinds/{id?}', 'TopicController@getSubindustry')->name('subinds');
 Route::post('/save_new_topic','TopicController@create')->name('save_new_topic');
 
-Route::post('posts', 'HomeController@ratePost')->name('posts.post');
+Route::post('rate', 'CommentController@rate')->name('rate');
 
-Route::get('posts/{id}', 'HomeController@show')->name('posts.show');
 });

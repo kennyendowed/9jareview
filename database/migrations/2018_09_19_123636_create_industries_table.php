@@ -13,13 +13,13 @@ class CreateIndustriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('industries', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('ind_id', 20)->unique();
-            $table->string('name', 30);
-            $table->timestamps();
-
-        });
+        // Schema::create('industries', function (Blueprint $table) {
+        //     $table->increments('id');
+        //     $table->integer('ind_id');
+        //     $table->string('name', 255);
+        //     $table->timestamps();
+        //
+        // });
     }
 
     /**

@@ -1,4 +1,5 @@
 <script>
+
 $(document).ready(function() {
 
     $('select[name="country"]').on('change', function(){

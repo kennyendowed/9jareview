@@ -1,14 +1,15 @@
 <?php
 
 namespace App;
-
 use Illuminate\Database\Eloquent\Model;
+
+use willvincent\Rateable\Rateable;
 
 class Rating extends Model
 {
     //
-    public $fillable = ['rating'];
-    
+    public $fillable = ['rating','rateable_id','user_id','rateable','rateable_type','commenter'];
+
     public function rateable()
     {
         return $this->morphTo();

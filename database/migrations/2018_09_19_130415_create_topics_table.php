@@ -13,17 +13,17 @@ class CreateTopicsTable extends Migration
      */
     public function up()
     {
-        Schema::create('topics', function (Blueprint $table) {
-          $table->increments('id');
-          $table->timestamp('created_at');
-          $table->integer('sub_in_id');
-          $table->integer('topic_id');
-          $table->integer('created_by');
-          $table->string('description');
-          $table->string('location');
-          $table->string('city');
-          $table->string('state');
-        });
+        // Schema::create('topics', function (Blueprint $table) {
+        //   $table->increments('id');
+        //   $table->timestamp('created_at');
+        //   $table->integer('sub_in_id');
+        //   $table->integer('topic_id');
+        //   $table->integer('created_by');
+        //   $table->string('description');
+        //   $table->string('location');
+        //   $table->string('city');
+        //   $table->string('state');
+        // });
     }
 
     /**

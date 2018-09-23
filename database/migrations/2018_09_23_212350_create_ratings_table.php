@@ -14,9 +14,11 @@ class CreateRatingsTable extends Migration
             $table->increments('id');
             $table->timestamps();
             $table->integer('rating');
+              $table->integer('commenter');
             $table->morphs('rateable');
             $table->unsignedInteger('user_id')->index();
             $table->index('rateable_id');
+            $table->index('rateable_type');
             $table->foreign('user_id')->references('id')->on('users');
         });
     }

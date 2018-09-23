@@ -49,32 +49,28 @@
                <div class="full-date"><small>{{$comment->created_at->diffForHumans() }}</small>
 
                  <div class="stars">
-               <form action="">
-                 <input class="star star-5" id="star-5" type="radio" name="star"/>
+                 <form action="{{ route('rate') }}" method="POST">
+
+                        {{ csrf_field() }}
+                <input type="hidden" name="comm" value="{{$comment->user_id}}" />
+                <input type="hidden" name="id" value="{{$comment->id}}" />
+                 <input  class="star star-5" id="star-5" type="radio" value="5" name="star"/>
                  <label class="star star-5" for="star-5"></label>
-                 <input class="star star-4" id="star-4" type="radio" name="star"/>
+                 <input class="star star-4" id="star-4" type="radio" value="4" name="star"/>
                  <label class="star star-4" for="star-4"></label>
-                 <input class="star star-3" id="star-3" type="radio" name="star"/>
+                 <input class="star star-3" id="star-3" type="radio" value="3" name="star"/>
                  <label class="star star-3" for="star-3"></label>
-                 <input class="star star-2" id="star-2" type="radio" name="star"/>
+                 <input class="star star-2" id="star-2" type="radio" value="2" name="star"/>
                  <label class="star star-2" for="star-2"></label>
-                 <input class="star star-1" id="star-1" type="radio" name="star"/>
+                 <input class="star star-1" id="star-1" type="radio" value="1" name="star"/>
                  <label class="star star-1" for="star-1"></label>
+                 <button type="submit" class="btnvv btn-info" id="sendEmail">rate <i class="fa fa-arrow-circle-right"></i></button>
+
                </form>
-             </div>         <!-- <form action="{{ route('posts.post') }}" method="POST">
+             </div>
+  
 
-                                        {{ csrf_field() }}
 
-                   <input id="input-1" name="input-1" class="rating rating-loading" data-min="0" data-max="5" data-step="0.1" value="{{$comment->averageRating }}" data-size="xs" disabled="">
-
-                    <input type="hidden" name="id" required="" value="{{ $post->id }}">
-
-                    <span class="review-no">422 reviews</span>
-
-                    <br/>
-
-                    <button class="btn btn-success">Submit Review</button>
-            </form> -->
 </div>
 
 
