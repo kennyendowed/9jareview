@@ -8,7 +8,7 @@ use willvincent\Rateable\Rateable;
 class Rating extends Model
 {
     //
-    public $fillable = ['rating','rateable_id','user_id','rateable','rateable_type','commenter'];
+    public $fillable = ['rating','rateable_id','user_id','rateable','rateable_type','message'];
 
     public function rateable()
     {
