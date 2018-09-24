@@ -37,6 +37,9 @@
   <hr />   <p class="card-text">{{html_entity_decode(str_limit($pages->description, 100)) }}</p>
      <!-- <a href="#" class="btn btn-primary">Read More &rarr;</a> -->
        @endforeach
+       @for ($i=1; $i <= 5 ; $i++)
+     <span class="glyphicon glyphicon-star{{ ($i <= $pages->rating) ? '' : '-empty'}}"></span>
+   @endfor
       <hr />
      <ul class="feed-elements list-unstyled">
 @foreach($comment as $comment)
@@ -48,26 +51,6 @@
              <div class="content"><strong>{{$post->user->name}}</strong>
                <div class="full-date"><small>{{$comment->created_at->diffForHumans() }}</small>
 
-                 <div class="stars">
-                 <form action="{{ route('rate') }}" method="POST">
-
-                        {{ csrf_field() }}
-                <input type="hidden" name="comm" value="{{$comment->user_id}}" />
-                <input type="hidden" name="id" value="{{$comment->id}}" />
-                 <input  class="star star-5" id="star-5" type="radio" value="5" name="star"/>
-                 <label class="star star-5" for="star-5"></label>
-                 <input class="star star-4" id="star-4" type="radio" value="4" name="star"/>
-                 <label class="star star-4" for="star-4"></label>
-                 <input class="star star-3" id="star-3" type="radio" value="3" name="star"/>
-                 <label class="star star-3" for="star-3"></label>
-                 <input class="star star-2" id="star-2" type="radio" value="2" name="star"/>
-                 <label class="star star-2" for="star-2"></label>
-                 <input class="star star-1" id="star-1" type="radio" value="1" name="star"/>
-                 <label class="star star-1" for="star-1"></label>
-                 <button type="submit" class="btnvv btn-info" id="sendEmail">rate <i class="fa fa-arrow-circle-right"></i></button>
-
-               </form>
-             </div>
 
 
 
@@ -90,6 +73,22 @@
   <form method="POST" action="{{ route('savecomment') }}" aria-label="{{ __('Comment') }}">
       @csrf
   <div class="box-footer">
+
+                     <div class="stars">
+                    <input  class="star star-5_{{$comment->id}}" id="star-5" type="radio" value="5" name="star"/>
+                     <label class="star star-5" for="star-5"></label>
+                     <input class="star star-4_{{$comment->id}}" id="star-4" type="radio" value="4" name="star"/>
+                     <label class="star star-4" for="star-4"></label>
+                     <input class="star star-3_{{$comment->id}}" id="star-3" type="radio" value="3" name="star"/>
+                     <label class="star star-3" for="star-3"></label>
+                     <input class="star star-2_{{$comment->id}}" id="star-2" type="radio" value="2" name="star"/>
+                     <label class="star star-2" for="star-2"></label>
+                     <input class="star star-1_{{$comment->id}}" id="star-1" type="radio" value="1" name="star"/>
+                     <label class="star star-1" for="star-1"></label>
+
+                 </div>
+
+
                     <div class="input-group">
                       <input class="form-control" type="hidden" name="topic_id" value="{{$pages->topic_id}}" placeholder="">
                       <input type="text" class="form-control" name="comment" placeholder="Type message...">
