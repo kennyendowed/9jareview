@@ -16,5 +16,8 @@ class comments extends Model
       {
         return $this->belongsTo('App\User');
       }
-
+      public function topic()
+       {
+         return $this->belongsTo('topics');
+       }
 }
