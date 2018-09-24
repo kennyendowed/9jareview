@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class topics extends Model
 {
   protected $fillable = [
-      'sub_in_id', 'description','location','city','state','created_by','topic_id',
+      'sub_in_id', 'description','location','city','state','created_by','topic_id','rating_cache','rating_count',
   ];
 
 
@@ -15,4 +15,18 @@ class topics extends Model
   {
     return $this->belongsTo('App\sub_industries');
   }
+  public function reviews()
+{
+return $this->hasMany('reviews');
+}
+
+public function recalculateRating()
+ {
+   $reviews = $this->reviews();
+   $avgRating = $reviews->avg('rating');
+   $this->rating_cache = round($avgRating,1);
+   $this->rating_count = $reviews->count();
+   $this->save();
+ }
+
 }

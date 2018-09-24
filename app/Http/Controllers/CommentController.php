@@ -8,6 +8,8 @@ use App\sub_industries;
 use App\topics;
 use App\User;
 use App\Rating;
+use App\Reviews;
+use Illuminate\Support\Facades\Input;
 use willvincent\Rateable\Rateable;
 use Illuminate\Http\Request;
 
@@ -36,14 +38,31 @@ class CommentController extends Controller
   }
     public function store_comment(Request $request)
     {
+    //  $id=$request->topic_id;
+      $input = array(
+          'topic_id'  => Input::get('topic_id'),
+      'comment' => Input::get('comment'),
+      'rating'  => Input::get('star')
+
+      );
               $post = comments::create(array(
                'topic_id' =>$request->topic_id,
                'message' => $request->comment,
              'user_id' => Auth::user()->id
            ));
 
-            $message ='Comment has been successfully added!';
-          return redirect()->back()->with('status', $message);
+           $message ='Comment has been successfully added!';
+          // return redirect()->back()->with('status', $message);
+
+
+          // instantiate Rating model
+          $review = new Reviews;
+
+          // If input passes validation - store the review in DB, otherwise return to product page with error message
+
+        	$review->storeReviewForProduct($input['topic_id'], $input['comment'], $input['rating']);
+        	return Redirect::to('comment/'.$input['topic_id'].'#reviews-anchor')->with('status', $message);
+
     }
 
     public function rate(Request $request)
