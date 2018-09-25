@@ -8,7 +8,7 @@ use App\sub_industries;
 use App\topics;
 use App\User;
 use App\Rating;
-use App\Reviews;
+use App\Review;
 use Illuminate\Support\Facades\Input;
 use willvincent\Rateable\Rateable;
 use Illuminate\Http\Request;
@@ -38,30 +38,40 @@ class CommentController extends Controller
   }
     public function store_comment(Request $request)
     {
-    //  $id=$request->topic_id;
-      $input = array(
-          'topic_id'  => Input::get('topic_id'),
-      'comment' => Input::get('comment'),
-      'rating'  => Input::get('star')
+      //$id=$request->topic_id;
 
-      );
-              $post = comments::create(array(
-               'topic_id' =>$request->topic_id,
-               'message' => $request->comment,
-             'user_id' => Auth::user()->id
-           ));
+           //    $post = comments::create(array(
+           //     'topic_id' =>$request->topic_id,
+           //     'message' => $request->comment,
+           //     'rating' =>$request->star,
+           //   'user_id' => Auth::user()->id
+           // ));
+           $post = topics::find($request->id);
 
+          $rating = new \willvincent\Rateable\Rating;
+          $rating->rating = $request->star;
+            $rating->message = $request->message;
+          $rating->user_id = auth()->user()->id;
+
+          $post->ratings()->save($rating);
            $message ='Comment has been successfully added!';
-          // return redirect()->back()->with('status', $message);
+         return redirect()->back()->with('status', $message);
 
 
           // instantiate Rating model
-          $review = new Reviews;
+       // $review = new Review;
+       //
+       //    If input passes validation - store the review in DB, otherwise return to product page with error message
+       //    $input = array(
+       //        'topic_id'  => Input::get('topic_id'),
+       //    'comment' => Input::get('comment'),
+       //    'rating'  => Input::get('star')
+       //
+       //    );
+       //
+       //  	$review->storeReviewForProduct($input['topic_id'], $input['comment'], $input['rating']);
 
-          // If input passes validation - store the review in DB, otherwise return to product page with error message
-
-        	$review->storeReviewForProduct($input['topic_id'], $input['comment'], $input['rating']);
-        	return Redirect::to('comment/'.$input['topic_id'].'#reviews-anchor')->with('status', $message);
+        //	return Redirect::to('comment/'.$input['topic_id'].'#reviews-anchor')->with('status', $message);
 
     }
 

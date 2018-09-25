@@ -4,12 +4,22 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Reviews extends Model
+class Review extends Model
 {
   protected $fillable = [
       'user_id','comment','topic_id','rating',
   ];
     //
+
+    public function getCreateRules()
+    {
+        return array(
+            'comment'=>'required|min:10',
+            'rating'=>'required|integer|between:1,5'
+        );
+    }
+
+
     public function user()
  {
    return $this->belongsTo('User');
@@ -41,7 +51,7 @@ class Reviews extends Model
  }
  public function storeReviewForProduct($productID, $comment, $rating)
 {
- $product = topics::find($productID);
+ $product = \App\review::find($productID);
 
   // this will be added when we add user's login functionality
   //$this->user_id = Auth::user()->id;
@@ -53,4 +63,5 @@ class Reviews extends Model
   // recalculate ratings for the specified product
   $product->recalculateRating();
 }
+
 }
