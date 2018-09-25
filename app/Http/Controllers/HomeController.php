@@ -31,7 +31,7 @@ class HomeController extends Controller
     public function index()
     {
       $topicname= sub_industries::find(1);
- 
+ $gt=industries::find(1);
         $post = comments::find(1);
       $subitems = sub_industries::all(['ind_id','sub_ind_id', 'name']);
       $items = industries::all(['ind_id', 'name']);
@@ -39,7 +39,7 @@ class HomeController extends Controller
         // $additional_info = sub_industries::
         //                   where('sub_in_id',$additional_info->sub_in_id)
         //                   ->get();
-       return view('welcome', compact('items',$items,'subitems',$subitems,'additional_info','$additional_info','post',$post,'topicname',$topicname));
+       return view('welcome', compact('items',$items,'subitems',$subitems,'additional_info','$additional_info','post',$post,'topicname',$topicname,'gt',$gt));
     }
 
 public function load_topic($name,$id)

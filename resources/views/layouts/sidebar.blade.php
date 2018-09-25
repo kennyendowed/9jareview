@@ -1,6 +1,6 @@
 @yield('sidebar')
 <ul class="list-unstyled mb-0">
-  <form method="POST" action="{{route('topic')}}">
+
      @foreach($items as $page)
     <ul class="list-unstyled mb-0">
 <li><a href="#Dropdown_{{$page->name}}" aria-expanded="true" data-toggle="collapse" class=""> <i class="icon-interface-windows"></i>{{$page->name}}</a>
@@ -21,7 +21,7 @@
        @endforeach
      </ul>
      @endforeach
-     </form>
+
   </ul>
 </div>
 </div>

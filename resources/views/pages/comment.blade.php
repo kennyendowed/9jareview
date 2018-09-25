@@ -27,7 +27,7 @@
 
       </div>
             <div class="col-md-8">
-<h1 class="mx-auto my-0 text-uppercase">Naija - Reviews</h1>
+<h1 class="mx-auto my-0 text-uppercase text-center">Naija - Reviews</h1>
 <div class="col-lg-10 col-lg-offset-2">
         @if (session('status'))
 
@@ -53,17 +53,14 @@
        @foreach($additional_info as $pages)
        <h1 class="card-title pos">{{$topicname->name}}</h1>
                     <p class="pos"> {{$pages->location}} / {{$pages->city}} / {{$pages->state}}</p>
-                    
-       <div class="col-md-12">
-              <div class="box box-solid">
-                <div class="box-header with-border">
-                 
-                  <h3 class="box-title">{{$pages->topic_name}}</h3>
-                </div><!-- /.box-header -->
-                <div class="box-body">
-                  <blockquote>
-                    <p>{{html_entity_decode($pages->description) }} <br>
-                    <small class="pull-right">by  {{$post->user->name}} <cite title="Source Title">   @php $rating = $pages->averageRating; @endphp  
+      
+       <div class="newWrapper">
+    <div class="person1" style="float:left; display:inline-block; ">
+        <span style="float:left;width: 20%;">
+          <img src="{{url('img/profile/user2-160x160.jpg')}}" alt="person" class="img-fluid2 rounded-circle"></span>
+        <span style="float:right;width: 80%;">
+          <h4><small>{{$pages->topic_name}}</small> </h4>  <small class="pull-right">{{date('d-m-Y', strtotime($pages->created_at))}}</small>
+        @php $rating = $pages->averageRating; @endphp  
 
             @foreach(range(1,5) as $i)
                 <span class="fa-stack" style="width:1em">
@@ -78,14 +75,16 @@
                     @endif
                     @php $rating--; @endphp
                 </span>
-            @endforeach </cite></small></p>
-                  </blockquote>
-                </div><!-- /.box-body -->
-              </div><!-- /.box -->
-            </div>
-     
-
-       @endforeach
+            @endforeach
+    <p style="float:right; display:block;">{{html_entity_decode($pages->description) }} <br>  <small class="pull-right">by  {{$post->user->name}}  <cite title="Source Title">  </cite>    {{$pages->created_at->diffForHumans() }}</small></p>
+        </span>
+    </div>
+  <!--   <div class="person2" style="float:left" display:inline-block;>
+    <img src=simonwilliams.jpg width="auto" height"auto"/>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer arcu mauris, ullamcorper et ligula vitae, hendrerit sodales tellus. Maecenas quis pulvinar lacus.</p>
+    </div> -->
+    </div>              
+        @endforeach
       <hr />
      <ul class="feed-elements list-unstyled">
 @foreach($comment as $comment)
@@ -96,7 +95,7 @@
         <span style="float:left;width: 20%;">
           <img src="{{url('img/profile/user2-160x160.jpg')}}" alt="person" class="img-fluid2 rounded-circle"></span>
         <span style="float:right;width: 80%;">
-          <h4><small>{{$comment->title}}</small> </h4>  
+          <h4><small>{{$comment->title}} </small> </h4>  <small class="pull-right">{{date('d-m-Y', strtotime($comment->created_at))}}</small>
           @php $rating = $comment->rating; @endphp  
 
             @foreach(range(1,5) as $i)
