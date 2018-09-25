@@ -51,6 +51,7 @@ class CommentController extends Controller
           $rating = new \willvincent\Rateable\Rating;
           $rating->rating = $request->star;
             $rating->message = $request->message;
+              $rating->topic_id = $request->topicid;
           $rating->user_id = auth()->user()->id;
 
           $post->ratings()->save($rating);
