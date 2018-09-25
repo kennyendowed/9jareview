@@ -28,6 +28,24 @@
       </div>
             <div class="col-md-8">
 <h1 class="mx-auto my-0 text-uppercase">Naija - Reviews</h1>
+<div class="col-lg-10 col-lg-offset-2">
+        @if (session('status'))
+
+                      <div class="alert alert-success">
+                          {{ session('status') }}
+                      </div>
+                  @endif
+                  <!-- @if (count($errors) > 0)
+                      @foreach ($errors->all() as $error)
+
+                          <div class="alert alert-danger">{{ $error }}</div>
+
+                      @endforeach
+
+                  @endif
+-->
+
+        </div>
 <div class="card mb-4">
 
   <div class="card mb-4">
@@ -105,7 +123,10 @@
     <label class="star star-1" for="star-1"></label>
   </div>
       <div class="input-group">
+<<<<<<< HEAD
                 <input class="form-control" type="hidden" name="topic_id" value="{{$pages->topic_id}}" placeholder="">
+=======
+>>>>>>> c987078f15abf0daaec8661e5e4ae0d9503492c3
         <input class="form-control" type="hidden" name="id" value="{{$pages->id}}" placeholder="">
         <input type="text" class="form-control" name="message" placeholder="Type message...">
         @if ($errors->has('comment'))

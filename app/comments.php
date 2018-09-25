@@ -9,7 +9,7 @@ class comments extends Model
 {
   use Rateable;
   protected $fillable = [
-    'id','user_id','message','topic_id',
+    'id','user_id','message','topic_id','rating',
   ];
 
   public function user()
