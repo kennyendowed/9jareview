@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Sep 24, 2018 at 09:24 AM
+-- Generation Time: Sep 25, 2018 at 02:55 PM
 -- Server version: 5.7.23-0ubuntu0.18.04.1
 -- PHP Version: 7.1.19-1+ubuntu17.10.1+deb.sury.org+1
 
@@ -31,6 +31,7 @@ CREATE TABLE `comments` (
   `topic_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `message` text NOT NULL,
+  `rating` int(11) NOT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -39,9 +40,9 @@ CREATE TABLE `comments` (
 -- Dumping data for table `comments`
 --
 
-INSERT INTO `comments` (`id`, `topic_id`, `user_id`, `message`, `updated_at`, `created_at`) VALUES
-(1, 7070668, 4, 'i dont agree with u have been on this network for 8years now and i cant say am happy with the service', '2018-09-21 12:09:11', '2018-09-21 12:09:11'),
-(2, 57646785, 4, 'i dont agree with u have been on this network for 8years now and i cant say am happy with the service', '2018-09-22 18:07:11', '2018-09-22 18:07:11');
+INSERT INTO `comments` (`id`, `topic_id`, `user_id`, `message`, `rating`, `updated_at`, `created_at`) VALUES
+(1, 34243441, 4, 'i dont agree with u have been on this network for 8years now and i cant say am happy with the service', 3, '2018-09-24 16:52:27', '2018-09-24 16:52:27'),
+(2, 34243441, 4, 'hello', 4, '2018-09-24 16:54:04', '2018-09-24 16:54:04');
 
 -- --------------------------------------------------------
 
@@ -134,20 +135,43 @@ CREATE TABLE `ratings` (
   `id` int(10) UNSIGNED NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `commenter` int(11) NOT NULL,
   `rating` int(11) NOT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `message` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `rateable_type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `rateable_id` bigint(20) UNSIGNED NOT NULL,
-  `user_id` int(10) UNSIGNED NOT NULL
+  `user_id` int(10) UNSIGNED NOT NULL,
+  `topic_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `ratings`
 --
 
-INSERT INTO `ratings` (`id`, `created_at`, `updated_at`, `commenter`, `rating`, `rateable_type`, `rateable_id`, `user_id`) VALUES
-(1, '2018-09-23 20:58:16', '2018-09-23 20:58:16', 4, 1, 'App\\comments', 2, 4),
-(2, '2018-09-23 20:59:48', '2018-09-23 20:59:48', 4, 5, 'App\\comments', 2, 2);
+INSERT INTO `ratings` (`id`, `created_at`, `updated_at`, `rating`, `title`, `message`, `rateable_type`, `rateable_id`, `user_id`, `topic_id`) VALUES
+(1, '2018-09-25 09:01:09', '2018-09-25 09:01:09', 3, '', 'hello world', 'App\\topics', 1, 4, 34243441),
+(2, '2018-09-25 09:01:23', '2018-09-25 09:01:23', 5, '', 'hello world', 'App\\topics', 1, 4, 34243441),
+(3, '2018-09-25 09:03:55', '2018-09-25 09:03:55', 5, '', 'gold check mate', 'App\\topics', 1, 4, 34243441),
+(4, '2018-09-25 09:11:13', '2018-09-25 09:11:13', 1, '', 'am not happy', 'App\\topics', 1, 4, 34243441),
+(5, '2018-09-25 09:22:43', '2018-09-25 09:22:43', 2, '', 'nice one but glo is better', 'App\\topics', 2, 4, 48399165),
+(6, '2018-09-25 11:21:06', '2018-09-25 11:21:06', 2, 'Bad responses time', 'i am also not happy with the way the customer service is render', 'App\\topics', 3, 4, 24506945),
+(7, '2018-09-25 12:33:34', '2018-09-25 12:33:34', 4, 'Good service', 'i am also not happy with the way the customer service is render', 'App\\topics', 3, 4, 24506945);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `reviews`
+--
+
+CREATE TABLE `reviews` (
+  `id` int(11) NOT NULL,
+  `topic_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `rating` int(11) NOT NULL,
+  `comment` text NOT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -191,26 +215,29 @@ INSERT INTO `sub_industries` (`id`, `sub_ind_id`, `ind_id`, `name`, `updated_at`
 --
 
 CREATE TABLE `topics` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `updated_at` timestamp NULL DEFAULT NULL,
+  `id` int(11) NOT NULL,
   `sub_in_id` int(11) NOT NULL,
+  `rating_cache` float(2,1) UNSIGNED NOT NULL DEFAULT '3.0',
+  `rating_count` int(11) UNSIGNED NOT NULL DEFAULT '0',
+  `state` varchar(255) NOT NULL,
+  `city` varchar(255) NOT NULL,
+  `topic_name` text NOT NULL,
+  `description` text NOT NULL,
+  `location` varchar(255) NOT NULL,
   `topic_id` int(11) NOT NULL,
-  `created_by` int(11) NOT NULL,
-  `description` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `location` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `city` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `state` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  `created_by` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `topics`
 --
 
-INSERT INTO `topics` (`id`, `created_at`, `updated_at`, `sub_in_id`, `topic_id`, `created_by`, `description`, `location`, `city`, `state`) VALUES
-(1, '2018-09-21 13:44:29', '2018-09-21 11:53:35', 20544751, 7070668, 2, 'hi my name is jeff from yaba lagos nigerian am an mtn subscriber have been on the network for years now and i most say am happy with the service .', '404 ikate', 'lagos', 'lagos'),
-(2, '2018-09-21 13:02:14', '2018-09-21 13:02:14', 14138155, 19464992, 4, 'hello my name is john doe , have been on the glo network for 4 years now and till date their service has been very poor each year i keep waiting to see the change but noting', 'ajah', 'lagos', 'lagos'),
-(3, '2018-09-21 13:03:43', '2018-09-21 13:03:43', 20313820, 57646785, 4, 'hello my name is faith doe , have been on the airtel network for 4 years now and till date their service has been very poor each year i keep waiting to see the change but noting', 'Deco', 'warri', 'delta');
+INSERT INTO `topics` (`id`, `sub_in_id`, `rating_cache`, `rating_count`, `state`, `city`, `topic_name`, `description`, `location`, `topic_id`, `created_at`, `updated_at`, `created_by`) VALUES
+(1, 14433223, 3.0, 0, 'Delta', 'Warri', 'this is very nice', 'Whats the best way to do this and how would i do this? i\'m looking to change my average rating number to stars instead of just displaying the average rating out of five. for example if the average rating returned is 3.27 then 3.27 stars will show. Is font awesome the easiest way and how would i incorporate that with the code below?', 'ajah branch', 34243441, '2018-09-24 16:21:41', '2018-09-24 16:21:41', 4),
+(2, 36233913, 3.0, 0, 'lagos', 'lagos', 'this is very good', 'A new dedicated, Awuf4U has been created for the offer.\r\nAs soon as you recharge using the special recharge code *888*PIN#, the full face value of the recharge plus the airtime bonus will be credited in your Awuf4U account.\r\nIf you recharge with N100, you will get N400 in Awuf4U account i.e. N100 (recharge value) + N300 (bonus)\r\nIf you recharge with N400, you will get N1,600 in Awuf4U account i.e. N400 (recharge value) + N1,200 (bonus)\r\nIf you recharge with N750, you will get N3,000 in Awuf4U account i.e. N750 (recharge value) + N2,250 (bonus)\r\nIf you recharge recharge with N1,500, you will get N6,000 in Awuf4U account i.e. N1,500 (recharge value) + N4,500 (bonus)', 'ajah2 branch', 48399165, '2018-09-25 10:18:28', '2018-09-25 10:18:28', 4),
+(3, 20313820, 3.0, 0, 'rivers', 'Port Harcourt', 'Customer care service is poor', 'I when to mtn office yesterday to complaing about not been able to load airtime on my line and they maid me wait for 5hrs before i was attended to .Database tables are often related to one another. ... Additionally, Eloquent assumes that the foreign key should have a value matching the id (or the custom ... We can define the inverse of a hasOne relationship using the belongsTo method:Customer care service is poor', 'sapele branch', 24506945, '2018-09-25 11:55:16', '2018-09-25 11:55:16', 4);
 
 -- --------------------------------------------------------
 
@@ -241,6 +268,34 @@ INSERT INTO `users` (`id`, `name`, `phone`, `username`, `isadmin`, `ip_address`,
 (2, 'kennyendowed@ymail.com', '08120960876', 'kennyendowed', 'admin', '::1', 'kennyendowed@ymail.com', '$2y$10$BzwVpaf/cDUAyyObFBg61uJiye2Zjt.PFN.KteuYatBwI3UXzynxe', '3LfQ3KRIc6jkl1OSAx1VhQEJn9YvrwhsPizVvU7e0wGUrFF5uof6bvCTEJhR', '2018-09-20 08:26:27', '2018-09-20 08:26:27'),
 (3, 'favour peters', '0564564564', 'fav401', 'default', '::1', 'fav401@gmail.com', '$2y$10$dlXUeg2uV0Kq2OMAacO71Okdu1l2gugwMHZn08fenO0LJEYWPqoam', 'OeGSmDgulcUnNki8MAJdJygbE7LVXePcAwYWk7tFzX6u9kFeQKmKgNnBxAT1', '2018-09-20 11:07:27', '2018-09-20 11:07:27'),
 (4, 'peace', '0564564564', 'emi', 'default', '::1', 'kenneyg50@gmail.com', '$2y$10$qC5FiJl3IUzk4YysmM8qLOVYal4rhonB6vJciGH/6j3ICZA5LwzXC', 'ul2waw84BDRtaj0trOBcKEzX2ol53MOcmJ9PgpxrLJd28M2WRhO4ZdvL7PJ1', '2018-09-20 16:01:43', '2018-09-20 16:01:43');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `wwwtopics`
+--
+
+CREATE TABLE `wwwtopics` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `sub_in_id` int(11) NOT NULL,
+  `topic_id` int(11) NOT NULL,
+  `created_by` int(11) NOT NULL,
+  `description` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `location` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `city` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `state` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `wwwtopics`
+--
+
+INSERT INTO `wwwtopics` (`id`, `created_at`, `updated_at`, `sub_in_id`, `topic_id`, `created_by`, `description`, `location`, `city`, `state`) VALUES
+(1, '2018-09-21 13:44:29', '2018-09-21 11:53:35', 20544751, 7070668, 2, 'hi my name is jeff from yaba lagos nigerian am an mtn subscriber have been on the network for years now and i most say am happy with the service .', '404 ikate', 'lagos', 'lagos'),
+(2, '2018-09-21 13:02:14', '2018-09-21 13:02:14', 14138155, 19464992, 4, 'hello my name is john doe , have been on the glo network for 4 years now and till date their service has been very poor each year i keep waiting to see the change but noting', 'ajah', 'lagos', 'lagos'),
+(3, '2018-09-21 13:03:43', '2018-09-21 13:03:43', 20313820, 57646785, 4, 'hello my name is faith doe , have been on the airtel network for 4 years now and till date their service has been very poor each year i keep waiting to see the change but noting', 'Deco', 'warri', 'delta');
 
 --
 -- Indexes for dumped tables
@@ -276,6 +331,12 @@ ALTER TABLE `ratings`
   ADD KEY `ratings_user_id_index` (`user_id`);
 
 --
+-- Indexes for table `reviews`
+--
+ALTER TABLE `reviews`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `sub_industries`
 --
 ALTER TABLE `sub_industries`
@@ -291,6 +352,12 @@ ALTER TABLE `topics`
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `wwwtopics`
+--
+ALTER TABLE `wwwtopics`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -316,7 +383,12 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `ratings`
 --
 ALTER TABLE `ratings`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+--
+-- AUTO_INCREMENT for table `reviews`
+--
+ALTER TABLE `reviews`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `sub_industries`
 --
@@ -326,12 +398,17 @@ ALTER TABLE `sub_industries`
 -- AUTO_INCREMENT for table `topics`
 --
 ALTER TABLE `topics`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT for table `wwwtopics`
+--
+ALTER TABLE `wwwtopics`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- Constraints for dumped tables
 --
