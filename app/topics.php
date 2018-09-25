@@ -8,7 +8,7 @@ class topics extends Model
 {
     use Rateable;
   protected $fillable = [
-      'sub_in_id', 'description','location','city','state','created_by','topic_id','rating_cache','rating_count',
+      'sub_in_id','topic_name','description','location','city','state','created_by','topic_id','rating_cache','rating_count',
   ];
 
 

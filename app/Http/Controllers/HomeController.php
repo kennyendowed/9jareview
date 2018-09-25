@@ -31,12 +31,16 @@ class HomeController extends Controller
      */
     public function index()
     {
+      $topicname= sub_industries::find(1);
+ 
         $post = comments::find(1);
       $subitems = sub_industries::all(['ind_id','sub_ind_id', 'name']);
       $items = industries::all(['ind_id', 'name']);
       $additional_info = topics::orderBy('id', 'desc')->take(5)->get();
-
-       return view('welcome', compact('items',$items,'subitems',$subitems,'additional_info','$additional_info','post',$post));
+        // $additional_info = sub_industries::
+        //                   where('sub_in_id',$additional_info->sub_in_id)
+        //                   ->get();
+       return view('welcome', compact('items',$items,'subitems',$subitems,'additional_info','$additional_info','post',$post,'topicname',$topicname));
     }
 
 public function load_topic($name,$id)
