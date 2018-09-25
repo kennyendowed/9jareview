@@ -27,7 +27,13 @@ x-navigation li > a {
 
  */
 
+.starco{
+ color: #dc3545;
+   transition: all .2s;
 
+
+  
+}
  div.stars {
    width: 110px;
     display: table-caption;

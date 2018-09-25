@@ -66,6 +66,22 @@
          <div class="feed  justify-content-between">
            <div class="feed-body  justify-content-between comment"><a href="#" class="feed-profile"><img src="{{url('img/profile/user2-160x160.jpg')}}" alt="person" class="img-fluid2 rounded-circle"></a>
              <div class="content"><strong>{{$post->user->name}}</strong>
+               @php $rating = $comment->rating; @endphp  
+
+            @foreach(range(1,5) as $i)
+                <span class="fa-stack" style="width:1em">
+                    <i class="far fa-star fa-stack-1x starco"></i>
+
+                    @if($rating >0)
+                        @if($rating >0.5)
+                            <i class="fas fa-star fa-stack-1x starco"></i>
+                        @else
+                            <i class="fas fa-star-half fa-stack-1x starco"></i>
+                        @endif
+                    @endif
+                    @php $rating--; @endphp
+                </span>
+            @endforeach
                <div class="full-date"><small>{{$comment->created_at->diffForHumans() }}</small>
 
                  <!-- <div class="stars">
