@@ -6,6 +6,7 @@ use App\comments;
 use App\sub_industries;
 use App\topics;
 use App\User;
+use App\Rating;
 use Illuminate\Http\Request;
 use App\Post;
 
@@ -64,7 +65,7 @@ public function load_comment($name,$id)
   $subitems = sub_industries::all(['ind_id','sub_ind_id', 'name']);
   $items = industries::all(['ind_id', 'name']);
   $additional_info = topics::where('location', '=', $name)->get();
-  $comment = comments::where('topic_id', '=',$id)->get();
+  $comment = Rating::where('topic_id', '=',$id)->get();
 
 return view('pages.comment', compact('items',$items,'subitems',$subitems,'cpost',$cpost,'additional_info',$additional_info,'comment',$comment,'post',$post,'topicname',$topicname));
 }

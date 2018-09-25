@@ -123,6 +123,7 @@
     <label class="star star-1" for="star-1"></label>
   </div>
       <div class="input-group">
+              <input class="form-control" type="hidden" name="topicid" value="{{$pages->topic_id}}" placeholder="">
         <input class="form-control" type="hidden" name="id" value="{{$pages->id}}" placeholder="">
         <input type="text" class="form-control" name="message" placeholder="Type message...">
         @if ($errors->has('comment'))
