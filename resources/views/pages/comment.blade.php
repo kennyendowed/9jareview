@@ -63,7 +63,22 @@
                 <div class="box-body">
                   <blockquote>
                     <p>{{html_entity_decode($pages->description) }} <br>
-                    <small class="pull-right">by  {{$post->user->name}} <cite title="Source Title"> {{ $pages->averageRating }}</cite></small></p>
+                    <small class="pull-right">by  {{$post->user->name}} <cite title="Source Title">   @php $rating = $pages->averageRating; @endphp  
+
+            @foreach(range(1,5) as $i)
+                <span class="fa-stack" style="width:1em">
+                    <i class="far fa-star fa-stack-1x starco"></i>
+
+                    @if($rating >0)
+                        @if($rating >0.5)
+                            <i class="fas fa-star fa-stack-1x starco"></i>
+                        @else
+                            <i class="fas fa-star-half fa-stack-1x starco"></i>
+                        @endif
+                    @endif
+                    @php $rating--; @endphp
+                </span>
+            @endforeach </cite></small></p>
                   </blockquote>
                 </div><!-- /.box-body -->
               </div><!-- /.box -->
@@ -81,7 +96,8 @@
         <span style="float:left;width: 20%;">
           <img src="{{url('img/profile/user2-160x160.jpg')}}" alt="person" class="img-fluid2 rounded-circle"></span>
         <span style="float:right;width: 80%;">
-          <h4><small>{{$comment->title}}</small> </h4>  @php $rating = $comment->rating; @endphp  
+          <h4><small>{{$comment->title}}</small> </h4>  
+          @php $rating = $comment->rating; @endphp  
 
             @foreach(range(1,5) as $i)
                 <span class="fa-stack" style="width:1em">
