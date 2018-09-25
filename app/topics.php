@@ -4,16 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use willvincent\Rateable\Rateable;
-<<<<<<< HEAD
-
-class topics extends Model
-{
-  use Rateable;
-=======
 class topics extends Model
 {
     use Rateable;
->>>>>>> c987078f15abf0daaec8661e5e4ae0d9503492c3
   protected $fillable = [
       'sub_in_id', 'description','location','city','state','created_by','topic_id','rating_cache','rating_count',
   ];
@@ -52,13 +45,5 @@ public function recalculateRating()
 
        return $average;
 
-<<<<<<< HEAD
- public function ratings()
- {
-     return $this->morphMany('willvincent\Rateable\Rating', 'rateable');
- }
-
-=======
     }
->>>>>>> c987078f15abf0daaec8661e5e4ae0d9503492c3
 }

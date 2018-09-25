@@ -38,21 +38,6 @@ class CommentController extends Controller
   }
     public function store_comment(Request $request)
     {
-<<<<<<< HEAD
-    //  $id=$request->topic_id;
-      $input = array(
-          'topic_id'  => $request->topic_id,
-      'comment' => $request->comment,
-      'rating'  => $request->star
-
-      );
-           //    $post = comments::create(array(
-           //     'topic_id' =>$request->topic_id,
-           //     'message' => $request->comment,
-           //   'user_id' => Auth::user()->id
-           // ));
-
-=======
       //$id=$request->topic_id;
 
            //    $post = comments::create(array(
@@ -69,20 +54,11 @@ class CommentController extends Controller
           $rating->user_id = auth()->user()->id;
 
           $post->ratings()->save($rating);
->>>>>>> c987078f15abf0daaec8661e5e4ae0d9503492c3
            $message ='Comment has been successfully added!';
          return redirect()->back()->with('status', $message);
 
 
           // instantiate Rating model
-<<<<<<< HEAD
-          $review = new Reviews;
-
-          // If input passes validation - store the review in DB, otherwise return to product page with error message
-
-        	$review->storeReviewForProduct($input['topic_id'], $input['comment'], $input['rating']);
-        	return redirect()->back()->with('status', $message);
-=======
        // $review = new Review;
        //
        //    If input passes validation - store the review in DB, otherwise return to product page with error message
@@ -96,7 +72,6 @@ class CommentController extends Controller
        //  	$review->storeReviewForProduct($input['topic_id'], $input['comment'], $input['rating']);
 
         //	return Redirect::to('comment/'.$input['topic_id'].'#reviews-anchor')->with('status', $message);
->>>>>>> c987078f15abf0daaec8661e5e4ae0d9503492c3
 
     }
 
