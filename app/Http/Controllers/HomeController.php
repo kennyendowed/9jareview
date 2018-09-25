@@ -7,6 +7,7 @@ use App\sub_industries;
 use App\topics;
 use App\User;
 use Illuminate\Http\Request;
+use App\Post;
 
 class HomeController extends Controller
 {
@@ -68,5 +69,54 @@ public function load_comment($name,$id)
 return view('pages.comment', compact('items',$items,'subitems',$subitems,'cpost',$cpost,'additional_info',$additional_info,'comment',$comment,'post',$post,'topicname',$topicname));
 }
 
+public function posts()
+
+   {
+
+       $posts = Post::all();
+
+       return view('posts',compact('posts'));
+
+   }
+
+
+
+   public function show($id)
+
+   {
+
+       $post = Post::find($id);
+
+       return view('postsShow',compact('post'));
+
+   }
+
+
+
+   public function postPost(Request $request)
+
+   {
+
+       //request()->validate(['rate' => 'required']);
+
+       $post = topics::find($request->id);
+
+
+
+       $rating = new \willvincent\Rateable\Rating;
+
+       $rating->rating = $request->star;
+       $rating->message = $request->message;
+       $rating->user_id = auth()->user()->id;
+
+
+
+       $post->ratings()->save($rating);
+
+
+
+       return redirect()->route("posts");
+
+   }
 
 }

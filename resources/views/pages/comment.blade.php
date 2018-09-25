@@ -89,7 +89,7 @@
      @endforeach
      </ul>
   <hr />
-  <form method="POST" action="{{ route('savecomment') }}" aria-label="{{ __('Comment') }}">
+  <form method="POST" action="{{ route('posts.post') }}" aria-label="{{ __('Comment') }}">
       @csrf
   <div class="box-footer">
          <div class="stars">
@@ -105,8 +105,9 @@
     <label class="star star-1" for="star-1"></label>
   </div>
       <div class="input-group">
-        <input class="form-control" type="hidden" name="topic_id" value="{{$pages->topic_id}}" placeholder="">
-        <input type="text" class="form-control" name="comment" placeholder="Type message...">
+                <input class="form-control" type="hidden" name="topic_id" value="{{$pages->topic_id}}" placeholder="">
+        <input class="form-control" type="hidden" name="id" value="{{$pages->id}}" placeholder="">
+        <input type="text" class="form-control" name="message" placeholder="Type message...">
         @if ($errors->has('comment'))
             <span class="invalid-feedback" role="alert">
                 <strong>{{ $errors->first('comment') }}</strong>

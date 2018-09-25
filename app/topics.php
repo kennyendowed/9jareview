@@ -3,9 +3,11 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use willvincent\Rateable\Rateable;
 
 class topics extends Model
 {
+  use Rateable;
   protected $fillable = [
       'sub_in_id', 'description','location','city','state','created_by','topic_id','rating_cache','rating_count',
   ];
@@ -27,6 +29,11 @@ public function recalculateRating()
    $this->rating_cache = round($avgRating,1);
    $this->rating_count = $reviews->count();
    $this->save();
+ }
+
+ public function ratings()
+ {
+     return $this->morphMany('willvincent\Rateable\Rating', 'rateable');
  }
 
 }

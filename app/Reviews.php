@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\topics;
 
 class Reviews extends Model
 {
@@ -41,7 +42,7 @@ class Reviews extends Model
  }
  public function storeReviewForProduct($productID, $comment, $rating)
 {
- $product = topics::find($productID);
+ $product = topics::where('topic_id', $productID);
 
   // this will be added when we add user's login functionality
   //$this->user_id = Auth::user()->id;
@@ -51,6 +52,6 @@ class Reviews extends Model
   $product->reviews()->save($this);
 
   // recalculate ratings for the specified product
-  $product->recalculateRating();
+  return $product->recalculateRating();
 }
 }
