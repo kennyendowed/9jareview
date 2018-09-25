@@ -10,7 +10,7 @@
 
     <title>{{ config('app.name', 'Naija - Reviews') }}</title>
     <meta name="description" content="">
-         <meta name="Author" content="9ja Voice">
+         <meta name="Author" content="Naija - Reviews">
 
           <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Bootstrap core CSS -->

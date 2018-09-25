@@ -49,12 +49,14 @@ class TopicController extends Controller
        'state2' => 'required|string|min:0',
        'city' => 'required|string|min:0',
        'location' => 'required|string|min:0',
+       'title' => 'required|string|min:0',
 
    ]);
 
       $post = topics::create(array(
         'sub_in_id'=>$request->state,
        'topic_id' =>mt_rand(13, rand(100, 99999990)),
+        'topic_name' => $request->title,
        'description' => $request->message,
        'location' => $request->location,
        'city' => $request->city,

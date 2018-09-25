@@ -6,7 +6,7 @@
 
 
 
-<section id="about" class="about-section text-center">
+<section id="about" class="about-section ">
   <div class="container">
     <div class="row">
 
@@ -51,22 +51,37 @@
   <div class="card mb-4">
    <div class="card-body">
        @foreach($additional_info as $pages)
-     <h2 class="card-title">{{$pages->location}} / {{$pages->city}} / {{$pages->state}} </h2>
-  <hr />   <p class="card-text">{{html_entity_decode(str_limit($pages->description, 100)) }}</p>
-  @for ($i=1; $i <= 5 ; $i++)
-    <span class="glyphicon glyphicon-star{{ ($i <= $pages->rating) ? '' : '-empty'}}"></span>
-  @endfor
+       <h1 class="card-title pos">{{$topicname->name}}</h1>
+                    <p class="pos"> {{$pages->location}} / {{$pages->city}} / {{$pages->state}}</p>
+                    
+       <div class="col-md-12">
+              <div class="box box-solid">
+                <div class="box-header with-border">
+                 
+                  <h3 class="box-title">{{$pages->topic_name}}</h3>
+                </div><!-- /.box-header -->
+                <div class="box-body">
+                  <blockquote>
+                    <p>{{html_entity_decode($pages->description) }} <br>
+                    <small class="pull-right">by  {{$post->user->name}} <cite title="Source Title"> {{ $pages->averageRating }}</cite></small></p>
+                  </blockquote>
+                </div><!-- /.box-body -->
+              </div><!-- /.box -->
+            </div>
+     
+
        @endforeach
       <hr />
      <ul class="feed-elements list-unstyled">
 @foreach($comment as $comment)
 
        <!-- List-->
-       <li class="">
-         <div class="feed  justify-content-between">
-           <div class="feed-body  justify-content-between comment"><a href="#" class="feed-profile"><img src="{{url('img/profile/user2-160x160.jpg')}}" alt="person" class="img-fluid2 rounded-circle"></a>
-             <div class="content"><strong>{{$post->user->name}}</strong>
-               @php $rating = $comment->rating; @endphp  
+ <div class="newWrapper">
+    <div class="person1" style="float:left; display:inline-block; ">
+        <span style="float:left;width: 20%;">
+          <img src="{{url('img/profile/user2-160x160.jpg')}}" alt="person" class="img-fluid2 rounded-circle"></span>
+        <span style="float:right;width: 80%;">
+          <h4><small>{{$comment->title}}</small> </h4>  @php $rating = $comment->rating; @endphp  
 
             @foreach(range(1,5) as $i)
                 <span class="fa-stack" style="width:1em">
@@ -82,50 +97,33 @@
                     @php $rating--; @endphp
                 </span>
             @endforeach
-               <div class="full-date"><small>{{$comment->created_at->diffForHumans() }}</small>
+    <p style="float:right; display:block;">{{$comment->message}} <br>  <small class="pull-right">by  {{$post->user->name}} <cite title="Source Title">  </cite>    {{$comment->created_at->diffForHumans() }}</small></p>
+        </span>
+    </div>
+  <!--   <div class="person2" style="float:left" display:inline-block;>
+    <img src=simonwilliams.jpg width="auto" height"auto"/>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer arcu mauris, ullamcorper et ligula vitae, hendrerit sodales tellus. Maecenas quis pulvinar lacus.</p>
+    </div> -->
+    </div>
 
-                 <!-- <div class="stars">
-                 <form action="{{ route('rate') }}" method="POST">
-
-                        {{ csrf_field() }}
-                <input type="hidden" name="comm" value="{{$comment->user_id}}" />
-                <input type="hidden" name="id" value="{{$comment->id}}" />
-                 <input  class="star star-5" id="star-5" type="radio" value="5" name="star"/>
-                 <label class="star star-5" for="star-5"></label>
-                 <input class="star star-4" id="star-4" type="radio" value="4" name="star"/>
-                 <label class="star star-4" for="star-4"></label>
-                 <input class="star star-3" id="star-3" type="radio" value="3" name="star"/>
-                 <label class="star star-3" for="star-3"></label>
-                 <input class="star star-2" id="star-2" type="radio" value="2" name="star"/>
-                 <label class="star star-2" for="star-2"></label>
-                 <input class="star star-1" id="star-1" type="radio" value="1" name="star"/>
-                 <label class="star star-1" for="star-1"></label>
-                 <button type="submit" class="btnvv btn-info" id="sendEmail">rate <i class="fa fa-arrow-circle-right"></i></button>
-
-               </form>
-             </div> -->
-
-
-
-</div>
-
-
-
-             </div>
-           </div>
-           <!-- <div class="date"><small>5min ago</small></div> -->
-         </div>
-         <div class="message-card"> <small>{{$comment->message}}</small></div>
-         <!-- <div class="CTAs pull-right"><a href="#" class="btn btn-xs btn-dark"><i class="fa fa-thumbs-up"> </i>Like</a></div> -->
-       </li>
-       <hr />
+    
        <!-- List-->
      @endforeach
      </ul>
-  <hr />
+  <hr /><br>
   <form method="POST" action="{{ route('savecomment') }}" aria-label="{{ __('Comment') }}">
       @csrf
   <div class="box-footer">
+     <!--    <div class="form-group row">
+                                    <label for="name" class="col-md-2 col-form-label text-md-right">Title</label>
+
+                                 
+                                       @if ($errors->has('country'))
+                                             <span class="alert alert-danger">
+                                                   <strong>{{ $errors->first('country') }}</strong>
+                                               </span>
+                                           @endif
+                          </div> -->
          <div class="stars">
     <input  class="star star-5" id="star-5" type="radio" value="5" name="star"/>
     <label class="star star-5" for="star-5"></label>
@@ -138,7 +136,11 @@
     <input class="star star-1" id="star-1" type="radio" value="1" name="star"/>
     <label class="star star-1" for="star-1"></label>
   </div>
+   <div class="col-md-8">
+                                           <input id="title" type="text" placeholder="Title" class="form-control{{ $errors->has('title') ? ' is-invalid' : '' }}" name="title" value="{{ old('title') }}" autofocus>
+                                       </div>
       <div class="input-group">
+
               <input class="form-control" type="hidden" name="topicid" value="{{$pages->topic_id}}" placeholder="">
         <input class="form-control" type="hidden" name="id" value="{{$pages->id}}" placeholder="">
         <input type="text" class="form-control" name="message" placeholder="Type message...">

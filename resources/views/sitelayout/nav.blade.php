@@ -97,8 +97,8 @@
 <header class="masthead">
   <div class="container d-flex h-100 align-items-center">
     <div class="mx-auto text-center">
-      <h1 class="mx-auto my-0 text-uppercase">9ja - Voice</h1>
-      <h2 class="text-white-50 mx-auto mt-2 mb-5">9ja Voice - giving you the news the mainstream won't broadcast. Your view and opinion matter.</h2>
+      <h1 class="mx-auto my-0 text-uppercase">Naija - Reviews</h1>
+      <h2 class="text-white-50 mx-auto mt-2 mb-5">Naija - Reviews - giving you the news the mainstream won't broadcast. Your view and opinion matter.</h2>
       <a href="#about" class="btn btn-primary js-scroll-trigger">Get Started</a>
     </div>
   </div>

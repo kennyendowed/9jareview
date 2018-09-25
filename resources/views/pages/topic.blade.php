@@ -31,7 +31,9 @@
                 <!-- Blog Post -->
       <div class="card mb-4">
         <div class="card-body">
-           <h2 class="card-title">{{$topicname->name}} / {{$pages->location}} / {{$pages->city}} / {{$pages->state}} </h2>
+         <h1 class="card-title pos">{{$topicname->name}}</h1>
+                    <p class="pos"> {{$pages->location}} / {{$pages->city}} / {{$pages->state}}</p>
+                      <h2 class="card-title pos">{{$pages->topic_name}}</h2>
           <p class="card-text">{{html_entity_decode(str_limit($pages->description, 100)) }}</p>
                              <a href="{{route('comment',['name'=>$pages->location,'id'=>$pages->topic_id])}}" class="btn btn-primary">Read More &rarr;</a>
         </div>
