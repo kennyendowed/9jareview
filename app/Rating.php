@@ -23,5 +23,8 @@ class Rating extends Model
     {
         return $this->belongsTo('User');
     }
-
+ public function likes()
+    {
+        return $this->hasMany('App\Like');
+    }
 }

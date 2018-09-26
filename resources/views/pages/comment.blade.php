@@ -27,7 +27,7 @@
 
       </div>
             <div class="col-md-8">
-<h1 class="mx-auto my-0 text-uppercase">Naija - Reviews</h1>
+<h1 class="mx-auto my-0 text-uppercase text-center">Naija - Reviews</h1>
 <div class="col-lg-10 col-lg-offset-2">
         @if (session('status'))
 
@@ -53,17 +53,14 @@
        @foreach($additional_info as $pages)
        <h1 class="card-title pos">{{$topicname->name}}</h1>
                     <p class="pos"> {{$pages->location}} / {{$pages->city}} / {{$pages->state}}</p>
-                    
-       <div class="col-md-12">
-              <div class="box box-solid">
-                <div class="box-header with-border">
-                 
-                  <h3 class="box-title">{{$pages->topic_name}}</h3>
-                </div><!-- /.box-header -->
-                <div class="box-body">
-                  <blockquote>
-                    <p>{{html_entity_decode($pages->description) }} <br>
-                    <small class="pull-right">by  {{$post->user->name}} <cite title="Source Title">   @php $rating = $pages->averageRating; @endphp  
+      
+       <div class="newWrapper">
+    <div class="person1" style="float:left; display:inline-block; "> 
+        <span style="float:left;width: 20%;">
+          <img src="{{url('img/profile/user2-160x160.jpg')}}" alt="person" class="img-fluid2 rounded-circle"><small class="text-center"> <br> <cite title="Source Title"> {{$post->user->name}}   </cite>  </small></span>
+        <span style="float:right;width: 80%;">                               
+          <h4><small>{{$pages->topic_name}}</small> </h4>  <small class="pull-right">{{ Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $pages->created_at)->toDayDateTimeString() }}</small>
+        @php $rating = $pages->averageRating; @endphp  
 
             @foreach(range(1,5) as $i)
                 <span class="fa-stack" style="width:1em">
@@ -78,14 +75,16 @@
                     @endif
                     @php $rating--; @endphp
                 </span>
-            @endforeach </cite></small></p>
-                  </blockquote>
-                </div><!-- /.box-body -->
-              </div><!-- /.box -->
-            </div>
-     
-
-       @endforeach
+            @endforeach
+    <p style="float:right; display:block;">{{html_entity_decode($pages->description) }} <br><small class="pull-right">{{ Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $pages->created_at)->toDayDateTimeString() }}</small>  </p>
+        </span>
+    </div>
+  <!--   <div class="person2" style="float:left" display:inline-block;>
+    <img src=simonwilliams.jpg width="auto" height"auto"/>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer arcu mauris, ullamcorper et ligula vitae, hendrerit sodales tellus. Maecenas quis pulvinar lacus.</p>
+    </div> -->
+    </div>              
+        @endforeach
       <hr />
      <ul class="feed-elements list-unstyled">
 @foreach($comment as $comment)
@@ -94,9 +93,12 @@
  <div class="newWrapper">
     <div class="person1" style="float:left; display:inline-block; ">
         <span style="float:left;width: 20%;">
-          <img src="{{url('img/profile/user2-160x160.jpg')}}" alt="person" class="img-fluid2 rounded-circle"></span>
+          <img src="{{url('img/profile/user2-160x160.jpg')}}" alt="person" class="img-fluid2 rounded-circle">
+          <small class="text-center"><br>   
+            <cite title="Source Title">  {{$post->user->name}}  </cite>  </small>
+        </span>
         <span style="float:right;width: 80%;">
-          <h4><small>{{$comment->title}}</small> </h4>  
+          <h4><small>{{$comment->title}} </small> </h4>  <small class="pull-right">{{ Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $comment->created_at)->toDayDateTimeString() }}</small>
           @php $rating = $comment->rating; @endphp  
 
             @foreach(range(1,5) as $i)
@@ -113,7 +115,33 @@
                     @php $rating--; @endphp
                 </span>
             @endforeach
-    <p style="float:right; display:block;">{{$comment->message}} <br>  <small class="pull-right">by  {{$post->user->name}} <cite title="Source Title">  </cite>    {{$comment->created_at->diffForHumans() }}</small></p>
+    <p style="float:right; display:block;">{{$comment->message}} <br> <small class="pull-right">      
+    
+  <a href="#" class="like">
+    {{ 
+    Auth::user()->likes()->where('post_id', $comment->id)->first() ? 
+    Auth::user()->likes()->where('post_id', $comment->id)->first()->like == 1 ? 
+                  'You like this post' : 'Like' : 'Like' 
+   }}
+ </a> |
+
+                        <a href="#" class="like">
+                          {{ 
+                          Auth::user()->likes()->where('post_id', $comment->id)->first() ?
+                           Auth::user()->likes()->where('post_id', $comment->id)->first()->like == 0 ? 
+                                    'You don\'t like this post' : 'Dislike' : 'Dislike'  
+                                  }}
+                        </a>
+
+                        @if(Auth::user()->id == $comment->user_id)
+                            |
+                      
+                            <a href="{{ route('update', ['post_id' => $comment->id]) }}">update</a>
+                        @endif
+
+
+                      
+                   </small> </p>
         </span>
     </div>
   <!--   <div class="person2" style="float:left" display:inline-block;>
@@ -188,8 +216,43 @@
   @section ('footer')
 
   <script type="text/javascript">
+function myFunction(x) {
+    x.classList.toggle("fa-thumbs-down");
+}
+        var token = '{{ Session::token() }}';
+        var urlLike = '{{ route('like') }}';
+ 
+        var updateChirpStats = {
+            Like: function (chirpId) {
+                document.querySelector('#likes-count-' + chirpId).textContent++;
+            },
 
-      $("#input-id").rating();
+            Unlike: function(chirpId) {
+                document.querySelector('#likes-count-' + chirpId).textContent--;
+            }
+        };
+
+
+        var toggleButtonText = {
+            Like: function(button) {
+                button.textContent = "Unlike";
+            },
+
+            Unlike: function(button) {
+                button.textContent = "Like";
+            }
+        };
+
+        var actOnChirp = function (event) {
+            var chirpId = event.target.dataset.chirpId;
+            var action = event.target.textContent;
+            toggleButtonText[action](event.target);
+            updateChirpStats[action](chirpId);
+            axios.post('/chirps/' + chirpId + '/act',
+                { action: action });
+        };
+
+    
 
 
 </script>
