@@ -53,14 +53,14 @@
        @foreach($additional_info as $pages)
        <h1 class="card-title pos">{{$topicname->name}}</h1>
                     <p class="pos"> {{$pages->location}} / {{$pages->city}} / {{$pages->state}}</p>
-      
+
        <div class="newWrapper">
-    <div class="person1" style="float:left; display:inline-block; "> 
+    <div class="person1" style="float:left; display:inline-block; ">
         <span style="float:left;width: 20%;">
           <img src="{{url('img/profile/user2-160x160.jpg')}}" alt="person" class="img-fluid2 rounded-circle"><small class="text-center"> <br> <cite title="Source Title"> {{$post->user->name}}   </cite>  </small></span>
-        <span style="float:right;width: 80%;">                               
+        <span style="float:right;width: 80%;">
           <h4><small>{{$pages->topic_name}}</small> </h4>  <small class="pull-right">{{ Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $pages->created_at)->toDayDateTimeString() }}</small>
-        @php $rating = $pages->averageRating; @endphp  
+        @php $rating = $pages->averageRating; @endphp
 
             @foreach(range(1,5) as $i)
                 <span class="fa-stack" style="width:1em">
@@ -83,7 +83,7 @@
     <img src=simonwilliams.jpg width="auto" height"auto"/>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer arcu mauris, ullamcorper et ligula vitae, hendrerit sodales tellus. Maecenas quis pulvinar lacus.</p>
     </div> -->
-    </div>              
+    </div>
         @endforeach
       <hr />
      <ul class="feed-elements list-unstyled">
@@ -94,12 +94,12 @@
     <div class="person1" style="float:left; display:inline-block; ">
         <span style="float:left;width: 20%;">
           <img src="{{url('img/profile/user2-160x160.jpg')}}" alt="person" class="img-fluid2 rounded-circle">
-          <small class="text-center"><br>   
+          <small class="text-center"><br>
             <cite title="Source Title">  {{$post->user->name}}  </cite>  </small>
         </span>
         <span style="float:right;width: 80%;">
           <h4><small>{{$comment->title}} </small> </h4>  <small class="pull-right">{{ Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $comment->created_at)->toDayDateTimeString() }}</small>
-          @php $rating = $comment->rating; @endphp  
+          @php $rating = $comment->rating; @endphp
 
             @foreach(range(1,5) as $i)
                 <span class="fa-stack" style="width:1em">
@@ -115,32 +115,34 @@
                     @php $rating--; @endphp
                 </span>
             @endforeach
-    <p style="float:right; display:block;">{{$comment->message}} <br> <small class="pull-right">      
-    
+    <p style="float:right; display:block;">{{$comment->message}} <br> <small class="pull-right">
+
   <a href="#" class="like">
-    {{ 
-    Auth::user()->likes()->where('post_id', $comment->id)->first() ? 
-    Auth::user()->likes()->where('post_id', $comment->id)->first()->like == 1 ? 
-                  'You like this post' : 'Like' : 'Like' 
+    {{
+    Auth::user()->likes()->where('post_id', $comment->id)->first() ?
+    Auth::user()->likes()->where('post_id', $comment->id)->first()->like == 1 ?
+                  'You like this post' : 'Like' : 'Like'
    }}
  </a> |
 
                         <a href="#" class="like">
-                          {{ 
+                          {{
                           Auth::user()->likes()->where('post_id', $comment->id)->first() ?
-                           Auth::user()->likes()->where('post_id', $comment->id)->first()->like == 0 ? 
-                                    'You don\'t like this post' : 'Dislike' : 'Dislike'  
-                                  }}
+                           Auth::user()->likes()->where('post_id', $comment->id)->first()->like == 0 ?
+                                    'You don\'t like this post' : 'Dislike' : 'Dislike'
+                          }}
                         </a>
-
+                        <form id="data_value">
+                          <input class="form-control" type="hidden" name="comment_id" value="{{$comment->id}}" placeholder="">
+                        </form>
                         @if(Auth::user()->id == $comment->user_id)
                             |
-                      
+
                             <a href="{{ route('update', ['post_id' => $comment->id]) }}">update</a>
                         @endif
 
 
-                      
+
                    </small> </p>
         </span>
     </div>
@@ -150,7 +152,7 @@
     </div> -->
     </div>
 
-    
+
        <!-- List-->
      @endforeach
      </ul>
@@ -161,7 +163,7 @@
      <!--    <div class="form-group row">
                                     <label for="name" class="col-md-2 col-form-label text-md-right">Title</label>
 
-                                 
+
                                        @if ($errors->has('country'))
                                              <span class="alert alert-danger">
                                                    <strong>{{ $errors->first('country') }}</strong>
@@ -221,7 +223,11 @@ function myFunction(x) {
 }
         var token = '{{ Session::token() }}';
         var urlLike = '{{ route('like') }}';
- 
+        var values = {};
+        $.each($('#data_value').serializeArray(), function(i, field) {
+  				values[field.name] = field.value;//populate the values into d json obj
+    		});
+
         var updateChirpStats = {
             Like: function (chirpId) {
                 document.querySelector('#likes-count-' + chirpId).textContent++;
@@ -252,7 +258,7 @@ function myFunction(x) {
                 { action: action });
         };
 
-    
+
 
 
 </script>
