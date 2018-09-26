@@ -17,6 +17,11 @@ Auth::routes();
 
 Route::get('/welcome', 'HomeController@index')->name('welcome');
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
+Route::get('posts', 'HomeController@posts')->name('posts');
+
+Route::post('posts', 'HomeController@postPost')->name('posts.post');
+
+Route::get('posts/{id}', 'HomeController@show')->name('posts.show');
 // Route::get('/admin', 'AdminController@admin')
 //     ->middleware('is_admin')
 //     ->name('admin');
