@@ -19,7 +19,7 @@
     @endif
            </ul>
        @endforeach
-     </ul>
+     </ul> 
      @endforeach
 
   </ul>
