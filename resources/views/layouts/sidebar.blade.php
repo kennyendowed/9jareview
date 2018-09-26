@@ -16,11 +16,11 @@
          <input type="hidden" value="{{$spage->sub_ind_id}}" name="id" />
 @csrf
 
-</li>
+</li> 
     @endif
            </ul>
        @endforeach
-     </ul> 
+     </ul>
      @endforeach
 
   </ul>
