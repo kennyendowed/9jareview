@@ -136,12 +136,12 @@ public function posts()
          $id = $request['postId'];
         $is_like = $request['isLike'] === 'true';
         $update = false;
-        $post = Rating::where('id','=',$id);
+        $post = Rating::find($id);
         if (!$post) {
             return null;
         }
         $user = \Auth::user();
-        $like = $user->likes()->where('id', $id)->first();
+        $like = $user->likes()->where('post_id', $id)->first();
         if ($like) {
             $already_like = $like->like;
             $update = true;
@@ -152,7 +152,7 @@ public function posts()
         } else {
             $like = new Like();
         }
-        $like->like = $is_like;
+        $like->likes_count = $is_like;
         $like->user_id = $user->id;
         $like->post_id = $post->id;
         if ($update) {

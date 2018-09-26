@@ -51,16 +51,7 @@
   <div class="card mb-4">
    <div class="card-body">
        @foreach($additional_info as $pages)
-       <h1 class="card-title pos">{{$topicname->name}}</h1>
-                    <p class="pos"> {{$pages->location}} / {{$pages->city}} / {{$pages->state}}</p>
-
-       <div class="newWrapper">
-    <div class="person1" style="float:left; display:inline-block; ">
-        <span style="float:left;width: 20%;">
-          <img src="{{url('img/profile/user2-160x160.jpg')}}" alt="person" class="img-fluid2 rounded-circle"><small class="text-center"> <br> <cite title="Source Title"> {{$post->user->name}}   </cite>  </small></span>
-        <span style="float:right;width: 80%;">
-          <h4><small>{{$pages->topic_name}}</small> </h4>  <small class="pull-right">{{ Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $pages->created_at)->toDayDateTimeString() }}</small>
-        @php $rating = $pages->averageRating; @endphp
+       <h1 class="card-title pos">{{$topicname->name}}  @php $rating = $pages->averageRating; @endphp
 
             @foreach(range(1,5) as $i)
                 <span class="fa-stack" style="width:1em">
@@ -75,20 +66,16 @@
                     @endif
                     @php $rating--; @endphp
                 </span>
-            @endforeach
-    <p style="float:right; display:block;">{{html_entity_decode($pages->description) }} <br><small class="pull-right">{{ Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $pages->created_at)->toDayDateTimeString() }}</small>  </p>
-        </span>
-    </div>
-  <!--   <div class="person2" style="float:left" display:inline-block;>
-    <img src=simonwilliams.jpg width="auto" height"auto"/>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer arcu mauris, ullamcorper et ligula vitae, hendrerit sodales tellus. Maecenas quis pulvinar lacus.</p>
-    </div> -->
-    </div>
-        @endforeach
-      <hr />
+            @endforeach</h1>
+                    <p class="pos"> {{$pages->location}} / {{$pages->city}} / {{$pages->state}}
+                   
+            </p> 
+              @endforeach
+   
      <ul class="feed-elements list-unstyled">
+     <!--   <form id="data_value"> -->
 @foreach($comment as $comment)
-
+   <article class="post" data-postid="{{ $comment->id }}">
        <!-- List-->
  <div class="newWrapper">
     <div class="person1" style="float:left; display:inline-block; ">
@@ -115,35 +102,43 @@
                     @php $rating--; @endphp
                 </span>
             @endforeach
-    <p style="float:right; display:block;">{{$comment->message}} <br> <small class="pull-right">
+    <p style="float:right; display:block;">{{$comment->message}} <br> 
+      <small class="pull-right">
 
-  <a href="#" class="like">
-    {{
+  <a href="#" class="like" id="{{$comment->id}}">
+ @auth   {{
+          
     Auth::user()->likes()->where('post_id', $comment->id)->first() ?
-    Auth::user()->likes()->where('post_id', $comment->id)->first()->llikes_count == 1 ?
+    Auth::user()->likes()->where('post_id', $comment->id)->first()->likes_count == 1 ?
                   'You like this post' : 'Like' : 'Like'
-   }}
+               
+   }}   @endauth
+   @unless (Auth::check())
+Login to lke comment....
+   @endunless
  </a> |
 
                         <a href="#" class="like">
-                          {{
+                          @auth    {{
+
                           Auth::user()->likes()->where('post_id', $comment->id)->first() ?
                            Auth::user()->likes()->where('post_id', $comment->id)->first()->likes_count == 0 ?
                                     'You don\'t like this post' : 'Dislike' : 'Dislike'
-                          }}
+                                
+                          }}    @endauth
                         </a>
-                        <form id="data_value">
-                          <input class="form-control" type="hidden" name="comment_id" value="{{$comment->id}}" placeholder="">
-                        </form>
+                          @auth   
+                    
                         @if(Auth::user()->id == $comment->user_id)
                             |
 
                             <a href="{{ route('update', ['post_id' => $comment->id]) }}">update</a>
                         @endif
 
+ @endauth
 
-
-                   </small> </p>
+                   </small> 
+                 </p>
         </span>
     </div>
   <!--   <div class="person2" style="float:left" display:inline-block;>
@@ -155,6 +150,7 @@
 
        <!-- List-->
      @endforeach
+     <!--     </form> -->
      </ul>
   <hr /><br>
   <form method="POST" action="{{ route('savecomment') }}" aria-label="{{ __('Comment') }}">
@@ -223,10 +219,7 @@ function myFunction(x) {
 }
         var token = '{{ Session::token() }}';
         var urlLike = '{{ route('like') }}';
-        var values = {};
-        $.each($('#data_value').serializeArray(), function(i, field) {
-  				values[field.name] = field.value;//populate the values into d json obj
-    		});
+      
 
         var updateChirpStats = {
             Like: function (chirpId) {

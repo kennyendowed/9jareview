@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use App\industries;
 use App\sub_industries;
 use App\topics;
+use App\Rating;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
@@ -52,10 +53,11 @@ class TopicController extends Controller
        'title' => 'required|string|min:0',
 
    ]);
+$topic_id=mt_rand(13, rand(100, 99999990));
 
       $post = topics::create(array(
         'sub_in_id'=>$request->state,
-       'topic_id' =>mt_rand(13, rand(100, 99999990)),
+       'topic_id' =>$topic_id,
         'topic_name' => $request->title,
        'description' => $request->message,
        'location' => $request->location,
@@ -63,6 +65,21 @@ class TopicController extends Controller
        'state' => $request->state2,
      'created_by' => Auth::user()->id
    ));
+
+
+$topicid=topics::where("topic_id",$topic_id)->first();
+        
+
+          $post = $topicid->id;
+
+          $rating = new \willvincent\Rateable\Rating;
+          $rating->rating = $request->star;
+                   $rating->title = $request->title;
+            $rating->message = $request->message;
+              $rating->topic_id = $topicid->topic_id;
+          $rating->user_id = auth()->user()->id;
+
+          $topicid->ratings()->save($rating);
 
     $message ='Topic has been successfully added!';
   return redirect()->back()->with('status', $message);
