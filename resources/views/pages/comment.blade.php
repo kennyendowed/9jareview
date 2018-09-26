@@ -120,7 +120,7 @@
   <a href="#" class="like">
     {{ 
     Auth::user()->likes()->where('post_id', $comment->id)->first() ? 
-    Auth::user()->likes()->where('post_id', $comment->id)->first()->like == 1 ? 
+    Auth::user()->likes()->where('post_id', $comment->id)->first()->likes_count == 1 ? 
                   'You like this post' : 'Like' : 'Like' 
    }}
  </a> |
@@ -128,7 +128,7 @@
                         <a href="#" class="like">
                           {{ 
                           Auth::user()->likes()->where('post_id', $comment->id)->first() ?
-                           Auth::user()->likes()->where('post_id', $comment->id)->first()->like == 0 ? 
+                           Auth::user()->likes()->where('post_id', $comment->id)->first()->likes_count == 0 ? 
                                     'You don\'t like this post' : 'Dislike' : 'Dislike'  
                                   }}
                         </a>
