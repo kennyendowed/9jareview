@@ -37,7 +37,7 @@ Route::post('/comment','CommentController@store_comment')->name('savecomment');
 Route::get('/create_topic', 'TopicController@index')->name('create_topic');
 Route::get('/subinds/{id?}', 'TopicController@getSubindustry')->name('subinds');
 Route::post('/save_new_topic','TopicController@create')->name('save_new_topic');
-
 Route::post('rate', 'CommentController@rate')->name('rate');
-
+ Route::post('/update/{id}', 'HomeController@actOnChirp')->name('update');
+ Route::post('/like', ['uses' => 'HomeController@postLikePost','as' => 'like']);
 });

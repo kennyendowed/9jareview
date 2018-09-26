@@ -55,11 +55,11 @@
                     <p class="pos"> {{$pages->location}} / {{$pages->city}} / {{$pages->state}}</p>
       
        <div class="newWrapper">
-    <div class="person1" style="float:left; display:inline-block; ">
+    <div class="person1" style="float:left; display:inline-block; "> 
         <span style="float:left;width: 20%;">
-          <img src="{{url('img/profile/user2-160x160.jpg')}}" alt="person" class="img-fluid2 rounded-circle"></span>
-        <span style="float:right;width: 80%;">
-          <h4><small>{{$pages->topic_name}}</small> </h4>  <small class="pull-right">{{date('d-m-Y', strtotime($pages->created_at))}}</small>
+          <img src="{{url('img/profile/user2-160x160.jpg')}}" alt="person" class="img-fluid2 rounded-circle"><small class="text-center"> <br> <cite title="Source Title"> {{$post->user->name}}   </cite>  </small></span>
+        <span style="float:right;width: 80%;">                               
+          <h4><small>{{$pages->topic_name}}</small> </h4>  <small class="pull-right">{{ Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $pages->created_at)->toDayDateTimeString() }}</small>
         @php $rating = $pages->averageRating; @endphp  
 
             @foreach(range(1,5) as $i)
@@ -76,7 +76,7 @@
                     @php $rating--; @endphp
                 </span>
             @endforeach
-    <p style="float:right; display:block;">{{html_entity_decode($pages->description) }} <br>  <small class="pull-right">by  {{$post->user->name}}  <cite title="Source Title">  </cite>    {{$pages->created_at->diffForHumans() }}</small></p>
+    <p style="float:right; display:block;">{{html_entity_decode($pages->description) }} <br><small class="pull-right">{{ Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $pages->created_at)->toDayDateTimeString() }}</small>  </p>
         </span>
     </div>
   <!--   <div class="person2" style="float:left" display:inline-block;>
@@ -93,9 +93,12 @@
  <div class="newWrapper">
     <div class="person1" style="float:left; display:inline-block; ">
         <span style="float:left;width: 20%;">
-          <img src="{{url('img/profile/user2-160x160.jpg')}}" alt="person" class="img-fluid2 rounded-circle"></span>
+          <img src="{{url('img/profile/user2-160x160.jpg')}}" alt="person" class="img-fluid2 rounded-circle">
+          <small class="text-center"><br>   
+            <cite title="Source Title">  {{$post->user->name}}  </cite>  </small>
+        </span>
         <span style="float:right;width: 80%;">
-          <h4><small>{{$comment->title}} </small> </h4>  <small class="pull-right">{{date('d-m-Y', strtotime($comment->created_at))}}</small>
+          <h4><small>{{$comment->title}} </small> </h4>  <small class="pull-right">{{ Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $comment->created_at)->toDayDateTimeString() }}</small>
           @php $rating = $comment->rating; @endphp  
 
             @foreach(range(1,5) as $i)
@@ -112,7 +115,33 @@
                     @php $rating--; @endphp
                 </span>
             @endforeach
-    <p style="float:right; display:block;">{{$comment->message}} <br>  <small class="pull-right">by  {{$post->user->name}} <cite title="Source Title">  </cite>    {{$comment->created_at->diffForHumans() }}</small></p>
+    <p style="float:right; display:block;">{{$comment->message}} <br> <small class="pull-right">      
+    
+  <a href="#" class="like">
+    {{ 
+    Auth::user()->likes()->where('post_id', $comment->id)->first() ? 
+    Auth::user()->likes()->where('post_id', $comment->id)->first()->like == 1 ? 
+                  'You like this post' : 'Like' : 'Like' 
+   }}
+ </a> |
+
+                        <a href="#" class="like">
+                          {{ 
+                          Auth::user()->likes()->where('post_id', $comment->id)->first() ?
+                           Auth::user()->likes()->where('post_id', $comment->id)->first()->like == 0 ? 
+                                    'You don\'t like this post' : 'Dislike' : 'Dislike'  
+                                  }}
+                        </a>
+
+                        @if(Auth::user()->id == $comment->user_id)
+                            |
+                      
+                            <a href="{{ route('update', ['post_id' => $comment->id]) }}">update</a>
+                        @endif
+
+
+                      
+                   </small> </p>
         </span>
     </div>
   <!--   <div class="person2" style="float:left" display:inline-block;>
@@ -187,8 +216,43 @@
   @section ('footer')
 
   <script type="text/javascript">
+function myFunction(x) {
+    x.classList.toggle("fa-thumbs-down");
+}
+        var token = '{{ Session::token() }}';
+        var urlLike = '{{ route('like') }}';
+ 
+        var updateChirpStats = {
+            Like: function (chirpId) {
+                document.querySelector('#likes-count-' + chirpId).textContent++;
+            },
 
-      $("#input-id").rating();
+            Unlike: function(chirpId) {
+                document.querySelector('#likes-count-' + chirpId).textContent--;
+            }
+        };
+
+
+        var toggleButtonText = {
+            Like: function(button) {
+                button.textContent = "Unlike";
+            },
+
+            Unlike: function(button) {
+                button.textContent = "Like";
+            }
+        };
+
+        var actOnChirp = function (event) {
+            var chirpId = event.target.dataset.chirpId;
+            var action = event.target.textContent;
+            toggleButtonText[action](event.target);
+            updateChirpStats[action](chirpId);
+            axios.post('/chirps/' + chirpId + '/act',
+                { action: action });
+        };
+
+    
 
 
 </script>

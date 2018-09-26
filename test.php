@@ -1,3 +1,16 @@
+   <a href="#" class="like"></a>
+        <button class="social-like">
+  <span class="like"><i class="fa fa-thumbs-up"></i></span>
+  <span class="count">15</span>
+</button>
+&nbsp;
+
+<button class="social-dislike">
+  <span class="dislike">10</span>
+  <span class="unlike"><i class="fa fa-thumbs-down"></i></span>
+</button>
+
+
   <button class="dislike">
     <i class="fa fa-thumbs-o-down" aria-hidden="true"></i>
 </button>

@@ -1,16 +1,15 @@
 <?php
 
-use Illuminate\Database\Seeder;
+ use App\Chirp;
+    use App\User;
+    use Illuminate\Database\Seeder;
 
-class DatabaseSeeder extends Seeder
-{
-    /**
-     * Seed the application's database.
-     *
-     * @return void
-     */
-    public function run()
+    class DatabaseSeeder extends Seeder
     {
-        // $this->call(UsersTableSeeder::class);
+        public function run()
+        {
+            factory(User::class, 10)->create();
+            factory(Chirp::class, 30)->create();
+        }
     }
-}
+
