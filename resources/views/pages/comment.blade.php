@@ -84,6 +84,7 @@
           <img src="{{url('img/profile/user2-160x160.jpg')}}" alt="person" class="img-fluid2 rounded-circle">
           <small class="text-center"><br>
             <cite title="Source Title">  {{$post->user->name}}  </cite>  </small>
+          <br><br>
         </span>
         <span style="float:right;width: 80%;">
           <h4><small>{{$comment->title}} </small> </h4>  <small class="pull-right">{{ Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $comment->created_at)->toDayDateTimeString() }}</small>
@@ -103,12 +104,10 @@
                     @php $rating--; @endphp
                 </span>
             @endforeach
-    <p style="float:right; display:block;">{{$comment->message}} <br> 
+    <p style="float:right; display:block;">{{$comment->message}}    </p> <br> 
       <small class="">
 
-<?php  $id= $comment->id; ?>
-
-  {{$comment->likes_count}}   people found this helpful
+   {{$comment->likes_count}} people found this helpful
 
  |   <a href="#" class="like" id="{{$comment->id}}">
  @auth   {{
@@ -116,6 +115,7 @@
     Auth::user()->likes()->where('post_id', $comment->id)->first() ?
     Auth::user()->likes()->where('post_id', $comment->id)->first()->likes_count == 1 ?
                   'You like this post' : 'Like' : 'Like'
+
                
    }}   @endauth
    @unless (Auth::check())
@@ -123,7 +123,7 @@ Login to lke comment....
    @endunless
  </a>  
 
-                      <!--   <a href="#" class="like" id="{{$comment->id}}">
+                        <a href="#" class="like" id="{{$comment->id}}">
                           @auth    {{
 
                           Auth::user()->likes()->where('post_id', $comment->id)->first() ?
@@ -131,7 +131,7 @@ Login to lke comment....
                                     'You don\'t like this post' : 'Dislike' : 'Dislike'
                                 
                           }}    @endauth
-                        </a> -->
+                        </a>
                           @auth   
                     
                         @if(Auth::user()->id == $comment->user_id)
@@ -143,7 +143,7 @@ Login to lke comment....
  @endauth
 
                    </small> 
-                 </p>
+              
         </span>
     </div>
   <!--   <div class="person2" style="float:left" display:inline-block;>
@@ -159,7 +159,12 @@ Login to lke comment....
      <!--     </form> -->
      </ul>
   <hr /><br><br><br>
-  <form method="POST" action="{{ route('savecomment') }}" aria-label="{{ __('Comment') }}">
+ 
+  </div>
+
+
+
+ <form method="POST" action="{{ route('savecomment') }}" aria-label="{{ __('Comment') }}">
       @csrf
   <div class="box-footer">
      <!--    <div class="form-group row">
@@ -205,7 +210,8 @@ Login to lke comment....
 
                 </div><!-- /.box (chat box) -->
   </form>
-  </div>
+
+
 
   </div>
 
