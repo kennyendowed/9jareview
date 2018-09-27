@@ -74,10 +74,10 @@
    
      <ul class="feed-elements list-unstyled">
      <!--   <form id="data_value"> -->
-@foreach($comment as $comment)
-   <article class="post" data-postid="{{ $comment->id }}">
+
        <!-- List-->
  <div class="newWrapper">
+  @foreach($comment as $comment)
     <div class="person1" style="float:left; display:inline-block; ">
         <span style="float:left;width: 20%;">
           <img src="{{url('img/profile/user2-160x160.jpg')}}" alt="person" class="img-fluid2 rounded-circle">
@@ -118,7 +118,7 @@ Login to lke comment....
    @endunless
  </a> |
 
-                        <a href="#" class="like">
+                        <a href="#" class="like" id="{{$comment->id}}">
                           @auth    {{
 
                           Auth::user()->likes()->where('post_id', $comment->id)->first() ?
@@ -145,14 +145,15 @@ Login to lke comment....
     <img src=simonwilliams.jpg width="auto" height"auto"/>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer arcu mauris, ullamcorper et ligula vitae, hendrerit sodales tellus. Maecenas quis pulvinar lacus.</p>
     </div> -->
-    </div>
+  
 
 
        <!-- List-->
      @endforeach
+       </div>
      <!--     </form> -->
      </ul>
-  <hr /><br>
+  <hr /><br><br><br>
   <form method="POST" action="{{ route('savecomment') }}" aria-label="{{ __('Comment') }}">
       @csrf
   <div class="box-footer">
