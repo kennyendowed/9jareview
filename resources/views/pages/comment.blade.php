@@ -68,17 +68,17 @@
                 </span>
             @endforeach</h1>
                     <p class="pos"> {{$pages->location}} / {{$pages->city}} / {{$pages->state}}
-                   
-            </p> 
+
+            </p>
               @endforeach
-   
+
      <ul class="feed-elements list-unstyled">
      <!--   <form id="data_value"> -->
 
        <!-- List-->
  <div class="newWrapper">
-
-  @foreach($comment as $comment)
+  @foreach($comments as $comment)
+  {{$found = false}}
     <div class="person1" style="float:left; display:inline-block; ">
         <span style="float:left;width: 20%;">
           <img src="{{url('img/profile/user2-160x160.jpg')}}" alt="person" class="img-fluid2 rounded-circle">
@@ -104,24 +104,30 @@
                     @php $rating--; @endphp
                 </span>
             @endforeach
-    <p style="float:right; display:block;">{{$comment->message}}    </p> <br> 
+    <p style="float:right; display:block;">{{$comment->message}}    </p> <br>
       <small class="">
 
-   {{$comment->likes_count}} people found this helpful
+   <?php
+    foreach($like as $likes){
+     if($likes->post_id == $comment->id) {
+       echo $likes->num; $found = true;}
+     }
+       if(!$found){echo 0;} $i++;
+   ?> people found this helpful
 
  |   <a href="#" class="like" id="{{$comment->id}}">
  @auth   {{
-          
+
     Auth::user()->likes()->where('post_id', $comment->id)->first() ?
     Auth::user()->likes()->where('post_id', $comment->id)->first()->likes_count == 1 ?
                   'You like this post' : 'Like' : 'Like'
 
-               
+
    }}   @endauth
    @unless (Auth::check())
 Login to lke comment....
    @endunless
- </a>  
+ </a>
 
                         <a href="#" class="like" id="{{$comment->id}}">
                           @auth    {{
@@ -129,11 +135,11 @@ Login to lke comment....
                           Auth::user()->likes()->where('post_id', $comment->id)->first() ?
                            Auth::user()->likes()->where('post_id', $comment->id)->first()->likes_count == 0 ?
                                     'You don\'t like this post' : 'Dislike' : 'Dislike'
-                                
+
                           }}    @endauth
                         </a>
-                          @auth   
-                    
+                          @auth
+
                         @if(Auth::user()->id == $comment->user_id)
                             |
 
@@ -142,15 +148,15 @@ Login to lke comment....
 
  @endauth
 
-                   </small> 
-              
+                   </small>
+
         </span>
     </div>
   <!--   <div class="person2" style="float:left" display:inline-block;>
     <img src=simonwilliams.jpg width="auto" height"auto"/>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer arcu mauris, ullamcorper et ligula vitae, hendrerit sodales tellus. Maecenas quis pulvinar lacus.</p>
     </div> -->
-  
+
 
 
        <!-- List-->
@@ -159,7 +165,7 @@ Login to lke comment....
      <!--     </form> -->
      </ul>
   <hr /><br><br><br>
- 
+
   </div>
 
 
@@ -231,7 +237,7 @@ function myFunction(x) {
 }
         var token = '{{ Session::token() }}';
         var urlLike = '{{ route('like') }}';
-      
+
 
         var updateChirpStats = {
             Like: function (chirpId) {

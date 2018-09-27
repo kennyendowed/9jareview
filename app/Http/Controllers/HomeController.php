@@ -69,7 +69,7 @@ public function load_comment($name,$id)
 {
 
  // $like = Like::where('post_id','=', $id)->get();
-    
+
        // $like = $user->likes()->where('post_id', $id)->get();
   $cpost = comments::find($id);
   $topicname = sub_industries::find(1);
@@ -79,8 +79,8 @@ public function load_comment($name,$id)
   $items = industries::all(['ind_id', 'name']);
   $additional_info = topics::where('location', '=', $name)->get();
 
-  $comment = Rating::where('topic_id', '=',$id)->get();
-  $like  = Rating::where('topic_id', '=',$id)->join('likes','ratings.id','=','likes.post_id')->get();
+  $comments = Rating::where('topic_id', '=',$id)->get();
+  $like  = Rating::selectraw('ratings.id, likes.post_id, COUNT(likes.post_id) AS num')->where('likes.likes_count','1')->join('likes','ratings.id','=','likes.post_id')->groupby('ratings.id','likes.post_id')->get();
 //  $like=[];
 // $i=0;
 
@@ -91,7 +91,7 @@ public function load_comment($name,$id)
 // }
 
 
-return view('pages.comment', compact('items',$items,'like',$like,'subitems',$subitems,'cpost',$cpost,'additional_info',$additional_info,'comment',$comment,'post',$post,'topicname',$topicname));
+return view('pages.comment', compact('items',$items,'like',$like,'subitems',$subitems,'cpost',$cpost,'additional_info',$additional_info,'comments',$comments,'post',$post,'topicname',$topicname));
 }
 
 public function posts()
@@ -147,7 +147,7 @@ public function posts()
   public function postLikePost(Request $request)
     {
 
-       
+
          $id = $request['postId'];
         $is_like = $request['isLike'] === 'true';
         $update = false;
