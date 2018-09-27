@@ -15,4 +15,8 @@ class Like extends Model
     {
         return $this->belongsTo('App\Rating');
     }
+    public static  function ra($id)
+{
+       return Like::where('post_id','=',  $id)->first();
+}
 }

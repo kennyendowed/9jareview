@@ -77,6 +77,7 @@
 
        <!-- List-->
  <div class="newWrapper">
+
   @foreach($comment as $comment)
     <div class="person1" style="float:left; display:inline-block; ">
         <span style="float:left;width: 20%;">
@@ -103,9 +104,13 @@
                 </span>
             @endforeach
     <p style="float:right; display:block;">{{$comment->message}} <br> 
-      <small class="pull-right">
+      <small class="">
 
-  <a href="#" class="like" id="{{$comment->id}}">
+<?php  $id= $comment->id; ?>
+
+  {{$comment->likes_count}}   people found this helpful
+
+ |   <a href="#" class="like" id="{{$comment->id}}">
  @auth   {{
           
     Auth::user()->likes()->where('post_id', $comment->id)->first() ?
@@ -116,9 +121,9 @@
    @unless (Auth::check())
 Login to lke comment....
    @endunless
- </a> |
+ </a>  
 
-                        <a href="#" class="like" id="{{$comment->id}}">
+                      <!--   <a href="#" class="like" id="{{$comment->id}}">
                           @auth    {{
 
                           Auth::user()->likes()->where('post_id', $comment->id)->first() ?
@@ -126,7 +131,7 @@ Login to lke comment....
                                     'You don\'t like this post' : 'Dislike' : 'Dislike'
                                 
                           }}    @endauth
-                        </a>
+                        </a> -->
                           @auth   
                     
                         @if(Auth::user()->id == $comment->user_id)

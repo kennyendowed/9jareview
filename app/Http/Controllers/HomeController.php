@@ -8,7 +8,7 @@ use App\topics;
 use App\User;
 use App\Rating;
 use App\Chirp;
-use App\like;
+use App\Like;
 use Illuminate\Http\Request;
 use App\Post;
 
@@ -63,10 +63,14 @@ public function load_topic($name,$id)
 return view('pages.topic', compact('items',$items,'subitems',$subitems,'additional_info',$additional_info,'post',$post,'topicname',$topicname));
 }
 
+
+
 public function load_comment($name,$id)
 {
 
-
+ // $like = Like::where('post_id','=', $id)->get();
+    
+       // $like = $user->likes()->where('post_id', $id)->get();
   $cpost = comments::find($id);
   $topicname = sub_industries::find(1);
   $post = comments::find(1);
@@ -74,9 +78,20 @@ public function load_comment($name,$id)
     $subitems = sub_industries::all(['ind_id','sub_ind_id', 'name']);
   $items = industries::all(['ind_id', 'name']);
   $additional_info = topics::where('location', '=', $name)->get();
-  $comment = Rating::where('topic_id', '=',$id)->get();
 
-return view('pages.comment', compact('items',$items,'subitems',$subitems,'cpost',$cpost,'additional_info',$additional_info,'comment',$comment,'post',$post,'topicname',$topicname));
+  $comment = Rating::where('topic_id', '=',$id)->join('likes','ratings.id','=','likes.post_id')->get();
+  $like = Like::where('post_id','=', $id)->first();
+//  $like=[];
+// $i=0;
+
+// foreach ( $comment as $value) {
+//   # code...
+//   $like[$i] = Like::where('post_id','=',  $value->id)->first();
+//   $i++;
+// }
+
+
+return view('pages.comment', compact('items',$items,'like',$like,'subitems',$subitems,'cpost',$cpost,'additional_info',$additional_info,'comment',$comment,'post',$post,'topicname',$topicname));
 }
 
 public function posts()

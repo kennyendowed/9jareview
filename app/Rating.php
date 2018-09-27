@@ -27,4 +27,11 @@ class Rating extends Model
     {
         return $this->hasMany('App\Like');
     }
+
+public function getTotalLikesAttribute()
+ {
+    return $this->hasMany('Like')->where('post_id', '=',2)->count();
+
+ }
+
 }
