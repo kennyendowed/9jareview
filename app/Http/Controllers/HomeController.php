@@ -79,8 +79,8 @@ public function load_comment($name,$id)
   $items = industries::all(['ind_id', 'name']);
   $additional_info = topics::where('location', '=', $name)->get();
 
-  $comment = Rating::selectRaw('ratings.*,sum(case when likes.post_id >0 then likes.post_id else 0 end ) as count ')->where('topic_id', '=',$id)->leftjoin('likes','ratings.id','=','likes.post_id')->get();
-  //$like  = Rating::where('topic_id', '=',$id)->join('likes','ratings.id','=','likes.post_id')->get();
+  $comment = Rating::where('topic_id', '=',$id)->get();
+  $like  = Rating::where('topic_id', '=',$id)->join('likes','ratings.id','=','likes.post_id')->get();
 //  $like=[];
 // $i=0;
 
