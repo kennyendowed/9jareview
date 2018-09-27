@@ -77,6 +77,7 @@
 
        <!-- List-->
  <div class="newWrapper">
+  <div id="form_sub_container1" style="display: block;">
   @foreach($comments as $comment)
   {{$found = false}}
     <div class="person1" style="float:left; display:inline-block; ">
@@ -104,7 +105,7 @@
                     @php $rating--; @endphp
                 </span>
             @endforeach
-    <p style="float:right; display:block;">{{$comment->message}}    </p> <br>
+    <p style="float:right; display:block;">{{$comment->message}}  <br>
       <small class="">
 
    <?php
@@ -129,7 +130,7 @@ Login to lke comment....
    @endunless
  </a>
 
-                        <a href="#" class="like" id="{{$comment->id}}">
+                     <!--    <a href="#" class="like" id="{{$comment->id}}">
                           @auth    {{
 
                           Auth::user()->likes()->where('post_id', $comment->id)->first() ?
@@ -137,18 +138,19 @@ Login to lke comment....
                                     'You don\'t like this post' : 'Dislike' : 'Dislike'
 
                           }}    @endauth
-                        </a>
+                        </a> -->
                           @auth
 
                         @if(Auth::user()->id == $comment->user_id)
                             |
 
-                            <a href="{{ route('update', ['post_id' => $comment->id]) }}">update</a>
+                            <a id="formButton" href="{{ route('update',['id'=>$comment->id]) }}">update</a>
                         @endif
 
  @endauth
 
                    </small>
+                     </p> 
 
         </span>
     </div>
@@ -161,6 +163,10 @@ Login to lke comment....
 
        <!-- List-->
      @endforeach
+
+</div>
+             
+
        </div>
      <!--     </form> -->
      </ul>
@@ -232,6 +238,7 @@ Login to lke comment....
   @section ('footer')
 
   <script type="text/javascript">
+  
 function myFunction(x) {
     x.classList.toggle("fa-thumbs-down");
 }
@@ -269,7 +276,7 @@ function myFunction(x) {
                 { action: action });
         };
 
-
+   
 
 
 </script>

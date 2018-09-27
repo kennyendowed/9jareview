@@ -6,6 +6,7 @@ use App\industries;
 use App\sub_industries;
 use App\topics;
 use App\Rating;
+use App\replycomment;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
@@ -91,9 +92,18 @@ $topicid=topics::where("topic_id",$topic_id)->first();
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function createreply(Request $request)
     {
-        //
+        
+  $post = replycomment::create(array(
+        'comment_id'=>$request->comment_id,
+        'message' => $request->message,
+     'user_id' => Auth::user()->id
+   ));
+
+
+    $message ='Topic has been successfully added!';
+  return redirect()->back()->with('status', $message);
     }
 
     /**

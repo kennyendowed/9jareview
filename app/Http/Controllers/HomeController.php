@@ -177,6 +177,15 @@ public function posts()
         }
         return null;
     }
+
+public function updatepost($id){
+
+
+  return view('pages.update');
+}
+
+
+
     //   public function actOnChirp(Request $request, $id)
     // {
     //     $action = $request->get('action');

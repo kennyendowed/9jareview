@@ -126,7 +126,7 @@
                                     <div class="form-group  row">
 
 
-                                                 <textarea placeholder="Error Description" name="message" rows="10" class="form-control{{ $errors->has('message') ? ' is-invalid' : '' }}"></textarea>
+                                                 <textarea placeholder="Review Description" name="message" rows="10" class="form-control{{ $errors->has('message') ? ' is-invalid' : '' }}"></textarea>
                                             <!-- @if ($errors->has('message'))
                                              <span class="alert alert-danger">
                                                  <strong>{{ $errors->first('message') }}</strong>
