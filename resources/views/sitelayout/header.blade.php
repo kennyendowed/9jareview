@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>{{ config('app.name', 'Naija - Reviews') }}</title>
+ <title>@yield('title') - {{config('app.name')}}</title>
     <meta name="description" content="">
          <meta name="Author" content="Naija - Reviews">
 

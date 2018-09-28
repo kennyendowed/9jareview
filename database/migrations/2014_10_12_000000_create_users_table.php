@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
         //     $table->string('email')->unique();
         //     $table->string('password');
         //    $table->string('isadmin')->default('default');
+        //$table->string('avatar')->default('user.jpg');
         //     // $table->boolean('isAdmin')->nullable();
         //     $table->rememberToken();
         //     $table->timestamps();

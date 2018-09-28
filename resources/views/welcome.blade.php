@@ -27,7 +27,7 @@
                              @include('layouts.sidebar')
 
                        </div>
-
+                       
                        <!-- Blog Post -->
                        <div class="col-md-8">
 

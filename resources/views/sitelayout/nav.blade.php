@@ -41,10 +41,10 @@
              <a class="nav-link js-scroll-trigger" href="#about">Reviews</a>
            </li>
            <li class="nav-item">
-             <a class="nav-link js-scroll-trigger" href="/profile">Profile</a>
+             <a class="nav-link js-scroll-trigger" href="{{route('profile') }}">Profile</a>
            </li>
            <li class="nav-item">
-             <a class="nav-link js-scroll-trigger" href="#scontact">Contact</a>
+             <a class="nav-link js-scroll-trigger" href="{{route('contact') }}">Contact</a>
            </li>
 
            <li class="nav-item">

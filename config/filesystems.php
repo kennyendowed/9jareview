@@ -12,8 +12,8 @@ return [
     | based disks are available to your application. Just store away!
     |
     */
-
-    'default' => env('FILESYSTEM_DRIVER', 'local'),
+'default' => env('FILESYSTEM_DRIVER', 'public'),
+   // 'default' => env('FILESYSTEM_DRIVER', 'local'),
 
     /*
     |--------------------------------------------------------------------------
@@ -48,7 +48,16 @@ return [
             'root' => storage_path('app'),
         ],
 
+        'uploads' => [
+    'driver' => 'local',
+    'root'   => public_path("/img"),
+],
+
         'public' => [
+       //       'driver' => 'local',
+       // 'root'   => public_path() . '/uploads',
+       // 'url' => env('APP_URL').'/public',
+       // 'visibility' => 'public',
             'driver' => 'local',
             'root' => storage_path('app/public'),
             'url' => env('APP_URL').'/storage',

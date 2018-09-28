@@ -12,6 +12,9 @@ use App\Like;
 use App\replycomment;
 use Illuminate\Http\Request;
 use App\Post;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 
 class HomeController extends Controller
 {
@@ -185,6 +188,64 @@ public function updatepost($id){
 
 
   return view('pages.update');
+}
+
+public function updateprofile ()
+{
+    return view('pages.profile',['user' => Auth::user()]);
+}
+
+
+  public function getUserImage($filename)
+    {
+        $file = Storage::disk('public')->get($filename);
+        return new Response($file, 200);
+    }
+
+public function Update_profile(Request $request)
+{
+
+  $this->validate($request, [
+               'name' => 'required|string|max:255',
+            'username' => 'required|string|max:40',
+            'phone' => 'required|string|max:20',
+            'email' => 'required|string|email|max:255',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+       // $request->avatar->storeAs('avatars',$avatarName);
+
+
+        $user = Auth::user();
+
+$avatarName = $user->id.''.$request['username'].'.'.request()->image->getClientOriginalExtension();
+ 
+        $old_name = $user->username;
+        $user->name = $request['name'];
+        $user->username = $request['username'];
+        $user->phone = $request['phone'];
+        $user->email = $request['email'];
+        $user->avatar =$avatarName;
+        $user->update();
+        $file = $request->file('image');
+        $filename = $avatarName;
+         $old_filename= $avatarName;
+      //  $filename = $request['username'] . '-' . $user->id . '.jpg';
+       // $old_filename = $old_name . '-' . $user->id . '.jpg';
+        $update = false;
+        if (Storage::disk('public')->has($old_filename)) {
+            $old_file = Storage::disk('public')->get($old_filename);
+            Storage::disk('public')->put($filename, $old_file);
+            $update = true;
+        }
+        if ($file) {
+            Storage::disk('public')->put($filename, File::get($file));
+        }
+        if ($update && $old_filename !== $filename) {
+            Storage::delete($old_filename);
+        }
+    $message ='Account has been successfully updated!';
+  return redirect()->back()->with('status', $message);
 }
 
 

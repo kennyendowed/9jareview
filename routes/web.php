@@ -45,6 +45,9 @@ Route::post('/save_new_topic','TopicController@create')->name('save_new_topic');
 Route::post('rate', 'CommentController@rate')->name('rate');
 Route::post('/save_new_reply_comment','TopicController@createreply')->name('save_new_reply_comment');
  Route::get('/update/{id?}', 'HomeController@updatepost')->name('update');
-
+ Route::get('/profile/{id?}', 'HomeController@updateprofile')->name('profile');
+  Route::get('/contact', 'HomeController@contact')->name('contact');
+    Route::post('/Update_profile', 'HomeController@Update_profile')->name('Update_profile');
  Route::post('/like', ['uses' => 'HomeController@postLikePost','as' => 'like']);
+ Route::get('/storage/app/public/{username}', ['uses' => 'HomeController@getUserImage','as' => 'account.image']);
 });

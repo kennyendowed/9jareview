@@ -118,7 +118,7 @@ if(!$comment->reply==false){
 
     }?>
   
-        <br>
+        <br>  <br>
       <small class="">
       
 

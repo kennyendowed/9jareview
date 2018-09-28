@@ -132,3 +132,324 @@
 
      <button class="btn btn-success">Submit Review</button>
 </form> -->
+
+
+
+
+
+
+<div class="col-md-8">
+<h1 class="mx-auto my-0 text-uppercase text-center">Naija - Reviews</h1>
+<div class="col-lg-10 col-lg-offset-2">
+                          <!-- -->
+
+        </div>
+<div class="card mb-4">
+
+  <div class="card mb-4">
+   <div class="card-body">
+              <h1 class="card-title pos">Airtel Nigeria  
+                            <span class="fa-stack" style="width:1em">
+                    <i class="far fa-star fa-stack-1x starco"></i>
+
+                                                                        <i class="fas fa-star fa-stack-1x starco"></i>
+                                                                                </span>
+                            <span class="fa-stack" style="width:1em">
+                    <i class="far fa-star fa-stack-1x starco"></i>
+
+                                                                        <i class="fas fa-star fa-stack-1x starco"></i>
+                                                                                </span>
+                            <span class="fa-stack" style="width:1em">
+                    <i class="far fa-star fa-stack-1x starco"></i>
+
+                                                                        <i class="fas fa-star-half fa-stack-1x starco"></i>
+                                                                                </span>
+                            <span class="fa-stack" style="width:1em">
+                    <i class="far fa-star fa-stack-1x starco"></i>
+
+                                                        </span>
+                            <span class="fa-stack" style="width:1em">
+                    <i class="far fa-star fa-stack-1x starco"></i>
+
+                                                        </span>
+            </h1>
+                    <p class="pos"> ajah / lagos / lagos
+                   
+            </p> 
+                 
+     <ul class="feed-elements list-unstyled">
+     <!--   <form id="data_value"> -->
+
+       <!-- List-->
+ <div class="newWrapper">
+      <div class="person1" style="float:left; display:inline-block; ">
+        <span style="float:left;width: 20%;">
+          <img src="http://localhost/9jareview/img/profile/user2-160x160.jpg" alt="person" class="img-fluid2 rounded-circle">
+          <small class="text-center"><br>
+            <cite title="Source Title">  peace  </cite>  </small>
+        </span>
+        <span style="float:right;width: 80%;">
+          <h4><small>Nice service </small> </h4>  <small class="pull-right">Wed, Sep 26, 2018 4:49 PM</small>
+          
+                            <span class="fa-stack" style="width:1em">
+                    <i class="far fa-star fa-stack-1x starco"></i>
+
+                                                                        <i class="fas fa-star fa-stack-1x starco"></i>
+                                                                                </span>
+                            <span class="fa-stack" style="width:1em">
+                    <i class="far fa-star fa-stack-1x starco"></i>
+
+                                                                        <i class="fas fa-star fa-stack-1x starco"></i>
+                                                                                </span>
+                            <span class="fa-stack" style="width:1em">
+                    <i class="far fa-star fa-stack-1x starco"></i>
+
+                                                                        <i class="fas fa-star fa-stack-1x starco"></i>
+                                                                                </span>
+                            <span class="fa-stack" style="width:1em">
+                    <i class="far fa-star fa-stack-1x starco"></i>
+
+                                                        </span>
+                            <span class="fa-stack" style="width:1em">
+                    <i class="far fa-star fa-stack-1x starco"></i>
+
+                                                        </span>
+                <p style="float:right; display:block;">Got this to go with a tv I recently purchased. Saw certified refurbished was an option and thought I’d give it a shot. I have 4 fire sticks and have never had an issue. This constantly freezes, with the only option being unplug and power cycle the device. Still in the return and replace window. Explained issue to the tech over the phone. Answer was to reset to factory settings which I have already done twice. Explained I was not near the device for the call and was looking to get it replaced. Tech explained that I needed to do the factory reset first. Despite having stated that I had already done that. The answer was still it needs to be done again. I explained to the tech I could just return it and get a full refund, and purchase another product elsewhere. His response, you sure can. Not a great experience Amazon. <br> 
+      <small class="pull-right">
+
+  <a href="#" class="like" id="2">
+    You like this post       </a> |
+
+                        <a href="#" class="like" id="2">
+                              Dislike                            </a>
+                             
+                    
+                                                    |
+
+                            <a href="http://localhost/9jareview/update/2">update</a>
+                        
+ 
+                   </small> 
+                 </p>
+        </span>
+    </div>
+  <!--   <div class="person2" style="float:left" display:inline-block;>
+    <img src=simonwilliams.jpg width="auto" height"auto"/>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer arcu mauris, ullamcorper et ligula vitae, hendrerit sodales tellus. Maecenas quis pulvinar lacus.</p>
+    </div> -->
+  
+
+
+       <!-- List-->
+         <div class="person1" style="float:left; display:inline-block; ">
+        <span style="float:left;width: 20%;">
+          <img src="http://localhost/9jareview/img/profile/user2-160x160.jpg" alt="person" class="img-fluid2 rounded-circle">
+          <small class="text-center"><br>
+            <cite title="Source Title">  peace  </cite>  </small>
+        </span>
+        <span style="float:right;width: 80%;">
+          <h4><small>Bad responses time </small> </h4>  <small class="pull-right">Wed, Sep 26, 2018 5:01 PM</small>
+          
+                            <span class="fa-stack" style="width:1em">
+                    <i class="far fa-star fa-stack-1x starco"></i>
+
+                                                                        <i class="fas fa-star fa-stack-1x starco"></i>
+                                                                                </span>
+                            <span class="fa-stack" style="width:1em">
+                    <i class="far fa-star fa-stack-1x starco"></i>
+
+                                                        </span>
+                            <span class="fa-stack" style="width:1em">
+                    <i class="far fa-star fa-stack-1x starco"></i>
+
+                                                        </span>
+                            <span class="fa-stack" style="width:1em">
+                    <i class="far fa-star fa-stack-1x starco"></i>
+
+                                                        </span>
+                            <span class="fa-stack" style="width:1em">
+                    <i class="far fa-star fa-stack-1x starco"></i>
+
+                                                        </span>
+                <p style="float:right; display:block;">i cant say i agree with ur review .I bought the Fire TV 4k back in May 2018 as a certified refurbished unit. It has served me well and is a great value! For $49 I got a 4k streaming device that does everything I need. <br> 
+      <small class="pull-right">
+
+  <a href="#" class="like" id="3">
+    Like       </a> |
+
+                        <a href="#" class="like" id="3">
+                              Dislike                            </a>
+                             
+                    
+                        
+ 
+                   </small> 
+                 </p>
+        </span>
+    </div>
+  <!--   <div class="person2" style="float:left" display:inline-block;>
+    <img src=simonwilliams.jpg width="auto" height"auto"/>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer arcu mauris, ullamcorper et ligula vitae, hendrerit sodales tellus. Maecenas quis pulvinar lacus.</p>
+    </div> -->
+  
+
+
+       <!-- List-->
+         <div class="person1" style="float:left; display:inline-block; ">
+        <span style="float:left;width: 20%;">
+          <img src="http://localhost/9jareview/img/profile/user2-160x160.jpg" alt="person" class="img-fluid2 rounded-circle">
+          <small class="text-center"><br>
+            <cite title="Source Title">  peace  </cite>  </small>
+        </span>
+        <span style="float:right;width: 80%;">
+          <h4><small>it ok </small> </h4>  <small class="pull-right">Wed, Sep 26, 2018 5:06 PM</small>
+          
+                            <span class="fa-stack" style="width:1em">
+                    <i class="far fa-star fa-stack-1x starco"></i>
+
+                                                                        <i class="fas fa-star fa-stack-1x starco"></i>
+                                                                                </span>
+                            <span class="fa-stack" style="width:1em">
+                    <i class="far fa-star fa-stack-1x starco"></i>
+
+                                                                        <i class="fas fa-star fa-stack-1x starco"></i>
+                                                                                </span>
+                            <span class="fa-stack" style="width:1em">
+                    <i class="far fa-star fa-stack-1x starco"></i>
+
+                                                                        <i class="fas fa-star fa-stack-1x starco"></i>
+                                                                                </span>
+                            <span class="fa-stack" style="width:1em">
+                    <i class="far fa-star fa-stack-1x starco"></i>
+
+                                                                        <i class="fas fa-star fa-stack-1x starco"></i>
+                                                                                </span>
+                            <span class="fa-stack" style="width:1em">
+                    <i class="far fa-star fa-stack-1x starco"></i>
+
+                                                        </span>
+                <p style="float:right; display:block;">am a happy customer of this network <br> 
+      <small class="pull-right">
+
+  <a href="#" class="like" id="4">
+    Like       </a> |
+
+                        <a href="#" class="like" id="4">
+                              Dislike                            </a>
+                             
+                    
+                        
+ 
+                   </small> 
+                 </p>
+        </span>
+    </div>
+  <!--   <div class="person2" style="float:left" display:inline-block;>
+    <img src=simonwilliams.jpg width="auto" height"auto"/>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer arcu mauris, ullamcorper et ligula vitae, hendrerit sodales tellus. Maecenas quis pulvinar lacus.</p>
+    </div> -->
+  
+
+
+       <!-- List-->
+         <div class="person1" style="float:left; display:inline-block; ">
+        <span style="float:left;width: 20%;">
+          <img src="http://localhost/9jareview/img/profile/user2-160x160.jpg" alt="person" class="img-fluid2 rounded-circle">
+          <small class="text-center"><br>
+            <cite title="Source Title">  peace  </cite>  </small>
+        </span>
+        <span style="float:right;width: 80%;">
+          <h4><small>bad mood </small> </h4>  <small class="pull-right">Wed, Sep 26, 2018 5:07 PM</small>
+          
+                            <span class="fa-stack" style="width:1em">
+                    <i class="far fa-star fa-stack-1x starco"></i>
+
+                                                                        <i class="fas fa-star fa-stack-1x starco"></i>
+                                                                                </span>
+                            <span class="fa-stack" style="width:1em">
+                    <i class="far fa-star fa-stack-1x starco"></i>
+
+                                                        </span>
+                            <span class="fa-stack" style="width:1em">
+                    <i class="far fa-star fa-stack-1x starco"></i>
+
+                                                        </span>
+                            <span class="fa-stack" style="width:1em">
+                    <i class="far fa-star fa-stack-1x starco"></i>
+
+                                                        </span>
+                            <span class="fa-stack" style="width:1em">
+                    <i class="far fa-star fa-stack-1x starco"></i>
+
+                                                        </span>
+                <p style="float:right; display:block;">nice one but glo is better <br> 
+      <small class="pull-right">
+
+  <a href="#" class="like" id="5">
+    Like       </a> |
+
+                        <a href="#" class="like" id="5">
+                              Dislike                            </a>
+                             
+                    
+                        
+ 
+                   </small> 
+                 </p>
+        </span>
+    </div>
+  <!--   <div class="person2" style="float:left" display:inline-block;>
+    <img src=simonwilliams.jpg width="auto" height"auto"/>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer arcu mauris, ullamcorper et ligula vitae, hendrerit sodales tellus. Maecenas quis pulvinar lacus.</p>
+    </div> -->
+  
+
+
+       <!-- List-->
+            </div>
+     <!--     </form> -->
+     </ul>
+  <hr /><br><br><br>
+  <form method="POST" action="http://localhost/9jareview/comment" aria-label="Comment">
+      <input type="hidden" name="_token" value="fBM3hHUJSL7Mg7LgVcuFARBw5fPvSzn95kCXpdIU">  <div class="box-footer">
+     <!--    <div class="form-group row">
+                                    <label for="name" class="col-md-2 col-form-label text-md-right">Title</label>
+
+
+                                                                 </div> -->
+         <div class="stars">
+    <input  class="star star-5" id="star-5" type="radio" value="5" name="star"/>
+    <label class="star star-5" for="star-5"></label>
+    <input class="star star-4" id="star-4" type="radio" value="4" name="star"/>
+    <label class="star star-4" for="star-4"></label>
+    <input class="star star-3" id="star-3" type="radio" value="3" name="star"/>
+    <label class="star star-3" for="star-3"></label>
+    <input class="star star-2" id="star-2" type="radio" value="2" name="star"/>
+    <label class="star star-2" for="star-2"></label>
+    <input class="star star-1" id="star-1" type="radio" value="1" name="star"/>
+    <label class="star star-1" for="star-1"></label>
+  </div>
+   <div class="col-md-8">
+                                           <input id="title" type="text" placeholder="Title" class="form-control" name="title" value="" autofocus>
+                                       </div>
+      <div class="input-group">
+
+              <input class="form-control" type="hidden" name="topicid" value="41899548" placeholder="">
+        <input class="form-control" type="hidden" name="id" value="2" placeholder="">
+        <input type="text" class="form-control" name="message" placeholder="Type message...">
+                <div class="input-group-btn">
+
+            <button type="submit" class="pull-right btnv btn-default" >Send <i class="fa fa-arrow-circle-right"></i></button>
+        </div>
+      </div>
+
+                </div><!-- /.box (chat box) -->
+  </form>
+  </div>
+
+  </div>
+
+  </div>
+</div>
+  </div>
+</section>
