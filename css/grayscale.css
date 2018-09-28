@@ -26,7 +26,11 @@ x-navigation li > a {
 
 
  */
-
+.pu{
+  
+float:right; 
+display:block;
+}
 
 .starco{
  color: #ffc107;

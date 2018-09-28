@@ -148,6 +148,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         willvincent\Rateable\RateableServiceProvider::class,
 
+
         /*
          * Package Service Providers...
          */
@@ -160,6 +161,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+         App\Providers\PaginationServiceProvider::class,
 
     ],
 

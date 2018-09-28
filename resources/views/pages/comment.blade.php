@@ -28,7 +28,7 @@
       </div>
             <div class="col-md-8">
 <h1 class="mx-auto my-0 text-uppercase text-center">Naija - Reviews</h1>
-<div class="col-lg-10 col-lg-offset-2">
+<div class="col-md-6">
         @if (session('status'))
 
                       <div class="alert alert-success">
@@ -46,7 +46,6 @@
 -->
 
         </div>
-<div class="card mb-4">
 
   <div class="card mb-4">
    <div class="card-body">
@@ -82,9 +81,19 @@
   {{$found = false}}
     <div class="person1" style="float:left; display:inline-block; ">
         <span style="float:left;width: 20%;">
-          <img src="{{url('img/profile/user2-160x160.jpg')}}" alt="person" class="img-fluid2 rounded-circle">
+          <?php //$user = Auth::user();  ?
+ $c=App\User::where('id', '=', $comment->user_id)->get();
+foreach ($c as $lue) {
+   # code...
+
+
+          if(!empty($lue->avatar)){?>
+        <img class="img-fluid2 rounded-circle" src="{{ route('account.image', ['filename' =>$lue->avatar]) }}" />
+      <?php }else{?>
+             <img class="img-fluid2 rounded-circle" src="{{URL::asset('img/default_ava.gif ') }}" />
+   <?php   }  ?>
           <small class="text-center"><br>
-            <cite title="Source Title">  {{$post->user->name}}  </cite>  </small>
+            <cite title="Source Title">  </cite> {{$lue->name}} </small>
           <br><br>
         </span>
         <span style="float:right;width: 80%;">
@@ -111,7 +120,7 @@
 if(!$comment->reply==false){
       foreach ($comment->reply as  $value) {
         # code...
-        echo "-update  <br> <br>".$value->message;
+        echo "-update <small class='pu'> ".Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $value->created_at)->toDayDateTimeString()."</small> <br>".$value->message."<br><br>";
       }  
     }
     else{
@@ -173,7 +182,7 @@ Login to lke comment....
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer arcu mauris, ullamcorper et ligula vitae, hendrerit sodales tellus. Maecenas quis pulvinar lacus.</p>
     </div> -->
 
-
+<?php  }  ?>
 
        <!-- List-->
      @endforeach
@@ -241,7 +250,7 @@ Login to lke comment....
 
   </div>
 
-  </div>
+ 
 </div>
   </div>
 </section>

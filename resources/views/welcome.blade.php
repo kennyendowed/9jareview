@@ -33,17 +33,23 @@
 
                            @if(count($additional_info) > 0)
                              @foreach($additional_info as $pages)
+                              <?php //$user = Auth::user();  ?
+ $c=App\User::where('id', '=', $pages->created_by)->get();
+  $rc=App\sub_industries::where('sub_ind_id', '=', $pages->sub_in_id)->get();
+foreach ($c as $lue) { 
+  foreach ($rc as $rclue) { 
+    ?>
                            <!-- Blog Post -->
                  <div class="card mb-4">
                    <div class="card-body">
-                     <h1 class="card-title pos">{{$topicname->name}}</h1>
+                     <h1 class="card-title pos">{{$rclue->name}}</h1>
                     <p class="pos"> {{$pages->location}} / {{$pages->city}} / {{$pages->state}}</p>
                       <h2 class="card-title pos">{{$pages->topic_name}}</h2>
                       <p class="card-text">{{html_entity_decode(str_limit($pages->description, 100)) }}</p>
                      <a href="{{route('comment',['name'=>$pages->location,'id'=>$pages->topic_id])}}" class="btn btn-primary">Read More &rarr;</a>
                    </div>
                    <div class="card-footer text-muted">
-                     Posted on  {{$pages->created_at->diffForHumans() }}  by 	{{$post->user->name}}
+                     Posted on  {{$pages->created_at->diffForHumans() }}  by 	{{$lue->name}}
                      </div>
 
 
@@ -55,11 +61,13 @@
 
 
                  </div>
+                 <?php  } } ?>
                 @endforeach
                 @else
                      {{$additional_info}}  data found
                 @endif
              </div>
+             {{  $additional_info->links() }}
 
                  </div>
                    </div>

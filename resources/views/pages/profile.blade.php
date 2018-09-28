@@ -27,18 +27,23 @@
 
                                     </div>
                             <div class="card-body">
-                            	   <!--  @if (Storage::disk('uploads')->has($user->id. '' . $user->username. '.jpg')) -->
+                            
                             	            <div class="profile-header-container">
                 <div class="profile-header-img">
-
-                    <img class="img-fluid2 rounded-circle" src="{{ route('account.image', ['filename' =>$user->avatar]) }}" />
+                        <?php //$user = Auth::user();  
+          if(!empty($r->avatar)){?>
+         <img class="img-fluid2 rounded-circle" src="{{ route('account.image', ['filename' =>$r->avatar]) }}" />
+      <?php }else{?>
+             <img class="img-fluid2 rounded-circle" src="{{URL::asset('img/default_ava.gif ') }}" />
+   <?php   }  ?>
+                  
                     <!-- badge -->
                     <div class="rank-label-container">
-                        <span class="label label-default rank-label">{{$user->name}}</span>
+                        <span class="label label-default rank-label">{{$r->name}}</span>
                     </div>
                 </div>
             </div>
-             <!--  @endif -->
+        
 
                             	  <form method="POST" action="{{ route('Update_profile') }}" enctype="multipart/form-data" aria-label="{{ __('Update Profile') }}">
                         @csrf
@@ -47,7 +52,7 @@
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value=" {{ $user->name}}" required autofocus>
+                                <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value=" {{ $r->name}}" required autofocus>
 
                                 @if ($errors->has('name'))
                                     <span class="invalid-feedback" role="alert">
@@ -60,7 +65,7 @@
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Username') }}</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" name="username" value="{{ $user->username}}" required autofocus>
+                                <input id="name" type="text" class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" name="username" value="{{ $r->username}}" required autofocus>
 
                                 @if ($errors->has('username'))
                                     <span class="invalid-feedback" role="alert">
@@ -73,7 +78,7 @@
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Phone') }}</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="phone" value="{{ $user->phone}}" required autofocus>
+                                <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="phone" value="{{ $r->phone}}" required autofocus>
 
                                 @if ($errors->has('phone'))
                                     <span class="invalid-feedback" role="alert">
@@ -87,7 +92,7 @@
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value=" {{ $user->email}}" required>
+                                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value=" {{ $r->email}}" required>
 
                                 @if ($errors->has('email'))
                                     <span class="invalid-feedback" role="alert">

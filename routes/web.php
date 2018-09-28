@@ -49,5 +49,5 @@ Route::post('/save_new_reply_comment','TopicController@createreply')->name('save
   Route::get('/contact', 'HomeController@contact')->name('contact');
     Route::post('/Update_profile', 'HomeController@Update_profile')->name('Update_profile');
  Route::post('/like', ['uses' => 'HomeController@postLikePost','as' => 'like']);
- Route::get('/storage/app/public/{username}', ['uses' => 'HomeController@getUserImage','as' => 'account.image']);
+ Route::get('/img/{username}', ['uses' => 'HomeController@getUserImage','as' => 'account.image']);
 });

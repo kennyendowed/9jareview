@@ -43,7 +43,8 @@ class HomeController extends Controller
         $post = comments::find(1);
       $subitems = sub_industries::all(['ind_id','sub_ind_id', 'name']);
       $items = industries::all(['ind_id', 'name']);
-      $additional_info = topics::orderBy('id', 'desc')->take(5)->get();
+      //$additional_info = topics::orderBy('id', 'desc')->take(5)->get();
+       $additional_info = topics::orderBy('id', 'desc')->paginate(5);
         // $additional_info = sub_industries::
         //                   where('sub_in_id',$additional_info->sub_in_id)
         //                   ->get();
@@ -192,7 +193,9 @@ public function updatepost($id){
 
 public function updateprofile ()
 {
-    return view('pages.profile',['user' => Auth::user()]);
+  $r= Auth::user();
+   $post = comments::find(1);
+    return view('pages.profile',compact('post', $post,'r',$r));
 }
 
 
