@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Sep 27, 2018 at 02:45 PM
+-- Generation Time: Sep 28, 2018 at 06:24 AM
 -- Server version: 5.7.23-0ubuntu0.18.04.1
 -- PHP Version: 7.1.19-1+ubuntu17.10.1+deb.sury.org+1
 
@@ -107,7 +107,8 @@ CREATE TABLE `likes` (
 INSERT INTO `likes` (`id`, `post_id`, `user_id`, `likes_count`, `posted_at`, `updated_at`, `created_at`) VALUES
 (3, 1, 2, 0, '2018-09-27 12:48:02', '2018-09-27 11:48:02', '2018-09-27 11:48:02'),
 (11, 3, 4, 1, '2018-09-27 13:40:19', '2018-09-27 12:40:19', '2018-09-27 12:40:19'),
-(12, 3, 5, 1, '2018-09-27 13:41:21', '2018-09-27 12:41:21', '2018-09-27 12:41:21');
+(12, 3, 5, 1, '2018-09-27 13:41:21', '2018-09-27 12:41:21', '2018-09-27 12:41:21'),
+(13, 2, 4, 1, '2018-09-28 05:21:04', '2018-09-28 04:21:04', '2018-09-28 04:20:48');
 
 -- --------------------------------------------------------
 
@@ -137,7 +138,10 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (9, '2018_09_20_163943_create_comments_table', 7),
 (10, '2018_09_21_151024_create_ratings_table', 7),
 (11, '2018_09_23_212350_create_ratings_table', 8),
-(12, '2018_09_25_154001_create_chirps_table', 9);
+(12, '2018_09_25_154001_create_chirps_table', 9),
+(13, '2018_09_25_085131_create_ratings_table', 10),
+(14, '2018_09_25_085903_create_posts_table', 10),
+(15, '2018_09_27_171441_create_replycomments_table', 10);
 
 -- --------------------------------------------------------
 
@@ -177,7 +181,33 @@ CREATE TABLE `ratings` (
 INSERT INTO `ratings` (`id`, `created_at`, `updated_at`, `rating`, `title`, `message`, `rateable_type`, `rateable_id`, `user_id`, `topic_id`) VALUES
 (1, '2018-09-27 11:32:13', '2018-09-27 11:32:13', 2, 'Bad responses time', 'I am developing a site at the moment which allows people to create articles in a blog format.\r\n\r\nA feature of the site allows other users to \'like\' and \'comment\' on the article.\r\n\r\nI am wanting to count the number of likes and comments an article has and display the count in a summary at the top of the article page. (A bit like the way Jeffrey displays the number of comments on a forum post in the right side of the listing page)\r\n\r\nCurrently, if a user comments on an article, I post the comment to the Comments table. Similarly, if a user \'likes\' an article, I post the like to the Likes table. Using my current architecture, it means I have to query the comments table and get the count, then query the likes table for the count each time an article is viewed.\r\n\r\nI am wondering if a better architecture would be to add 2 columns (Counts, Comments) to the Articles table and add/remove an increment each time a user adds/removes a like or comment? The idea would then be to simply display the count in the article without having to query or join other tables.', 'App\\topics', 1, 2, 14577948),
 (2, '2018-09-27 11:33:32', '2018-09-27 11:33:32', 1, 'sharon cold', 'i am also not happy with the way the customer service is render', 'App\\topics', 1, 2, 14577948),
-(3, '2018-09-27 12:05:37', '2018-09-27 12:05:37', 2, 'south west', 'i am also not happy with the way the customer service is render ask me why', 'App\\topics', 1, 4, 14577948);
+(3, '2018-09-27 12:05:37', '2018-09-27 12:05:37', 2, 'south west', 'i am also not happy with the way the customer service is render ask me why', 'App\\topics', 1, 4, 14577948),
+(4, '2018-09-27 15:10:59', '2018-09-27 15:10:59', 4, 'again goal', 'am a happy customer of this network ice cream', 'App\\topics', 1, 5, 14577948),
+(5, '2018-09-27 15:58:09', '2018-09-27 15:58:09', 3, 'Bad responses time', 'I find your service poor', 'App\\topics', 2, 4, 60042347);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `replycomments`
+--
+
+CREATE TABLE `replycomments` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `rating_id` int(11) NOT NULL,
+  `user_id` int(10) UNSIGNED NOT NULL,
+  `message` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `replycomments`
+--
+
+INSERT INTO `replycomments` (`id`, `rating_id`, `user_id`, `message`, `created_at`, `updated_at`) VALUES
+(1, 5, 4, 'i take back my word', '2018-09-27 16:50:42', '2018-09-27 16:50:42'),
+(2, 3, 4, 'i am happy after been i got a call back', '2018-09-28 04:18:45', '2018-09-28 04:18:45'),
+(3, 3, 4, 'problem number 4', '2018-09-28 04:19:48', '2018-09-28 04:19:48');
 
 -- --------------------------------------------------------
 
@@ -268,7 +298,8 @@ CREATE TABLE `topics` (
 --
 
 INSERT INTO `topics` (`id`, `sub_in_id`, `rating_cache`, `rating_count`, `state`, `city`, `topic_name`, `description`, `location`, `topic_id`, `created_at`, `updated_at`, `created_by`) VALUES
-(1, 14138155, 3.0, 0, 'rivers', 'Port Harcourt', 'Bad responses time', 'I am developing a site at the moment which allows people to create articles in a blog format.\r\n\r\nA feature of the site allows other users to \'like\' and \'comment\' on the article.\r\n\r\nI am wanting to count the number of likes and comments an article has and display the count in a summary at the top of the article page. (A bit like the way Jeffrey displays the number of comments on a forum post in the right side of the listing page)\r\n\r\nCurrently, if a user comments on an article, I post the comment to the Comments table. Similarly, if a user \'likes\' an article, I post the like to the Likes table. Using my current architecture, it means I have to query the comments table and get the count, then query the likes table for the count each time an article is viewed.\r\n\r\nI am wondering if a better architecture would be to add 2 columns (Counts, Comments) to the Articles table and add/remove an increment each time a user adds/removes a like or comment? The idea would then be to simply display the count in the article without having to query or join other tables.', 'ajah', 14577948, '2018-09-27 12:32:13', '2018-09-27 12:32:13', 2);
+(1, 14138155, 3.0, 0, 'rivers', 'Port Harcourt', 'Bad responses time', 'I am developing a site at the moment which allows people to create articles in a blog format.\r\n\r\nA feature of the site allows other users to \'like\' and \'comment\' on the article.\r\n\r\nI am wanting to count the number of likes and comments an article has and display the count in a summary at the top of the article page. (A bit like the way Jeffrey displays the number of comments on a forum post in the right side of the listing page)\r\n\r\nCurrently, if a user comments on an article, I post the comment to the Comments table. Similarly, if a user \'likes\' an article, I post the like to the Likes table. Using my current architecture, it means I have to query the comments table and get the count, then query the likes table for the count each time an article is viewed.\r\n\r\nI am wondering if a better architecture would be to add 2 columns (Counts, Comments) to the Articles table and add/remove an increment each time a user adds/removes a like or comment? The idea would then be to simply display the count in the article without having to query or join other tables.', 'ajah', 14577948, '2018-09-27 12:32:13', '2018-09-27 12:32:13', 2),
+(2, 20544751, 3.0, 0, 'Lagos', 'Lagos', 'Bad responses time', 'I find your service poor', 'Agege', 60042347, '2018-09-27 16:58:09', '2018-09-27 16:58:09', 4);
 
 -- --------------------------------------------------------
 
@@ -299,7 +330,7 @@ INSERT INTO `users` (`id`, `name`, `phone`, `username`, `isadmin`, `ip_address`,
 (2, 'kennyendowed@ymail.com', '08120960876', 'kennyendowed', 'admin', '::1', 'kennyendowed@ymail.com', '$2y$10$BzwVpaf/cDUAyyObFBg61uJiye2Zjt.PFN.KteuYatBwI3UXzynxe', '9bajVs2JtGc7XyHLpBk07tTfPVao2Q36jI2E1crZjqqHpug9PoU8Uh7kSpMb', '2018-09-20 08:26:27', '2018-09-20 08:26:27'),
 (3, 'favour peters', '0564564564', 'fav401', 'default', '::1', 'fav401@gmail.com', '$2y$10$dlXUeg2uV0Kq2OMAacO71Okdu1l2gugwMHZn08fenO0LJEYWPqoam', 'OeGSmDgulcUnNki8MAJdJygbE7LVXePcAwYWk7tFzX6u9kFeQKmKgNnBxAT1', '2018-09-20 11:07:27', '2018-09-20 11:07:27'),
 (4, 'peace', '0564564564', 'emi', 'default', '::1', 'kenneyg50@gmail.com', '$2y$10$qC5FiJl3IUzk4YysmM8qLOVYal4rhonB6vJciGH/6j3ICZA5LwzXC', 'IT7grHZ1M4d2W6bu0MRuLke0xZIbf4gsAbXxIV186Ib8QEh48FfaCGH3csm9', '2018-09-20 16:01:43', '2018-09-20 16:01:43'),
-(5, 'micheal adah', '0564564564', 'mic', 'default', '::1', 'myckhel123@gmail.com', '$2y$10$iFnJYBTUoBafJ53c6N.bMeBz5DXEB2O.J8.8bgPPPyJUlMQ9D7Xwe', NULL, '2018-09-27 12:41:09', '2018-09-27 12:41:09');
+(5, 'micheal adah', '0564564564', 'mic', 'default', '::1', 'myckhel123@gmail.com', '$2y$10$iFnJYBTUoBafJ53c6N.bMeBz5DXEB2O.J8.8bgPPPyJUlMQ9D7Xwe', 'pEa1IhtIbW4DISTz2w05cWRRnUCSlHSctyeRZQfX6G9jseSMsTARbK4SFoDL', '2018-09-27 12:41:09', '2018-09-27 12:41:09');
 
 -- --------------------------------------------------------
 
@@ -371,6 +402,13 @@ ALTER TABLE `ratings`
   ADD KEY `ratings_user_id_index` (`user_id`);
 
 --
+-- Indexes for table `replycomments`
+--
+ALTER TABLE `replycomments`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `replycomments_user_id_index` (`user_id`);
+
+--
 -- Indexes for table `reviews`
 --
 ALTER TABLE `reviews`
@@ -418,17 +456,22 @@ ALTER TABLE `industries`
 -- AUTO_INCREMENT for table `likes`
 --
 ALTER TABLE `likes`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT for table `ratings`
 --
 ALTER TABLE `ratings`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT for table `replycomments`
+--
+ALTER TABLE `replycomments`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `reviews`
 --
@@ -443,7 +486,7 @@ ALTER TABLE `sub_industries`
 -- AUTO_INCREMENT for table `topics`
 --
 ALTER TABLE `topics`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `users`
 --
@@ -454,6 +497,16 @@ ALTER TABLE `users`
 --
 ALTER TABLE `wwwtopics`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `replycomments`
+--
+ALTER TABLE `replycomments`
+  ADD CONSTRAINT `replycomments_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
