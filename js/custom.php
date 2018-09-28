@@ -1,5 +1,13 @@
 <script>
+$(".answer").hide();
 
+$("li").click(function(){
+
+  $(this).next().toggle("slow", "swing");
+    $(this).toggleClass("expandedAnswer");
+
+
+});
 $(document).ready(function() {
 
     $('select[name="country"]').on('change', function(){
