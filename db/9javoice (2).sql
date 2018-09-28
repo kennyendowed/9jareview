@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Sep 28, 2018 at 06:24 AM
+-- Generation Time: Sep 28, 2018 at 01:33 PM
 -- Server version: 5.7.23-0ubuntu0.18.04.1
 -- PHP Version: 7.1.19-1+ubuntu17.10.1+deb.sury.org+1
 
@@ -312,6 +312,7 @@ CREATE TABLE `users` (
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `phone` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `username` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `avatar` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `isadmin` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `ip_address` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -325,12 +326,12 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `phone`, `username`, `isadmin`, `ip_address`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'myckhel ishola', '08110000606', 'myckhel', 'default', NULL, 'myckhel1@hotmail.com', '$2y$10$vDh4s8sFye0/UHVdTE3MV.W1LSHNjTKvnk1B0Pth9q2peP0PB.hDi', 'nKoN2PiPFXbPHZY7AQzZI1OlPwG8FsgmGToYJv7j0cXJG4uxDenyfUlkedF2', '2018-09-19 11:09:59', '2018-09-19 11:09:59'),
-(2, 'kennyendowed@ymail.com', '08120960876', 'kennyendowed', 'admin', '::1', 'kennyendowed@ymail.com', '$2y$10$BzwVpaf/cDUAyyObFBg61uJiye2Zjt.PFN.KteuYatBwI3UXzynxe', '9bajVs2JtGc7XyHLpBk07tTfPVao2Q36jI2E1crZjqqHpug9PoU8Uh7kSpMb', '2018-09-20 08:26:27', '2018-09-20 08:26:27'),
-(3, 'favour peters', '0564564564', 'fav401', 'default', '::1', 'fav401@gmail.com', '$2y$10$dlXUeg2uV0Kq2OMAacO71Okdu1l2gugwMHZn08fenO0LJEYWPqoam', 'OeGSmDgulcUnNki8MAJdJygbE7LVXePcAwYWk7tFzX6u9kFeQKmKgNnBxAT1', '2018-09-20 11:07:27', '2018-09-20 11:07:27'),
-(4, 'peace', '0564564564', 'emi', 'default', '::1', 'kenneyg50@gmail.com', '$2y$10$qC5FiJl3IUzk4YysmM8qLOVYal4rhonB6vJciGH/6j3ICZA5LwzXC', 'IT7grHZ1M4d2W6bu0MRuLke0xZIbf4gsAbXxIV186Ib8QEh48FfaCGH3csm9', '2018-09-20 16:01:43', '2018-09-20 16:01:43'),
-(5, 'micheal adah', '0564564564', 'mic', 'default', '::1', 'myckhel123@gmail.com', '$2y$10$iFnJYBTUoBafJ53c6N.bMeBz5DXEB2O.J8.8bgPPPyJUlMQ9D7Xwe', 'pEa1IhtIbW4DISTz2w05cWRRnUCSlHSctyeRZQfX6G9jseSMsTARbK4SFoDL', '2018-09-27 12:41:09', '2018-09-27 12:41:09');
+INSERT INTO `users` (`id`, `name`, `phone`, `username`, `avatar`, `isadmin`, `ip_address`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'myckhel ishola', '08110000606', 'myckhel', '', 'default', NULL, 'myckhel1@hotmail.com', '$2y$10$vDh4s8sFye0/UHVdTE3MV.W1LSHNjTKvnk1B0Pth9q2peP0PB.hDi', 'nKoN2PiPFXbPHZY7AQzZI1OlPwG8FsgmGToYJv7j0cXJG4uxDenyfUlkedF2', '2018-09-19 11:09:59', '2018-09-19 11:09:59'),
+(2, 'kennyendowed@ymail.com', '08120960876', 'kennyendowed', '', 'admin', '::1', 'kennyendowed@ymail.com', '$2y$10$BzwVpaf/cDUAyyObFBg61uJiye2Zjt.PFN.KteuYatBwI3UXzynxe', '9bajVs2JtGc7XyHLpBk07tTfPVao2Q36jI2E1crZjqqHpug9PoU8Uh7kSpMb', '2018-09-20 08:26:27', '2018-09-20 08:26:27'),
+(3, 'favour peters', '0564564564', 'fav401', '', 'default', '::1', 'fav401@gmail.com', '$2y$10$dlXUeg2uV0Kq2OMAacO71Okdu1l2gugwMHZn08fenO0LJEYWPqoam', 'OeGSmDgulcUnNki8MAJdJygbE7LVXePcAwYWk7tFzX6u9kFeQKmKgNnBxAT1', '2018-09-20 11:07:27', '2018-09-20 11:07:27'),
+(4, 'Peace Akpan johnson', '081234564564', 'Emi', '4Emi.jpg', 'default', '::1', 'kenneyg50@gmail.com', '$2y$10$qC5FiJl3IUzk4YysmM8qLOVYal4rhonB6vJciGH/6j3ICZA5LwzXC', 'IT7grHZ1M4d2W6bu0MRuLke0xZIbf4gsAbXxIV186Ib8QEh48FfaCGH3csm9', '2018-09-20 16:01:43', '2018-09-28 11:29:51'),
+(5, 'micheal adah', '0564564564', 'mic', '', 'default', '::1', 'myckhel123@gmail.com', '$2y$10$iFnJYBTUoBafJ53c6N.bMeBz5DXEB2O.J8.8bgPPPyJUlMQ9D7Xwe', 'pEa1IhtIbW4DISTz2w05cWRRnUCSlHSctyeRZQfX6G9jseSMsTARbK4SFoDL', '2018-09-27 12:41:09', '2018-09-27 12:41:09');
 
 -- --------------------------------------------------------
 
