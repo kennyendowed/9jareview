@@ -9,6 +9,7 @@ use App\User;
 use App\Rating;
 use App\Chirp;
 use App\Like;
+use App\replycomment;
 use Illuminate\Http\Request;
 use App\Post;
 
@@ -34,6 +35,7 @@ class HomeController extends Controller
     public function index()
     {
       $topicname= sub_industries::find(1);
+
  $gt=industries::find(1);
         $post = comments::find(1);
       $subitems = sub_industries::all(['ind_id','sub_ind_id', 'name']);
@@ -71,6 +73,7 @@ public function load_comment($name,$id)
  // $like = Like::where('post_id','=', $id)->get();
 
        // $like = $user->likes()->where('post_id', $id)->get();
+       $replycomment=Rating::find($id);
   $cpost = comments::find($id);
   $topicname = sub_industries::find(1);
   $post = comments::find(1);
@@ -91,7 +94,7 @@ public function load_comment($name,$id)
 // }
 
 
-return view('pages.comment', compact('items',$items,'like',$like,'subitems',$subitems,'cpost',$cpost,'additional_info',$additional_info,'comments',$comments,'post',$post,'topicname',$topicname));
+return view('pages.comment', compact('replycomment', $replycomment,'items',$items,'like',$like,'subitems',$subitems,'cpost',$cpost,'additional_info',$additional_info,'comments',$comments,'post',$post,'topicname',$topicname));
 }
 
 public function posts()

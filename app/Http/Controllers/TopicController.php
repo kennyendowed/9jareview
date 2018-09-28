@@ -96,7 +96,7 @@ $topicid=topics::where("topic_id",$topic_id)->first();
     {
         
   $post = replycomment::create(array(
-        'comment_id'=>$request->comment_id,
+        'rating_id'=>$request->comment_id,
         'message' => $request->message,
      'user_id' => Auth::user()->id
    ));

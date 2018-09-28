@@ -105,8 +105,22 @@
                     @php $rating--; @endphp
                 </span>
             @endforeach
-    <p style="float:right; display:block;">{{$comment->message}}  <br>
+    <p style="float:right; display:block;">{{$comment->message}}  <br> <br>
+      
+      <?php 
+if(!$comment->reply==false){
+      foreach ($comment->reply as  $value) {
+        # code...
+        echo "-update  <br> <br>".$value->message;
+      }  
+    }
+    else{
+
+    }?>
+  
+        <br>
       <small class="">
+      
 
    <?php
     foreach($like as $likes){

@@ -19,13 +19,18 @@ class Rating extends Model
      *
      * @return User
      */
-    public function user()
+     public function user()
     {
         return $this->belongsTo('User');
     }
  public function likes()
     {
         return $this->hasMany('App\Like');
+    }
+
+     public function reply()
+    {
+        return $this->hasMany(replycomment::class);
     }
 
 public function getTotalLikesAttribute()
