@@ -27,7 +27,7 @@
 
                                     </div>
                             <div class="card-body">
-                            	   <!--  @if (Storage::disk('public')->has($user->id. '' . $user->username. '.jpg')) -->
+                            	   <!--  @if (Storage::disk('uploads')->has($user->id. '' . $user->username. '.jpg')) -->
                             	            <div class="profile-header-container">
                 <div class="profile-header-img">
 

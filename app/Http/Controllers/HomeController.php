@@ -198,7 +198,7 @@ public function updateprofile ()
 
   public function getUserImage($filename)
     {
-        $file = Storage::disk('public')->get($filename);
+        $file = Storage::disk('uploads')->get($filename);
         return new Response($file, 200);
     }
 
@@ -219,7 +219,7 @@ public function Update_profile(Request $request)
         $user = Auth::user();
 
 $avatarName = $user->id.''.$request['username'].'.'.request()->image->getClientOriginalExtension();
- 
+
         $old_name = $user->username;
         $user->name = $request['name'];
         $user->username = $request['username'];
@@ -233,13 +233,13 @@ $avatarName = $user->id.''.$request['username'].'.'.request()->image->getClientO
       //  $filename = $request['username'] . '-' . $user->id . '.jpg';
        // $old_filename = $old_name . '-' . $user->id . '.jpg';
         $update = false;
-        if (Storage::disk('public')->has($old_filename)) {
-            $old_file = Storage::disk('public')->get($old_filename);
-            Storage::disk('public')->put($filename, $old_file);
+        if (Storage::disk('uploads')->has($old_filename)) {
+            $old_file = Storage::disk('uploads')->get($old_filename);
+            Storage::disk('uploads')->put($filename, $old_file);
             $update = true;
         }
         if ($file) {
-            Storage::disk('public')->put($filename, File::get($file));
+            Storage::disk('uploads')->put($filename, File::get($file));
         }
         if ($update && $old_filename !== $filename) {
             Storage::delete($old_filename);
