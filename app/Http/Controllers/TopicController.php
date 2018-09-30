@@ -7,6 +7,7 @@ use App\sub_industries;
 use App\topics;
 use App\Rating;
 use App\replycomment;
+use App\LaravelEmojiOne;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
@@ -55,12 +56,12 @@ class TopicController extends Controller
 
    ]);
 $topic_id=mt_rand(13, rand(100, 99999990));
-
+$emoji=new LaravelEmojiOne;
       $post = topics::create(array(
         'sub_in_id'=>$request->state,
        'topic_id' =>$topic_id,
         'topic_name' => $request->title,
-       'description' => $request->message,
+       'description' => $emoji->toShort($request->message),
        'location' => $request->location,
        'city' => $request->city,
        'state' => $request->state2,
@@ -69,14 +70,14 @@ $topic_id=mt_rand(13, rand(100, 99999990));
 
 
 $topicid=topics::where("topic_id",$topic_id)->first();
-        
+  
 
           $post = $topicid->id;
 
           $rating = new \willvincent\Rateable\Rating;
           $rating->rating = $request->star;
                    $rating->title = $request->title;
-            $rating->message = $request->message;
+            $rating->message = $emoji->oShort($request->message);
               $rating->topic_id = $topicid->topic_id;
           $rating->user_id = auth()->user()->id;
 
@@ -94,10 +95,10 @@ $topicid=topics::where("topic_id",$topic_id)->first();
      */
     public function createreply(Request $request)
     {
-        
+       $emoji=new LaravelEmojiOne; 
   $post = replycomment::create(array(
         'rating_id'=>$request->comment_id,
-        'message' => $request->message,
+        'message' =>$emoji->toShort($request->message),
      'user_id' => Auth::user()->id
    ));
 

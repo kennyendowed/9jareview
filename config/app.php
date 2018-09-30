@@ -147,6 +147,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         willvincent\Rateable\RateableServiceProvider::class,
+        ChristofferOK\LaravelEmojiOne\LaravelEmojiOneServiceProvider::class,
 
 
         /*
@@ -177,7 +178,8 @@ return [
     */
 
     'aliases' => [
-
+        'Emoji' => Unicodeveloper\Emoji\Facades\Emoji::class,
+        'LaravelEmojiOne' => ChristofferOK\LaravelEmojiOne\LaravelEmojiOneFacade::class,
         'App' => Illuminate\Support\Facades\App::class,
         'Artisan' => Illuminate\Support\Facades\Artisan::class,
         'Auth' => Illuminate\Support\Facades\Auth::class,

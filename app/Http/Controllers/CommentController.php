@@ -9,6 +9,7 @@ use App\topics;
 use App\User;
 use App\Rating;
 use App\Review;
+use App\LaravelEmojiOne;
 use Illuminate\Support\Facades\Input;
 use willvincent\Rateable\Rateable;
 use Illuminate\Http\Request;
@@ -47,11 +48,11 @@ class CommentController extends Controller
            //   'user_id' => Auth::user()->id
            // ));
            $post = topics::find($request->id);
-
+$emoji=new LaravelEmojiOne;
           $rating = new \willvincent\Rateable\Rating;
           $rating->rating = $request->star;
                    $rating->title = $request->title;
-            $rating->message = $request->message;
+            $rating->message =$emoji->toShort($request->message);
               $rating->topic_id = $request->topicid;
           $rating->user_id = auth()->user()->id;
 

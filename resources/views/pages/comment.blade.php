@@ -114,15 +114,15 @@ foreach ($c as $lue) {
                     @php $rating--; @endphp
                 </span>
             @endforeach
-    <p style="float:right; display:block;">{{$comment->message}}  <br> <br>
+    <p style="float:right; display:block;">@emojione($comment->message) <br> <br>
       
       <?php 
-if(!$comment->reply==false){
-      foreach ($comment->reply as  $value) {
-        # code...
-        echo "-update <small class='pu'> ".Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $value->created_at)->toDayDateTimeString()."</small> <br>".$value->message."<br><br>";
-      }  
-    }
+if(!$comment->reply==false){?>
+      @foreach ($comment->reply as  $value) {
+        
+       -update <small class='pu'> {{Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $value->created_at)->toDayDateTimeString()}}</small> <br>@emojione($value->message)<br><br>
+ @endforeach
+   <?php }
     else{
 
     }?>
@@ -221,17 +221,17 @@ Login to lke comment....
     <label class="star star-3" for="star-3"></label>
     <input class="star star-2" id="star-2" type="radio" value="2" name="star"/>
     <label class="star star-2" for="star-2"></label>
-    <input class="star star-1" id="star-1" type="radio" value="1" name="star"/>
+    <input class="star star-1" id="star-1" type="radio" value="1" name="star" />
     <label class="star star-1" for="star-1"></label>
   </div>
    <div class="col-md-8">
-                                           <input id="title" type="text" placeholder="Title" class="form-control{{ $errors->has('title') ? ' is-invalid' : '' }}" name="title" value="{{ old('title') }}" autofocus>
+                                           <input id="title" type="text" placeholder="Title" class="form-control{{ $errors->has('title') ? ' is-invalid' : '' }}" name="title" value="{{ old('title') }}" required="required" autofocus>
                                        </div>
       <div class="input-group">
 
               <input class="form-control" type="hidden" name="topicid" value="{{$pages->topic_id}}" placeholder="">
         <input class="form-control" type="hidden" name="id" value="{{$pages->id}}" placeholder="">
-        <input type="text" class="form-control" name="message" placeholder="Type message...">
+        <input type="text" class="form-control" name="message" placeholder="Type message..." required="required">
         @if ($errors->has('comment'))
             <span class="invalid-feedback" role="alert">
                 <strong>{{ $errors->first('comment') }}</strong>
