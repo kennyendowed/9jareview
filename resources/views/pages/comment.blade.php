@@ -231,17 +231,18 @@ Login to lke comment....
 
               <input class="form-control" type="hidden" name="topicid" value="{{$pages->topic_id}}" placeholder="">
         <input class="form-control" type="hidden" name="id" value="{{$pages->id}}" placeholder="">
-        <input type="text" class="form-control" name="message" placeholder="Type message..." required="required">
+        <input type="text" class="form-control" name="message" data-emojiable="true" data-emoji-input="unicode" placeholder="Type message..." required="required">
         @if ($errors->has('comment'))
             <span class="invalid-feedback" role="alert">
                 <strong>{{ $errors->first('comment') }}</strong>
             </span>
         @endif
+            </div>
         <div class="input-group-btn">
 
             <button type="submit" class="pull-right btnv btn-default" >Send <i class="fa fa-arrow-circle-right"></i></button>
         </div>
-      </div>
+  
 
                 </div><!-- /.box (chat box) -->
   </form>

@@ -15,7 +15,9 @@
           <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Bootstrap core CSS -->
     <link href="{{URL::asset('public/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
-
+  <!-- Begin emoji-picker Stylesheets -->
+    <link href="{{URL::asset('public/lib/css/emoji.css')}}" rel="stylesheet">
+    <!-- End emoji-picker Stylesheets -->
     <!-- Custom fonts for this template -->
     <link href="{{URL::asset('public/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">

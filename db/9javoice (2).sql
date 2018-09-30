@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Sep 28, 2018 at 01:33 PM
+-- Generation Time: Sep 30, 2018 at 03:43 PM
 -- Server version: 5.7.23-0ubuntu0.18.04.1
 -- PHP Version: 7.1.19-1+ubuntu17.10.1+deb.sury.org+1
 
@@ -183,7 +183,12 @@ INSERT INTO `ratings` (`id`, `created_at`, `updated_at`, `rating`, `title`, `mes
 (2, '2018-09-27 11:33:32', '2018-09-27 11:33:32', 1, 'sharon cold', 'i am also not happy with the way the customer service is render', 'App\\topics', 1, 2, 14577948),
 (3, '2018-09-27 12:05:37', '2018-09-27 12:05:37', 2, 'south west', 'i am also not happy with the way the customer service is render ask me why', 'App\\topics', 1, 4, 14577948),
 (4, '2018-09-27 15:10:59', '2018-09-27 15:10:59', 4, 'again goal', 'am a happy customer of this network ice cream', 'App\\topics', 1, 5, 14577948),
-(5, '2018-09-27 15:58:09', '2018-09-27 15:58:09', 3, 'Bad responses time', 'I find your service poor', 'App\\topics', 2, 4, 60042347);
+(5, '2018-09-27 15:58:09', '2018-09-27 15:58:09', 3, 'Bad responses time', 'I find your service poor', 'App\\topics', 2, 4, 60042347),
+(6, '2018-09-28 13:20:51', '2018-09-28 13:20:51', 3, 'thanksgiving', 'Routing. Stubbing The Routes; Displaying A View ... If you have already used Laravel or other PHP frameworks, you may wish to consult one of our more advanced quickstarts. ... By default, the model class is empty. We do ... Application Image ...', 'App\\topics', 1, 5, 14577948),
+(7, '2018-09-28 15:02:00', '2018-09-28 15:02:00', 1, 'poor network', 'whats up ? I have a little problem with Laravel Paginator.\r\n\r\nI built the function using order by and paginator, but I\'m getting the error message \"Call to undefined method Illuminate \\ Database \\ Query \\ Builder :: links () (View: C: \\ wamp \\ www \\ laravel \\ app \\ views \\ frontend \\ premios.blade.php).', 'App\\topics', 3, 5, 25002533),
+(8, '2018-09-28 15:21:44', '2018-09-28 15:21:44', 3, 'ok', 'tried putting \"$premios->links()\" inside and outside the foreach.Without pagination everything works good tried putting \"$premios->links()\" inside and outside the foreach.Without pagination everything works good tried putting \"$premios->links()\" inside and outside the foreach.Without pagination everything works good tried putting \"$premios->links()\" inside and outside the foreach.Without pagination everything works good tried putting \"$premios->links()\" inside and outside the foreach.Without pagination everything works good', 'App\\topics', 2, 5, 60042347),
+(9, '2018-09-29 18:03:25', '2018-09-29 18:03:25', 2, 'thanksgiving', 'nice one but glo is better :smile: :fire::smile: :fire::smile: :fire::smile: :fire:', 'App\\topics', 3, 4, 25002533),
+(10, '2018-09-30 13:41:59', '2018-09-30 13:41:59', 2, 'thanksgiving', ':heart_eyes::see_no_evil::rage::rage::rage::rage::rage:the rush ', 'App\\topics', 3, 2, 25002533);
 
 -- --------------------------------------------------------
 
@@ -207,7 +212,9 @@ CREATE TABLE `replycomments` (
 INSERT INTO `replycomments` (`id`, `rating_id`, `user_id`, `message`, `created_at`, `updated_at`) VALUES
 (1, 5, 4, 'i take back my word', '2018-09-27 16:50:42', '2018-09-27 16:50:42'),
 (2, 3, 4, 'i am happy after been i got a call back', '2018-09-28 04:18:45', '2018-09-28 04:18:45'),
-(3, 3, 4, 'problem number 4', '2018-09-28 04:19:48', '2018-09-28 04:19:48');
+(3, 2, 4, 'After i received a mail from an agent my problem was solved ', '2018-09-28 04:19:48', '2018-09-28 04:19:48'),
+(4, 8, 5, 'I think you may edit the default file. As default Laravel use the bootstrap 3.3.7 template. try editing that view.', '2018-09-28 15:22:12', '2018-09-28 15:22:12'),
+(5, 9, 4, 'So if someone leaves a comment like This is an awesome comment :smile::fire: it will be saved as This is an awesome comment :smile: :fire:', '2018-09-29 18:11:47', '2018-09-29 18:11:47');
 
 -- --------------------------------------------------------
 
@@ -280,8 +287,6 @@ INSERT INTO `sub_industries` (`id`, `sub_ind_id`, `ind_id`, `name`, `updated_at`
 CREATE TABLE `topics` (
   `id` int(11) NOT NULL,
   `sub_in_id` int(11) NOT NULL,
-  `rating_cache` float(2,1) UNSIGNED NOT NULL DEFAULT '3.0',
-  `rating_count` int(11) UNSIGNED NOT NULL DEFAULT '0',
   `state` varchar(255) NOT NULL,
   `city` varchar(255) NOT NULL,
   `topic_name` text NOT NULL,
@@ -297,9 +302,10 @@ CREATE TABLE `topics` (
 -- Dumping data for table `topics`
 --
 
-INSERT INTO `topics` (`id`, `sub_in_id`, `rating_cache`, `rating_count`, `state`, `city`, `topic_name`, `description`, `location`, `topic_id`, `created_at`, `updated_at`, `created_by`) VALUES
-(1, 14138155, 3.0, 0, 'rivers', 'Port Harcourt', 'Bad responses time', 'I am developing a site at the moment which allows people to create articles in a blog format.\r\n\r\nA feature of the site allows other users to \'like\' and \'comment\' on the article.\r\n\r\nI am wanting to count the number of likes and comments an article has and display the count in a summary at the top of the article page. (A bit like the way Jeffrey displays the number of comments on a forum post in the right side of the listing page)\r\n\r\nCurrently, if a user comments on an article, I post the comment to the Comments table. Similarly, if a user \'likes\' an article, I post the like to the Likes table. Using my current architecture, it means I have to query the comments table and get the count, then query the likes table for the count each time an article is viewed.\r\n\r\nI am wondering if a better architecture would be to add 2 columns (Counts, Comments) to the Articles table and add/remove an increment each time a user adds/removes a like or comment? The idea would then be to simply display the count in the article without having to query or join other tables.', 'ajah', 14577948, '2018-09-27 12:32:13', '2018-09-27 12:32:13', 2),
-(2, 20544751, 3.0, 0, 'Lagos', 'Lagos', 'Bad responses time', 'I find your service poor', 'Agege', 60042347, '2018-09-27 16:58:09', '2018-09-27 16:58:09', 4);
+INSERT INTO `topics` (`id`, `sub_in_id`, `state`, `city`, `topic_name`, `description`, `location`, `topic_id`, `created_at`, `updated_at`, `created_by`) VALUES
+(1, 50357077, 'rivers', 'Port Harcourt', 'Bad responses time', 'I am developing a site at the moment which allows people to create articles in a blog format.\r\n\r\nA feature of the site allows other users to \'like\' and \'comment\' on the article.\r\n\r\nI am wanting to count the number of likes and comments an article has and display the count in a summary at the top of the article page. (A bit like the way Jeffrey displays the number of comments on a forum post in the right side of the listing page)\r\n\r\nCurrently, if a user comments on an article, I post the comment to the Comments table. Similarly, if a user \'likes\' an article, I post the like to the Likes table. Using my current architecture, it means I have to query the comments table and get the count, then query the likes table for the count each time an article is viewed.\r\n\r\nI am wondering if a better architecture would be to add 2 columns (Counts, Comments) to the Articles table and add/remove an increment each time a user adds/removes a like or comment? The idea would then be to simply display the count in the article without having to query or join other tables.', 'ajah', 14577948, '2018-09-27 12:32:13', '2018-09-27 12:32:13', 2),
+(2, 50357077, 'Lagos', 'Lagos', 'Bad responses time', 'I find your service poor tried putting \"$premios->links()\" inside and outside the foreach.Without pagination everything works good', 'Agege', 60042347, '2018-09-27 16:58:09', '2018-09-27 16:58:09', 4),
+(3, 14138155, 'lagos', 'lagos', 'poor network', 'whats up ? I have a little problem with Laravel Paginator.\r\n\r\nI built the function using order by and paginator, but I\'m getting the error message \"Call to undefined method Illuminate \\ Database \\ Query \\ Builder :: links () (View: C: \\ wamp \\ www \\ laravel \\ app \\ views \\ frontend \\ premios.blade.php).', 'ikate', 25002533, '2018-09-28 16:02:00', '2018-09-28 16:02:00', 5);
 
 -- --------------------------------------------------------
 
@@ -328,10 +334,10 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `phone`, `username`, `avatar`, `isadmin`, `ip_address`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, 'myckhel ishola', '08110000606', 'myckhel', '', 'default', NULL, 'myckhel1@hotmail.com', '$2y$10$vDh4s8sFye0/UHVdTE3MV.W1LSHNjTKvnk1B0Pth9q2peP0PB.hDi', 'nKoN2PiPFXbPHZY7AQzZI1OlPwG8FsgmGToYJv7j0cXJG4uxDenyfUlkedF2', '2018-09-19 11:09:59', '2018-09-19 11:09:59'),
-(2, 'kennyendowed@ymail.com', '08120960876', 'kennyendowed', '', 'admin', '::1', 'kennyendowed@ymail.com', '$2y$10$BzwVpaf/cDUAyyObFBg61uJiye2Zjt.PFN.KteuYatBwI3UXzynxe', '9bajVs2JtGc7XyHLpBk07tTfPVao2Q36jI2E1crZjqqHpug9PoU8Uh7kSpMb', '2018-09-20 08:26:27', '2018-09-20 08:26:27'),
+(2, 'kennyendowed', '08120960876', 'kennyendowed', '', 'admin', '::1', 'kennyendowed@ymail.com', '$2y$10$BzwVpaf/cDUAyyObFBg61uJiye2Zjt.PFN.KteuYatBwI3UXzynxe', '8FC2zIJ89VCAMbZw4JXuUx0tt0pC7klnD44B5M42PPXWVBGzAfAzb8zH5pD9', '2018-09-20 08:26:27', '2018-09-28 12:00:06'),
 (3, 'favour peters', '0564564564', 'fav401', '', 'default', '::1', 'fav401@gmail.com', '$2y$10$dlXUeg2uV0Kq2OMAacO71Okdu1l2gugwMHZn08fenO0LJEYWPqoam', 'OeGSmDgulcUnNki8MAJdJygbE7LVXePcAwYWk7tFzX6u9kFeQKmKgNnBxAT1', '2018-09-20 11:07:27', '2018-09-20 11:07:27'),
-(4, 'Peace Akpan johnson', '081234564564', 'Emi', '4Emi.jpg', 'default', '::1', 'kenneyg50@gmail.com', '$2y$10$qC5FiJl3IUzk4YysmM8qLOVYal4rhonB6vJciGH/6j3ICZA5LwzXC', 'IT7grHZ1M4d2W6bu0MRuLke0xZIbf4gsAbXxIV186Ib8QEh48FfaCGH3csm9', '2018-09-20 16:01:43', '2018-09-28 11:29:51'),
-(5, 'micheal adah', '0564564564', 'mic', '', 'default', '::1', 'myckhel123@gmail.com', '$2y$10$iFnJYBTUoBafJ53c6N.bMeBz5DXEB2O.J8.8bgPPPyJUlMQ9D7Xwe', 'pEa1IhtIbW4DISTz2w05cWRRnUCSlHSctyeRZQfX6G9jseSMsTARbK4SFoDL', '2018-09-27 12:41:09', '2018-09-27 12:41:09');
+(4, 'Peace Akpan johnson', '081234564564', 'Emi', '4Emi.jpg', 'default', '::1', 'kenneyg50@gmail.com', '$2y$10$qC5FiJl3IUzk4YysmM8qLOVYal4rhonB6vJciGH/6j3ICZA5LwzXC', '0S3pfREbWCLjGADhXwPO0Z0ldGInnXSre3BKqemJONvyOv8D1ckKNDAn3IaO', '2018-09-20 16:01:43', '2018-09-28 12:59:34'),
+(5, 'micheal adah', '0564564564', 'mic', '5mic.jpg', 'default', '::1', 'myckhel123@gmail.com', '$2y$10$iFnJYBTUoBafJ53c6N.bMeBz5DXEB2O.J8.8bgPPPyJUlMQ9D7Xwe', 'f6r6lPh0QwZzoh9bZY1b75e5iZJ6kBqHg1B0Mr8GD0gaL0pX2hHxgTCfVONQ', '2018-09-27 12:41:09', '2018-09-28 14:04:45');
 
 -- --------------------------------------------------------
 
@@ -467,12 +473,12 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `ratings`
 --
 ALTER TABLE `ratings`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `replycomments`
 --
 ALTER TABLE `replycomments`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `reviews`
 --
@@ -487,7 +493,7 @@ ALTER TABLE `sub_industries`
 -- AUTO_INCREMENT for table `topics`
 --
 ALTER TABLE `topics`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `users`
 --
