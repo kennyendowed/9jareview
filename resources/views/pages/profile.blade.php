@@ -104,7 +104,7 @@
                           <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Profile Image (only .jpg)') }}</label>
                           <div class="col-md-6">
-                    <input type="file" name="image" class="form-control" id="image" aria-describedby="fileHelp">
+                    <input type="file" name="image"  class="form-control" id="image" aria-describedby="fileHelp">
                      <small id="fileHelp" class="form-text text-muted">Please upload a valid image file. Size of image should not be more than 2MB.</small>
                 </div>
                        </div>

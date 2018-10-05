@@ -15,6 +15,7 @@ use App\Post;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Input;
 
 class HomeController extends Controller
 {
@@ -213,25 +214,30 @@ public function Update_profile(Request $request)
             'username' => 'required|string|max:40',
             'phone' => 'required|string|max:20',
             'email' => 'required|string|email|max:255',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
        // $request->avatar->storeAs('avatars',$avatarName);
 
-
+     
         $user = Auth::user();
-
-$avatarName = $user->id.''.$request['username'].'.'.request()->image->getClientOriginalExtension();
+ if(Input::file('image')){
+       $avatarName = $user->id.''.$request['username'].'.'.request()->image->getClientOriginalExtension();
+     }
 
         $old_name = $user->username;
         $user->name = $request['name'];
         $user->username = $request['username'];
         $user->phone = $request['phone'];
         $user->email = $request['email'];
-        $user->avatar = env('APP_URL').'/img/'.$avatarName;
+     if(isset($avatarName)) { 
+      $user->avatar =    env('APP_URL').'/img/'.$avatarName;
+    }
+
         $user->update();
+
+
         $file = $request->file('image');
-        $filename = $avatarName;
+     if(isset($avatarName)) {      $filename = $avatarName;
          $old_filename= $avatarName;
       //  $filename = $request['username'] . '-' . $user->id . '.jpg';
        // $old_filename = $old_name . '-' . $user->id . '.jpg';
@@ -247,6 +253,8 @@ $avatarName = $user->id.''.$request['username'].'.'.request()->image->getClientO
         if ($update && $old_filename !== $filename) {
             Storage::delete($old_filename);
         }
+
+         }
     $message ='Account has been successfully updated!';
   return redirect()->back()->with('status', $message);
 }

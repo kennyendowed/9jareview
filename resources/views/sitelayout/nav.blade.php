@@ -37,9 +37,9 @@
            <li class="nav-item">
              <a class="nav-link js-scroll-trigger co"  href="{{ url('/') }}">Guest Home</a>
            </li>
-           <li class="nav-item">
+          <!--  <li class="nav-item">
              <a class="nav-link js-scroll-trigger" href="#about">Reviews</a>
-           </li>
+           </li> -->
            <li class="nav-item">
              <a class="nav-link js-scroll-trigger" href="{{route('profile') }}">Profile</a>
            </li>
@@ -71,9 +71,9 @@
 <li class="nav-item">
   <a class="nav-link js-scroll-trigger"  href="{{ url('/') }}">Home</a>
 </li>
-<li class="nav-item">
+<!-- <li class="nav-item">
   <a class="nav-link js-scroll-trigger" href="#about">Reviews</a>
-</li>
+</li> -->
 <li class="nav-item">
   <a class="nav-link js-scroll-trigger" href="#scontact">Contact</a>
 </li>
@@ -95,7 +95,7 @@
   <div class="container d-flex h-100 align-items-center">
     <div class="mx-auto text-center">
       <h1 class="mx-auto my-0 text-uppercase">Naija - Reviews</h1>
-      <h2 class="text-white-50 mx-auto mt-2 mb-5">Naija - Reviews - giving you the news the mainstream won't broadcast. Your view and opinion matter Let's spaekle your day by lisiting.</h2>
+      <h2 class="text-white-50 mx-auto mt-2 mb-5">Naija - Reviews -Giving you the news the mainstream won't broadcast. Your view and opinion matter Let's spaekle your day by lisiting.</h2>
       <a href="#about" class="btn btn-primary js-scroll-trigger">Get Started</a>
     </div>
   </div>
