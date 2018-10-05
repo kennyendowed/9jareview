@@ -50,7 +50,12 @@
   <div class="card mb-4">
    <div class="card-body">
        @foreach($additional_info as $pages)
-       <h1 class="card-title pos">{{$topicname->name}}  @php $rating = $pages->averageRating; @endphp
+
+         <?php //$user = Auth::user();  ?
+  $rc=App\sub_industries::where('sub_ind_id', '=', $pages->sub_in_id)->get();
+  foreach ($rc as $rclue) { 
+    ?>
+       <h1 class="card-title pos">{{$rclue->name}}  @php $rating = $pages->averageRating; @endphp
 
             @foreach(range(1,5) as $i)
                 <span class="fa-stack" style="width:1em">
@@ -69,6 +74,7 @@
                     <p class="pos"> {{$pages->location}} / {{$pages->city}} / {{$pages->state}}
 
             </p>
+                     <?php  } ?>
               @endforeach
 
      <ul class="feed-elements list-unstyled">
