@@ -42,8 +42,23 @@ foreach ($c as $lue) {
                            <!-- Blog Post -->
                  <div class="card mb-4">
                    <div class="card-body">
-                     <h1 class="card-title pos">{{$rclue->name}}</h1>
-                    <p class="pos"> {{$pages->location}} / {{$pages->city}} / {{$pages->state}}</p>
+                     <h1 class="card-title pos">{{$rclue->name}}  @php $rating = $pages->averageRating; @endphp
+
+            @foreach(range(1,5) as $i)
+                <span class="fa-stack" style="width:1em">
+                    <i class="far fa-star fa-stack-1x starco"></i>
+
+                    @if($rating >0)
+                        @if($rating >0.5)
+                            <i class="fas fa-star fa-stack-1x starco"></i>
+                        @else
+                            <i class="fas fa-star-half fa-stack-1x starco"></i>
+                        @endif
+                    @endif
+                    @php $rating--; @endphp
+                </span>
+            @endforeach</h1>
+                    <p class="pos"> {{$pages->location}} / {{$pages->city}} / {{$pages->state}} /</p>
                       <h2 class="card-title pos">{{$pages->topic_name}}</h2>
                       <p class="card-text">{{html_entity_decode(str_limit($pages->description, 100)) }}</p>
                      <a href="{{route('comment',['name'=>$pages->location,'id'=>$pages->topic_id])}}" class="btn btn-primary">Read More &rarr;</a>
