@@ -5,13 +5,14 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
+   
  <title>@yield('title') - {{config('app.name')}}</title>
-    <meta name="description" content="">
-         <meta name="Author" content="Naija - Reviews">
-
+    <meta name="description" content="Giving you the news the mainstream won't broadcast. Your view and opinion matter Let's spaekle your day by lisiting">
+     <meta name="Author" content="Naija - Reviews">
+<meta name="keywords" content="Naija,Reviews,NaijaReviews" />
+<meta name="author" content="metatags generator">
+<meta name="robots" content="index, follow">
+<meta name="revisit-after" content="3 days">
           <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Bootstrap core CSS -->
     <link href="{{URL::asset('public/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
