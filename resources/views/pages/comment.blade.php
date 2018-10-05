@@ -16,7 +16,7 @@
 
         <!-- Categories Widget -->
         <div class="card my-4">
-          <h5 class="card-header">Categories</h5>
+          <h5 class="card-header">Industries</h5>
           <div class="card-body">
             <div class="row">
               <div class="col-lg-10">
@@ -88,7 +88,7 @@ foreach ($c as $lue) {
 
 
           if(!empty($lue->avatar)){?>
-        <img class="img-fluid2 rounded-circle" src="{{ route('account.image', ['filename' =>$lue->avatar]) }}" />
+        <img class="img-fluid2 rounded-circle" src="{{ $lue->avatar }}" />
       <?php }else{?>
              <img class="img-fluid2 rounded-circle" src="{{URL::asset('img/default_ava.gif ') }}" />
    <?php   }  ?>
@@ -212,8 +212,8 @@ Login to lke comment....
                                                </span>
                                            @endif
                           </div> -->
-         <div class="stars">
-    <input  class="star star-5" id="star-5" type="radio" value="5" name="star"/>
+         <div class="stars" >
+    <input   class="star star-5 form-control{{ $errors->has('star') ? ' is-invalid' : '' }}"  id="star-5" type="radio" value="5" name="star"/>
     <label class="star star-5" for="star-5"></label>
     <input class="star star-4" id="star-4" type="radio" value="4" name="star"/>
     <label class="star star-4" for="star-4"></label>
@@ -223,20 +223,21 @@ Login to lke comment....
     <label class="star star-2" for="star-2"></label>
     <input class="star star-1" id="star-1" type="radio" value="1" name="star" />
     <label class="star star-1" for="star-1"></label>
+@if ($errors->has('star'))
+                                             <span class="alert alert-danger">
+                                                <strong>{{ $errors->first('star') }}</strong>
+                                            </span>
+                                        @endif 
   </div>
    <div class="col-md-8">
-                                           <input id="title" type="text" placeholder="Title" class="form-control{{ $errors->has('title') ? ' is-invalid' : '' }}" name="title" value="{{ old('title') }}" required="required" autofocus>
+                                           <input id="title" type="text" placeholder="Title" class="form-control{{ $errors->has('title') ? ' is-invalid' : '' }}" name="title" value="{{ old('title') }}"  autofocus>
                                        </div>
       <div class="input-group">
 
               <input class="form-control" type="hidden" name="topicid" value="{{$pages->topic_id}}" placeholder="">
         <input class="form-control" type="hidden" name="id" value="{{$pages->id}}" placeholder="">
-        <input type="text" class="form-control" name="message" data-emojiable="true" data-emoji-input="unicode" placeholder="Type message..." required="required">
-        @if ($errors->has('comment'))
-            <span class="invalid-feedback" role="alert">
-                <strong>{{ $errors->first('comment') }}</strong>
-            </span>
-        @endif
+        <input type="text" class="form-control{{ $errors->has('message') ? ' is-invalid' : '' }}" name="message" data-emojiable="true" data-emoji-input="unicode" placeholder="Type message..." >
+       
             </div>
         <div class="input-group-btn">
 

@@ -38,8 +38,7 @@
                                 @endif
                             </div>
                         </div>
-
-                        <div class="form-group row">
+                         <div class="form-group row">
                             <div class="col-md-6 offset-md-4">
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
@@ -62,7 +61,29 @@
                                 </a>
                             </div>
                         </div>
+                 
+                       
                     </form>
+
+     <div class="form-group row">
+          <label for="social" class="col-md-4 col-form-label text-md-right">{{ __('') }}</label>
+        <div class="col-md-6 col-md-offset-2">
+              <p class="lead text-center">Authenticate using your social network account from one of following providers</p>
+                    <a href="{{ route('social.oauth', 'facebook') }}" class="btn btn-primary btn-block">
+                        Login with Facebook
+                    </a>
+                    <!-- <a href="{{ route('social.oauth', 'twitter') }}" class="btn btn-info btn-block">
+                        Login with Twitter
+                    </a> -->
+                    <a href="{{ route('social.oauth', 'google') }}" class="btn btn-danger btn-block">
+                        Login with Google
+                    </a>
+                   <!--  <a href="{{ route('social.oauth', 'github') }}" class="btn btn-default btn-block">
+                        Login with Github
+                    </a> -->
+                    <hr>
+        </div>
+    </div>
                 </div>
             </div>
         </div>

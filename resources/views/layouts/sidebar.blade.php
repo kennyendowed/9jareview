@@ -29,5 +29,5 @@
 
 <div class="col-md-4">
 <a href="{{ route('create_topic' ) }}" class="btn btn-info btn-sm btn-rounded pull-right" >
-     <i class="fa fa-pencil fa-1x"></i>Create Topic</a>
+     <i class="fa fa-pencil fa-1x"></i>Create A Review</a>
 </div>

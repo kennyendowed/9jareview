@@ -14,7 +14,7 @@
 
         <!-- Categories Widget -->
         <div class="card my-4">
-          <h5 class="card-header">Categories</h5>
+          <h5 class="card-header">Industries</h5>
           <div class="card-body">
             <div class="row">
               <div class="col-lg-10">

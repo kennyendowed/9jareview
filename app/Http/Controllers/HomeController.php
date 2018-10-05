@@ -228,7 +228,7 @@ $avatarName = $user->id.''.$request['username'].'.'.request()->image->getClientO
         $user->username = $request['username'];
         $user->phone = $request['phone'];
         $user->email = $request['email'];
-        $user->avatar =$avatarName;
+        $user->avatar = env('APP_URL').'/img/'.$avatarName;
         $user->update();
         $file = $request->file('image');
         $filename = $avatarName;

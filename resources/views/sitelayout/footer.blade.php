@@ -1,7 +1,7 @@
 <!-- Footer -->
  <footer class="bg-black small text-center text-white-50">
    <div class="container">
-     Copyright &copy; Naija.Reviews 2018
+     Copyright &copy;  2018 A Product of Hoffenheim Technologies
    </div>
  </footer>
 
