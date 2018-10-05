@@ -4,7 +4,11 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
+<<<<<<< HEAD
+    "content-hash": "2ce4e82ff4a6876bc3068f332f73b241",
+=======
     "content-hash": "4bef102575f0a03710d82d01966ac028",
+>>>>>>> 3f7fac05d0d1aed865743be7127f7aaa6f5923d2
     "packages": [
         {
             "name": "bahricanli/laravel-emoji",
@@ -368,6 +372,41 @@
                 "validator"
             ],
             "time": "2018-09-25T20:47:26+00:00"
+        },
+        {
+            "name": "emojione/assets",
+            "version": "4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/emojione/emojione-assets.git",
+                "reference": "0c14bee98dc61a1e8d50dd020e7dfcd0dec876db"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/emojione/emojione-assets/zipball/0c14bee98dc61a1e8d50dd020e7dfcd0dec876db",
+                "reference": "0c14bee98dc61a1e8d50dd020e7dfcd0dec876db",
+                "shasum": ""
+            },
+            "suggest": {
+                "emojione/emojione": "A set of libraries to make using emoji on your websites easier."
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "Emojis in png format brought to you by EmojiOne. EmojiOne is a complete set of emojis designed for the web.",
+            "homepage": "https://www.emojione.com",
+            "keywords": [
+                "emoji",
+                "emojione",
+                "emojis",
+                "emoticons",
+                "smileys",
+                "smilies",
+                "unicode"
+            ],
+            "time": "2018-08-29T22:59:02+00:00"
         },
         {
             "name": "emojione/emojione",
