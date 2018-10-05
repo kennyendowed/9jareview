@@ -37,7 +37,13 @@ class TopicController extends Controller
         $items = industries::all(['ind_id', 'name']);
          return view('pages.new_topic',compact('items',$items,'subitems',$subitems));
     }
-
+    public function getview()
+    {
+        //
+        $subitems = sub_industries::all(['ind_id','sub_ind_id', 'name']);
+        $items = industries::all(['ind_id', 'name']);
+         return view('pages.add_company',compact('items',$items));
+    }
     /**
      * Show the form for creating a new resource.
      *

@@ -53,8 +53,13 @@
                                             <option>--Sub--</option>
 
                                         </select>
+                                          </div>
+                                            <div class="col-md-3">
+                                     <a href="{{ route('create_company' ) }}" >Create New Company.. <i class="fa fa-pencil fa-1x"></i></a>
 
-                                    </div>
+
+                                      </div>
+                                  
                                     <!-- @if ($errors->has('state'))
                                        <span class="alert alert-danger">
                                               <strong>{{ $errors->first('state') }}</strong>
@@ -126,7 +131,7 @@
                                     <div class="form-group  row">
 
 
-                                                 <textarea placeholder="Review Description" name="message" data-emojiable="true" data-emoji-input="unicode" rows="10" class="form-control{{ $errors->has('message') ? ' is-invalid' : '' }}"></textarea>
+                                                 <textarea placeholder="Review Description" name="message"  rows="10" class="form-control{{ $errors->has('message') ? ' is-invalid' : '' }}"></textarea>
                                             <!-- @if ($errors->has('message'))
                                              <span class="alert alert-danger">
                                                  <strong>{{ $errors->first('message') }}</strong>
