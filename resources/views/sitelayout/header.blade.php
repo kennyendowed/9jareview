@@ -29,6 +29,7 @@
   @endif
     <!-- Custom styles for this template -->
     <link href="{{URL::asset('css/grayscale.css')}}" rel="stylesheet">
+        <link href="{{URL::asset('css/style.css')}}" rel="stylesheet">
 <script src="{{ asset('js2/app.js') }}" defer></script>
   </head>
 

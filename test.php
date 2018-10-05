@@ -1,3 +1,22 @@
+   <nav class="vertical">
+      <ul>
+      
+        <li><a href="#">Products +</a>
+          <ul>
+            <li><a href="#">Widgets</a></li>
+          <!--   <li>
+              <a href="#">Sites +</a>
+              <ul>
+                <li><a href="#">Site 1</a></li>
+                <li><a href="#">Site 2</a></li>
+              </ul>
+            </li> -->
+            </ul>
+  </li>
+</ul>
+</nav>
+
+
 APP_ENV=production  APP_DEBUG=false 
 
 
