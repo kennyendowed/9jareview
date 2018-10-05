@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Oct 05, 2018 at 05:06 PM
+-- Generation Time: Oct 05, 2018 at 05:29 PM
 -- Server version: 5.7.23-0ubuntu0.18.04.1
 -- PHP Version: 7.1.19-1+ubuntu17.10.1+deb.sury.org+1
 
@@ -501,7 +501,11 @@ INSERT INTO `sub_industries` (`id`, `sub_ind_id`, `ind_id`, `name`, `updated_at`
 (250, 5848506, 36779150, 'Sterling Homes ltd', '2018-10-05 14:39:12', '2018-10-05 14:39:12'),
 (251, 17172409, 36779150, 'Vafiero International Ltd', '2018-10-05 14:39:12', '2018-10-05 14:39:12'),
 (252, 5876203, 36779150, 'LAVIC Properties', '2018-10-05 14:39:12', '2018-10-05 14:39:12'),
-(253, 105514, 36779150, 'Jide Taiwo & Co', '2018-10-05 14:39:12', '2018-10-05 14:39:12');
+(253, 105514, 36779150, 'Jide Taiwo & Co', '2018-10-05 14:39:12', '2018-10-05 14:39:12'),
+(254, 10528324, 1069894, 'Navy', '2018-10-05 15:16:23', '2018-10-05 15:16:23'),
+(255, 50474637, 1069894, 'Air Force', '2018-10-05 15:16:23', '2018-10-05 15:16:23'),
+(256, 30534207, 1069894, 'Police', '2018-10-05 15:16:23', '2018-10-05 15:16:23'),
+(257, 3828120, 1069894, 'Army', '2018-10-05 15:16:23', '2018-10-05 15:16:23');
 
 -- --------------------------------------------------------
 
@@ -720,7 +724,7 @@ ALTER TABLE `reviews`
 -- AUTO_INCREMENT for table `sub_industries`
 --
 ALTER TABLE `sub_industries`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=254;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=258;
 --
 -- AUTO_INCREMENT for table `topics`
 --
