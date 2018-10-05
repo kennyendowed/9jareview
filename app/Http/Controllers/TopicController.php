@@ -83,7 +83,7 @@ $topicid=topics::where("topic_id",$topic_id)->first();
           $rating = new \willvincent\Rateable\Rating;
           $rating->rating = $request->star;
                    $rating->title = $request->title;
-            $rating->message = $emoji->oShort($request->message);
+            $rating->message = $emoji->toShort($request->message);
               $rating->topic_id = $topicid->topic_id;
           $rating->user_id = auth()->user()->id;
 

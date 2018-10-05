@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Oct 05, 2018 at 04:42 PM
+-- Generation Time: Oct 05, 2018 at 05:06 PM
 -- Server version: 5.7.23-0ubuntu0.18.04.1
 -- PHP Version: 7.1.19-1+ubuntu17.10.1+deb.sury.org+1
 
@@ -189,7 +189,8 @@ INSERT INTO `ratings` (`id`, `created_at`, `updated_at`, `rating`, `title`, `mes
 (8, '2018-09-28 15:21:44', '2018-09-28 15:21:44', 3, 'ok', 'tried putting \"$premios->links()\" inside and outside the foreach.Without pagination everything works good tried putting \"$premios->links()\" inside and outside the foreach.Without pagination everything works good tried putting \"$premios->links()\" inside and outside the foreach.Without pagination everything works good tried putting \"$premios->links()\" inside and outside the foreach.Without pagination everything works good tried putting \"$premios->links()\" inside and outside the foreach.Without pagination everything works good', 'App\\topics', 2, 5, 60042347),
 (9, '2018-09-29 18:03:25', '2018-09-29 18:03:25', 2, 'thanksgiving', 'nice one but glo is better :smile: :fire::smile: :fire::smile: :fire::smile: :fire:', 'App\\topics', 3, 4, 25002533),
 (10, '2018-09-30 13:41:59', '2018-09-30 13:41:59', 2, 'thanksgiving', ':heart_eyes::see_no_evil::rage::rage::rage::rage::rage:the rush ', 'App\\topics', 3, 2, 25002533),
-(11, '2018-10-05 08:05:09', '2018-10-05 08:05:09', 3, 'again goal', 'Zidane spoke to the media at the Real Madrid City. The Whites coach explained how the team is going in to the second leg of the Champions...:smirk::smirk::smirk::smirk::smirk::smirk::smirk:', 'App\\topics', 3, 7, 25002533);
+(11, '2018-10-05 08:05:09', '2018-10-05 08:05:09', 3, 'again goal', 'Zidane spoke to the media at the Real Madrid City. The Whites coach explained how the team is going in to the second leg of the Champions...:smirk::smirk::smirk::smirk::smirk::smirk::smirk:', 'App\\topics', 3, 7, 25002533),
+(12, '2018-10-05 15:05:59', '2018-10-05 15:05:59', 2, 'Late payment of salary', 'I believe what you are wanting is z-index. Rather than explaining it here, just do a Google search for it. It is simple to understand.I believe what you are wanting is z-index. Rather than explaining it here, just do a Google search for it. It is simple to understand.I believe what you are wanting is z-index. Rather than explaining it here, just do a Google search for it. It is simple to understand.', 'App\\topics', 5, 7, 4907381);
 
 -- --------------------------------------------------------
 
@@ -529,7 +530,9 @@ CREATE TABLE `topics` (
 INSERT INTO `topics` (`id`, `sub_in_id`, `state`, `city`, `topic_name`, `description`, `location`, `topic_id`, `created_at`, `updated_at`, `created_by`) VALUES
 (1, 50357077, 'rivers', 'Port Harcourt', 'Bad responses time', 'I am developing a site at the moment which allows people to create articles in a blog format.\r\n\r\nA feature of the site allows other users to \'like\' and \'comment\' on the article.\r\n\r\nI am wanting to count the number of likes and comments an article has and display the count in a summary at the top of the article page. (A bit like the way Jeffrey displays the number of comments on a forum post in the right side of the listing page)\r\n\r\nCurrently, if a user comments on an article, I post the comment to the Comments table. Similarly, if a user \'likes\' an article, I post the like to the Likes table. Using my current architecture, it means I have to query the comments table and get the count, then query the likes table for the count each time an article is viewed.\r\n\r\nI am wondering if a better architecture would be to add 2 columns (Counts, Comments) to the Articles table and add/remove an increment each time a user adds/removes a like or comment? The idea would then be to simply display the count in the article without having to query or join other tables.', 'ajah', 14577948, '2018-09-27 12:32:13', '2018-09-27 12:32:13', 2),
 (2, 50357077, 'Lagos', 'Lagos', 'Bad responses time', 'I find your service poor tried putting \"$premios->links()\" inside and outside the foreach.Without pagination everything works good', 'Agege', 60042347, '2018-09-27 16:58:09', '2018-09-27 16:58:09', 4),
-(3, 14138155, 'lagos', 'lagos', 'poor network', 'whats up ? I have a little problem with Laravel Paginator.\r\n\r\nI built the function using order by and paginator, but I\'m getting the error message \"Call to undefined method Illuminate \\ Database \\ Query \\ Builder :: links () (View: C: \\ wamp \\ www \\ laravel \\ app \\ views \\ frontend \\ premios.blade.php).', 'ikate', 25002533, '2018-09-28 16:02:00', '2018-09-28 16:02:00', 5);
+(3, 14138155, 'lagos', 'lagos', 'poor network', 'whats up ? I have a little problem with Laravel Paginator.\r\n\r\nI built the function using order by and paginator, but I\'m getting the error message \"Call to undefined method Illuminate \\ Database \\ Query \\ Builder :: links () (View: C: \\ wamp \\ www \\ laravel \\ app \\ views \\ frontend \\ premios.blade.php).', 'ikate', 25002533, '2018-09-28 16:02:00', '2018-09-28 16:02:00', 5),
+(4, 5487464, 'lagos', 'lagos', 'Late payment of salary', 'I believe what you are wanting is z-index. Rather than explaining it here, just do a Google search for it. It is simple to understand.I believe what you are wanting is z-index. Rather than explaining it here, just do a Google search for it. It is simple to understand.I believe what you are wanting is z-index. Rather than explaining it here, just do a Google search for it. It is simple to understand.', 'epe', 18546917, '2018-10-05 16:04:52', '2018-10-05 16:04:52', 7),
+(5, 5487464, 'lagos', 'lagos', 'Late payment of salary', 'I believe what you are wanting is z-index. Rather than explaining it here, just do a Google search for it. It is simple to understand.I believe what you are wanting is z-index. Rather than explaining it here, just do a Google search for it. It is simple to understand.I believe what you are wanting is z-index. Rather than explaining it here, just do a Google search for it. It is simple to understand.', 'epe', 4907381, '2018-10-05 16:05:59', '2018-10-05 16:05:59', 7);
 
 -- --------------------------------------------------------
 
@@ -702,7 +705,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `ratings`
 --
 ALTER TABLE `ratings`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `replycomments`
 --
@@ -722,7 +725,7 @@ ALTER TABLE `sub_industries`
 -- AUTO_INCREMENT for table `topics`
 --
 ALTER TABLE `topics`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `users`
 --

@@ -31,6 +31,7 @@ nav.vertical a{
   display:block;
   color:#eee;
   text-decoration:none;
+  padding: 6px 7px;
   background:#667;
   transition:0.2s;
   border-bottom: 3px solid transparent;
