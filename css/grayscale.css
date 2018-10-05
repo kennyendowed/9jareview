@@ -10,7 +10,9 @@
 
 
 
-
+h1.h{
+  font-weight: 400;
+}
 
 /*VERTICAL MENU*/
 nav.vertical{

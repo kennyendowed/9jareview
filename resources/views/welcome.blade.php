@@ -42,7 +42,7 @@ foreach ($c as $lue) {
                            <!-- Blog Post -->
                  <div class="card mb-4">
                    <div class="card-body">
-                     <h1 class="card-title pos">{{$rclue->name}}  @php $rating = $pages->averageRating; @endphp
+                     <h1 class="card-title pos h">{{$rclue->name}}  @php $rating = $pages->averageRating; @endphp
 
             @foreach(range(1,5) as $i)
                 <span class="fa-stack" style="width:1em">

@@ -55,7 +55,7 @@
   $rc=App\sub_industries::where('sub_ind_id', '=', $pages->sub_in_id)->get();
   foreach ($rc as $rclue) { 
     ?>
-       <h1 class="card-title pos">{{$rclue->name}}  @php $rating = $pages->averageRating; @endphp
+       <h1 class="card-title pos h">{{$rclue->name}}  @php $rating = $pages->averageRating; @endphp
 
             @foreach(range(1,5) as $i)
                 <span class="fa-stack" style="width:1em">
