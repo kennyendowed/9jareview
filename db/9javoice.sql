@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Oct 05, 2018 at 10:07 AM
+-- Generation Time: Oct 05, 2018 at 01:10 PM
 -- Server version: 5.7.23-0ubuntu0.18.04.1
 -- PHP Version: 7.1.19-1+ubuntu17.10.1+deb.sury.org+1
 
@@ -262,12 +262,6 @@ INSERT INTO `sub_industries` (`id`, `sub_ind_id`, `ind_id`, `name`, `updated_at`
 (4, 61225654, 86520192, 'Globacom Limited', '2018-09-21 11:46:10', '2018-09-21 11:46:10'),
 (5, 71480675, 86520192, 'ipNX Nigeria', '2018-09-21 11:46:10', '2018-09-21 11:46:10'),
 (6, 36233913, 86520192, 'MTN', '2018-09-21 11:46:10', '2018-09-21 11:46:10'),
-(7, 20313820, 86520192, 'Airtel Nigeria', '2018-09-21 11:46:55', '2018-09-21 11:46:55'),
-(8, 28144151, 86520192, 'Dizengoff WA (NIG) Ltd', '2018-09-21 11:46:55', '2018-09-21 11:46:55'),
-(9, 26706835, 86520192, 'Etisalat Nigeria', '2018-09-21 11:46:55', '2018-09-21 11:46:55'),
-(10, 14138155, 86520192, 'Globacom Limited', '2018-09-21 11:46:55', '2018-09-21 11:46:55'),
-(11, 20388251, 86520192, 'ipNX Nigeria', '2018-09-21 11:46:55', '2018-09-21 11:46:55'),
-(12, 20544751, 86520192, 'MTN', '2018-09-21 11:46:55', '2018-09-21 11:46:55'),
 (13, 23570433, 86520192, 'Nigerian Telecommunications Limited', '2018-09-21 11:46:55', '2018-09-21 11:46:55'),
 (14, 62099078, 86520192, 'Cisco Systems', '2018-09-21 11:46:55', '2018-09-21 11:46:55'),
 (15, 8528700, 36406965, 'Eauxwell Nigeria Ltd', '2018-09-27 07:38:02', '2018-09-27 07:38:02'),
@@ -280,7 +274,26 @@ INSERT INTO `sub_industries` (`id`, `sub_ind_id`, `ind_id`, `name`, `updated_at`
 (22, 2943672, 36406965, 'Jardel Energy and Marine Services Ltd', '2018-09-27 07:38:02', '2018-09-27 07:38:02'),
 (23, 32780419, 36406965, 'Randson Ltd', '2018-09-27 07:38:02', '2018-09-27 07:38:02'),
 (24, 8760573, 36406965, 'Szotyola Energy Services International Ltd', '2018-09-27 07:38:02', '2018-09-27 07:38:02'),
-(25, 23674140, 36406965, 'Citrix Energy Ltd', '2018-09-27 07:38:03', '2018-09-27 07:38:03');
+(25, 23674140, 36406965, 'Citrix Energy Ltd', '2018-09-27 07:38:03', '2018-09-27 07:38:03'),
+(26, 10775209, 31761164, 'Diamond Bank Plc', '2018-10-05 11:03:25', '2018-10-05 11:03:25'),
+(27, 5955724, 31761164, 'Fidelity Bank Plc', '2018-10-05 11:03:25', '2018-10-05 11:03:25'),
+(28, 6242499, 31761164, 'First City Monument Bank Plc', '2018-10-05 11:03:25', '2018-10-05 11:03:25'),
+(29, 9778045, 31761164, 'First Bank of Nigeria Limited', '2018-10-05 11:03:25', '2018-10-05 11:03:25'),
+(30, 5214021, 31761164, 'Guaranty Trust Bank Plc', '2018-10-05 11:03:25', '2018-10-05 11:03:25'),
+(31, 10338461, 31761164, 'Union Bank of Nigeria Plc', '2018-10-05 11:03:25', '2018-10-05 11:03:25'),
+(32, 22433947, 31761164, 'United Bank for Africa Plc', '2018-10-05 11:03:25', '2018-10-05 11:03:25'),
+(33, 1301679, 31761164, 'Zenith Bank Plc', '2018-10-05 11:03:25', '2018-10-05 11:03:25'),
+(34, 464232, 31761164, 'Polaris Bank Limited', '2018-10-05 11:03:25', '2018-10-05 11:03:25'),
+(35, 10470280, 31761164, 'Access Bank Plc', '2018-10-05 11:03:25', '2018-10-05 11:03:25'),
+(36, 90665762, 31761164, 'Ecobank Nigeria Plc', '2018-10-05 11:05:45', '2018-10-05 11:05:45'),
+(37, 33483821, 31761164, 'Heritage Banking Company Limited', '2018-10-05 11:05:45', '2018-10-05 11:05:45'),
+(38, 48555123, 31761164, 'Keystone Bank Limited', '2018-10-05 11:05:45', '2018-10-05 11:05:45'),
+(39, 23904793, 31761164, 'Stanbic IBTC Bank Plc', '2018-10-05 11:05:45', '2018-10-05 11:05:45'),
+(40, 27817681, 31761164, 'Standard Chartered', '2018-10-05 11:05:45', '2018-10-05 11:05:45'),
+(41, 34411664, 31761164, 'Sterling Bank Plc', '2018-10-05 11:05:45', '2018-10-05 11:05:45'),
+(42, 5577601, 31761164, 'Unity Bank Plc', '2018-10-05 11:05:46', '2018-10-05 11:05:46'),
+(43, 6656285, 31761164, 'Wema Bank Plc', '2018-10-05 11:05:46', '2018-10-05 11:05:46'),
+(44, 37594762, 31761164, 'Citi Bank Nigeria Limited', '2018-10-05 11:05:46', '2018-10-05 11:05:46');
 
 -- --------------------------------------------------------
 
@@ -346,7 +359,7 @@ INSERT INTO `users` (`id`, `name`, `username`, `phone`, `avatar`, `provider`, `p
 (4, 'peace akpan', 'Emi', '0564564564', 'http://localhost/9jareview/img/4Emi.jpg', 'facebook', '1727837450677035', 'EAAEZAmZCtIvvsBAGPXdhAwB5eUYVSohFE9aNiZCn5r67XjPfYtC5wrr27FXzMNz0ogLn5Nq2rOlfMhlxPZCVDj8ZBGhZAtZB3zyWIky6WXLwdLRSGk6woPZBYyZAEDBqxMfjh8fmv5ATSBZAOdMO8QWPNEHZBf3MjrldERuxhVXL8FRCgZDZD', 'default', '::1', 'kenneyg50@gmail.com', '$2y$10$qC5FiJl3IUzk4YysmM8qLOVYal4rhonB6vJciGH/6j3ICZA5LwzXC', 'oN9216N2u6B6HgrgOyLdJa14AcB4jp8Ww4ZIkGrNQKo6VstzcI3fdSvjTEXM', '2018-09-20 16:01:43', '2018-10-05 07:53:07'),
 (5, 'micheal adah', 'mic', '', 'http://localhost/9jareview/img/5mic.jpg', '', '', '', 'default', '::1', 'myckhel123@gmail.com', '$2y$10$iFnJYBTUoBafJ53c6N.bMeBz5DXEB2O.J8.8bgPPPyJUlMQ9D7Xwe', 'f6r6lPh0QwZzoh9bZY1b75e5iZJ6kBqHg1B0Mr8GD0gaL0pX2hHxgTCfVONQ', '2018-09-27 12:41:09', '2018-09-28 14:04:45'),
 (6, 'Godwin Igbokwe', 'Godwin Igbokwe', '1111', 'https://lh6.googleusercontent.com/-f2aD9-c_cqg/AAAAAAAAAAI/AAAAAAAAABw/dpY8GWbQzLA/photo.jpg?sz=50', 'google', '102379792876068981993', 'ya29.GlstBqHmFTZYv8BPdW59XRqAjv7CzI13j6wnoIvedidhrvOej2dIwUSHd4G7ffDkkBIAjK07ClIJnEJAbNR-1_YkXgemaq5N7_DpN7fy3IcrWEo_UXgoRSOA9EGB', 'default', NULL, 'esurfonline@gmail.com', '', 'PchcZG6D2LX8RCXc049cX18dMRoTu5a5wG8QmIuUOAO0D1mOh3wmPwnpkCaN', '2018-10-05 07:21:40', '2018-10-05 07:21:40'),
-(7, 'Apartment Application', 'Apartment Application', '1111', 'https://lh3.googleusercontent.com/-XHy9Uouyx2M/AAAAAAAAAAI/AAAAAAAAAAA/AAN31DV2l7Won_S7AVqBQg_1Fg-KRQBkqw/mo/photo.jpg?sz=50', 'google', '112739036808392317661', 'ya29.GlstBjnlQsfy0oBAdcM9Y6q_08BmlSXnmI6T2axXMqAKiyCKcyuN-4GRFpgbNVsM32RR9npHDmTPOI2HDSdop-ATYRXPS4qBu5FjuTUH99dN1UsVjpkBKuqFMPHG', 'default', '::1', 'applicationapartment@gmail.com', '', 'U5juYyey1wHSGRFQ1KnZbrgbCTqydLwmizjrISennboet8MucVD3R7EAiM3C', '2018-10-05 07:25:59', '2018-10-05 08:03:56');
+(7, 'The Apartment Application', 'Apartment Application', '03346988741', 'http://localhost/9jareview/img/7Apartment Application.jpg', 'google', '112739036808392317661', 'ya29.GlstBjnlQsfy0oBAdcM9Y6q_08BmlSXnmI6T2axXMqAKiyCKcyuN-4GRFpgbNVsM32RR9npHDmTPOI2HDSdop-ATYRXPS4qBu5FjuTUH99dN1UsVjpkBKuqFMPHG', 'default', '::1', 'kenneyg50@gmail.com', '', 'U5juYyey1wHSGRFQ1KnZbrgbCTqydLwmizjrISennboet8MucVD3R7EAiM3C', '2018-10-05 07:25:59', '2018-10-05 10:39:19');
 
 -- --------------------------------------------------------
 
@@ -497,7 +510,7 @@ ALTER TABLE `reviews`
 -- AUTO_INCREMENT for table `sub_industries`
 --
 ALTER TABLE `sub_industries`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 --
 -- AUTO_INCREMENT for table `topics`
 --
