@@ -32,7 +32,7 @@
                 <div class="profile-header-img">
                         <?php //$user = Auth::user();  
           if(!empty($r->avatar)){?>
-         <img class="img-fluid2 rounded-circle" src="{{ route('account.image', ['filename' =>$r->avatar]) }}" />
+         <img class="img-fluid2 rounded-circle" src="{{ $r->avatar }}" />
       <?php }else{?>
              <img class="img-fluid2 rounded-circle" src="{{URL::asset('img/default_ava.gif ') }}" />
    <?php   }  ?>

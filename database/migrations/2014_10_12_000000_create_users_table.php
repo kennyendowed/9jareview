@@ -22,11 +22,14 @@ class CreateUsersTable extends Migration
         //     $table->string('email')->unique();
         //     $table->string('password');
         //    $table->string('isadmin')->default('default');
-        //$table->string('avatar')->default('user.jpg');
-        //     // $table->boolean('isAdmin')->nullable();
+        //  $table->string('avatar')->nullable();
+        // $table->string('provider', 20)->nullable();
+        // $table->string('provider_id')->nullable();
+        // $table->string('access_token')->nullable();     
+        // //     // $table->boolean('isAdmin')->nullable();
         //     $table->rememberToken();
         //     $table->timestamps();
-        // });
+        //  });
     }
 
     /**

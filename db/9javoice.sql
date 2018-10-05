@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Sep 30, 2018 at 03:43 PM
+-- Generation Time: Oct 05, 2018 at 10:01 AM
 -- Server version: 5.7.23-0ubuntu0.18.04.1
 -- PHP Version: 7.1.19-1+ubuntu17.10.1+deb.sury.org+1
 
@@ -82,7 +82,9 @@ INSERT INTO `industries` (`id`, `ind_id`, `name`, `updated_at`, `created_at`) VA
 (17, 31019757, 'Retail industry', '2018-09-21 11:37:52', '2018-09-21 11:37:52'),
 (18, 26230918, 'Religion industry', '2018-09-21 11:37:52', '2018-09-21 11:37:52'),
 (19, 11470598, 'Mass media', '2018-09-21 11:37:52', '2018-09-21 11:37:52'),
-(20, 105573, 'Oil & Gas industry', '2018-09-21 11:39:00', '2018-09-21 11:39:00');
+(20, 105573, 'Oil & Gas industry', '2018-09-21 11:39:00', '2018-09-21 11:39:00'),
+(21, 34989591, 'Financial services', '2018-10-05 08:01:09', '2018-10-05 08:01:09'),
+(22, 31761164, 'Banking', '2018-10-05 08:01:09', '2018-10-05 08:01:09');
 
 -- --------------------------------------------------------
 
@@ -214,7 +216,8 @@ INSERT INTO `replycomments` (`id`, `rating_id`, `user_id`, `message`, `created_a
 (2, 3, 4, 'i am happy after been i got a call back', '2018-09-28 04:18:45', '2018-09-28 04:18:45'),
 (3, 2, 4, 'After i received a mail from an agent my problem was solved ', '2018-09-28 04:19:48', '2018-09-28 04:19:48'),
 (4, 8, 5, 'I think you may edit the default file. As default Laravel use the bootstrap 3.3.7 template. try editing that view.', '2018-09-28 15:22:12', '2018-09-28 15:22:12'),
-(5, 9, 4, 'So if someone leaves a comment like This is an awesome comment :smile::fire: it will be saved as This is an awesome comment :smile: :fire:', '2018-09-29 18:11:47', '2018-09-29 18:11:47');
+(5, 9, 4, 'So if someone leaves a comment like This is an awesome comment :smile::fire: it will be saved as This is an awesome comment :smile: :fire:', '2018-09-29 18:11:47', '2018-09-29 18:11:47'),
+(6, 10, 2, ':grin::joy::wink::smirk::sweat_smile: ', '2018-09-30 14:39:56', '2018-09-30 14:39:56');
 
 -- --------------------------------------------------------
 
@@ -316,9 +319,12 @@ INSERT INTO `topics` (`id`, `sub_in_id`, `state`, `city`, `topic_name`, `descrip
 CREATE TABLE `users` (
   `id` int(10) UNSIGNED NOT NULL,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `phone` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `username` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `phone` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `avatar` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `provider` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `provider_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `access_token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `isadmin` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `ip_address` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -332,12 +338,14 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `phone`, `username`, `avatar`, `isadmin`, `ip_address`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'myckhel ishola', '08110000606', 'myckhel', '', 'default', NULL, 'myckhel1@hotmail.com', '$2y$10$vDh4s8sFye0/UHVdTE3MV.W1LSHNjTKvnk1B0Pth9q2peP0PB.hDi', 'nKoN2PiPFXbPHZY7AQzZI1OlPwG8FsgmGToYJv7j0cXJG4uxDenyfUlkedF2', '2018-09-19 11:09:59', '2018-09-19 11:09:59'),
-(2, 'kennyendowed', '08120960876', 'kennyendowed', '', 'admin', '::1', 'kennyendowed@ymail.com', '$2y$10$BzwVpaf/cDUAyyObFBg61uJiye2Zjt.PFN.KteuYatBwI3UXzynxe', '8FC2zIJ89VCAMbZw4JXuUx0tt0pC7klnD44B5M42PPXWVBGzAfAzb8zH5pD9', '2018-09-20 08:26:27', '2018-09-28 12:00:06'),
-(3, 'favour peters', '0564564564', 'fav401', '', 'default', '::1', 'fav401@gmail.com', '$2y$10$dlXUeg2uV0Kq2OMAacO71Okdu1l2gugwMHZn08fenO0LJEYWPqoam', 'OeGSmDgulcUnNki8MAJdJygbE7LVXePcAwYWk7tFzX6u9kFeQKmKgNnBxAT1', '2018-09-20 11:07:27', '2018-09-20 11:07:27'),
-(4, 'Peace Akpan johnson', '081234564564', 'Emi', '4Emi.jpg', 'default', '::1', 'kenneyg50@gmail.com', '$2y$10$qC5FiJl3IUzk4YysmM8qLOVYal4rhonB6vJciGH/6j3ICZA5LwzXC', '0S3pfREbWCLjGADhXwPO0Z0ldGInnXSre3BKqemJONvyOv8D1ckKNDAn3IaO', '2018-09-20 16:01:43', '2018-09-28 12:59:34'),
-(5, 'micheal adah', '0564564564', 'mic', '5mic.jpg', 'default', '::1', 'myckhel123@gmail.com', '$2y$10$iFnJYBTUoBafJ53c6N.bMeBz5DXEB2O.J8.8bgPPPyJUlMQ9D7Xwe', 'f6r6lPh0QwZzoh9bZY1b75e5iZJ6kBqHg1B0Mr8GD0gaL0pX2hHxgTCfVONQ', '2018-09-27 12:41:09', '2018-09-28 14:04:45');
+INSERT INTO `users` (`id`, `name`, `username`, `phone`, `avatar`, `provider`, `provider_id`, `access_token`, `isadmin`, `ip_address`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'myckhel ishola', 'myckhel', '', '', '', '', '', 'default', NULL, 'myckhel1@hotmail.com', '$2y$10$vDh4s8sFye0/UHVdTE3MV.W1LSHNjTKvnk1B0Pth9q2peP0PB.hDi', 'nKoN2PiPFXbPHZY7AQzZI1OlPwG8FsgmGToYJv7j0cXJG4uxDenyfUlkedF2', '2018-09-19 11:09:59', '2018-09-19 11:09:59'),
+(2, 'kennyendowed', 'kennyendowed', '', '', '', '', '', 'admin', '::1', 'kennyendowed@ymail.com', '$2y$10$BzwVpaf/cDUAyyObFBg61uJiye2Zjt.PFN.KteuYatBwI3UXzynxe', '8FC2zIJ89VCAMbZw4JXuUx0tt0pC7klnD44B5M42PPXWVBGzAfAzb8zH5pD9', '2018-09-20 08:26:27', '2018-09-28 12:00:06'),
+(3, 'favour peters', 'fav401', '', '', '', '', '', 'default', '::1', 'fav401@gmail.com', '$2y$10$dlXUeg2uV0Kq2OMAacO71Okdu1l2gugwMHZn08fenO0LJEYWPqoam', 'OeGSmDgulcUnNki8MAJdJygbE7LVXePcAwYWk7tFzX6u9kFeQKmKgNnBxAT1', '2018-09-20 11:07:27', '2018-09-20 11:07:27'),
+(4, 'peace akpan', 'Emi', '0564564564', 'http://localhost/9jareview/img/4Emi.jpg', 'facebook', '1727837450677035', 'EAAEZAmZCtIvvsBAGPXdhAwB5eUYVSohFE9aNiZCn5r67XjPfYtC5wrr27FXzMNz0ogLn5Nq2rOlfMhlxPZCVDj8ZBGhZAtZB3zyWIky6WXLwdLRSGk6woPZBYyZAEDBqxMfjh8fmv5ATSBZAOdMO8QWPNEHZBf3MjrldERuxhVXL8FRCgZDZD', 'default', '::1', 'kenneyg50@gmail.com', '$2y$10$qC5FiJl3IUzk4YysmM8qLOVYal4rhonB6vJciGH/6j3ICZA5LwzXC', 'oN9216N2u6B6HgrgOyLdJa14AcB4jp8Ww4ZIkGrNQKo6VstzcI3fdSvjTEXM', '2018-09-20 16:01:43', '2018-10-05 07:53:07'),
+(5, 'micheal adah', 'mic', '', '5mic.jpg', '', '', '', 'default', '::1', 'myckhel123@gmail.com', '$2y$10$iFnJYBTUoBafJ53c6N.bMeBz5DXEB2O.J8.8bgPPPyJUlMQ9D7Xwe', 'f6r6lPh0QwZzoh9bZY1b75e5iZJ6kBqHg1B0Mr8GD0gaL0pX2hHxgTCfVONQ', '2018-09-27 12:41:09', '2018-09-28 14:04:45'),
+(6, 'Godwin Igbokwe', 'Godwin Igbokwe', '1111', 'https://lh6.googleusercontent.com/-f2aD9-c_cqg/AAAAAAAAAAI/AAAAAAAAABw/dpY8GWbQzLA/photo.jpg?sz=50', 'google', '102379792876068981993', 'ya29.GlstBqHmFTZYv8BPdW59XRqAjv7CzI13j6wnoIvedidhrvOej2dIwUSHd4G7ffDkkBIAjK07ClIJnEJAbNR-1_YkXgemaq5N7_DpN7fy3IcrWEo_UXgoRSOA9EGB', 'default', NULL, 'esurfonline@gmail.com', '', 'PchcZG6D2LX8RCXc049cX18dMRoTu5a5wG8QmIuUOAO0D1mOh3wmPwnpkCaN', '2018-10-05 07:21:40', '2018-10-05 07:21:40'),
+(7, 'Apartment Application', 'Apartment Application', '1111', 'https://lh3.googleusercontent.com/-XHy9Uouyx2M/AAAAAAAAAAI/AAAAAAAAAAA/AAN31DV2l7Won_S7AVqBQg_1Fg-KRQBkqw/mo/photo.jpg?sz=50', 'google', '112739036808392317661', 'ya29.GlstBhkkDMew8NCk860SMNPU9XjK4jsDUqyg1ULOtGzZfBtPnfvQ83IN0WDZfndsXQ_SvKOCC1ri4UJdklMlPhw9MrCRImhrAqXTKPBFQqHU-dCiSK-z1IMWHPuN', 'default', '::1', 'applicationapartment@gmail.com', '', 'U5juYyey1wHSGRFQ1KnZbrgbCTqydLwmizjrISennboet8MucVD3R7EAiM3C', '2018-10-05 07:25:59', '2018-10-05 07:26:58');
 
 -- --------------------------------------------------------
 
@@ -458,7 +466,7 @@ ALTER TABLE `comments`
 -- AUTO_INCREMENT for table `industries`
 --
 ALTER TABLE `industries`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 --
 -- AUTO_INCREMENT for table `likes`
 --
@@ -478,7 +486,7 @@ ALTER TABLE `ratings`
 -- AUTO_INCREMENT for table `replycomments`
 --
 ALTER TABLE `replycomments`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `reviews`
 --
@@ -498,7 +506,7 @@ ALTER TABLE `topics`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `wwwtopics`
 --

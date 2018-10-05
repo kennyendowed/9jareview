@@ -47,6 +47,15 @@ class CommentController extends Controller
            //     'rating' =>$request->star,
            //   'user_id' => Auth::user()->id
            // ));
+
+  $this->validate($request, [
+       'star' => 'required|string|min:0',
+       'title' => 'required|string|min:0',
+       'message' => 'required|string|min:0',
+
+   ]);
+
+
            $post = topics::find($request->id);
 $emoji=new LaravelEmojiOne;
           $rating = new \willvincent\Rateable\Rating;
