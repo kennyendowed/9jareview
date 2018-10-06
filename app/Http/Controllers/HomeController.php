@@ -85,7 +85,7 @@ public function load_comment($name,$id)
    // $chirps = Chirp::find($id);
     $subitems = sub_industries::all(['ind_id','sub_ind_id', 'name']);
   $items = industries::all(['ind_id', 'name']);
-  $additional_info = topics::where('location', '=', $name)->get();
+  $additional_info = topics::where('location', '=', $name)->where('topic_id', '=', $id)->get();
 
   $comments = Rating::where('topic_id', '=',$id)->get();
   $like  = Rating::selectraw('ratings.id, likes.post_id, COUNT(likes.post_id) AS num')->where('likes.likes_count','1')->join('likes','ratings.id','=','likes.post_id')->groupby('ratings.id','likes.post_id')->get();
