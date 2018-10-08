@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Oct 05, 2018 at 05:29 PM
+-- Generation Time: Oct 08, 2018 at 09:16 AM
 -- Server version: 5.7.23-0ubuntu0.18.04.1
 -- PHP Version: 7.1.19-1+ubuntu17.10.1+deb.sury.org+1
 
@@ -108,7 +108,8 @@ INSERT INTO `likes` (`id`, `post_id`, `user_id`, `likes_count`, `posted_at`, `up
 (3, 1, 2, 0, '2018-09-27 12:48:02', '2018-09-27 11:48:02', '2018-09-27 11:48:02'),
 (11, 3, 4, 1, '2018-09-27 13:40:19', '2018-09-27 12:40:19', '2018-09-27 12:40:19'),
 (12, 3, 5, 1, '2018-09-27 13:41:21', '2018-09-27 12:41:21', '2018-09-27 12:41:21'),
-(13, 2, 4, 1, '2018-09-28 05:21:04', '2018-09-28 04:21:04', '2018-09-28 04:20:48');
+(13, 2, 4, 1, '2018-09-28 05:21:04', '2018-09-28 04:21:04', '2018-09-28 04:20:48'),
+(14, 6, 4, 1, '2018-10-05 18:08:31', '2018-10-05 17:08:31', '2018-10-05 17:08:31');
 
 -- --------------------------------------------------------
 
@@ -190,7 +191,14 @@ INSERT INTO `ratings` (`id`, `created_at`, `updated_at`, `rating`, `title`, `mes
 (9, '2018-09-29 18:03:25', '2018-09-29 18:03:25', 2, 'thanksgiving', 'nice one but glo is better :smile: :fire::smile: :fire::smile: :fire::smile: :fire:', 'App\\topics', 3, 4, 25002533),
 (10, '2018-09-30 13:41:59', '2018-09-30 13:41:59', 2, 'thanksgiving', ':heart_eyes::see_no_evil::rage::rage::rage::rage::rage:the rush ', 'App\\topics', 3, 2, 25002533),
 (11, '2018-10-05 08:05:09', '2018-10-05 08:05:09', 3, 'again goal', 'Zidane spoke to the media at the Real Madrid City. The Whites coach explained how the team is going in to the second leg of the Champions...:smirk::smirk::smirk::smirk::smirk::smirk::smirk:', 'App\\topics', 3, 7, 25002533),
-(12, '2018-10-05 15:05:59', '2018-10-05 15:05:59', 2, 'Late payment of salary', 'I believe what you are wanting is z-index. Rather than explaining it here, just do a Google search for it. It is simple to understand.I believe what you are wanting is z-index. Rather than explaining it here, just do a Google search for it. It is simple to understand.I believe what you are wanting is z-index. Rather than explaining it here, just do a Google search for it. It is simple to understand.', 'App\\topics', 5, 7, 4907381);
+(12, '2018-10-05 15:05:59', '2018-10-05 15:05:59', 2, 'Late payment of salary', 'I believe what you are wanting is z-index. Rather than explaining it here, just do a Google search for it. It is simple to understand.I believe what you are wanting is z-index. Rather than explaining it here, just do a Google search for it. It is simple to understand.I believe what you are wanting is z-index. Rather than explaining it here, just do a Google search for it. It is simple to understand.', 'App\\topics', 5, 7, 4907381),
+(13, '2018-10-05 16:37:34', '2018-10-05 16:37:34', 3, 'Bad responses time', 'i went to the atm to withdraw but no network i lost my money in the process', 'App\\topics', 6, 7, 2827832),
+(14, '2018-10-06 01:28:18', '2018-10-06 01:28:18', 2, 'Bad responses time', 'We provide these links to those who can\'t watch or buy the series from their source so please if you are able to watch and buy the series from their direct source go to their website and watch the series from the source to support their producer thanks for understanding.', 'App\\topics', 1, 8, 2145476),
+(15, '2018-10-06 01:32:32', '2018-10-06 01:32:32', 3, 'again goal', 'You are receiving this email because you have subscribed to neuvoo\'s job alert system.\r\nIf you are receiving this by error or want to completely unsubscribe from all alerts.\r\nPlease click here:You are receiving this email because you have subscribed to neuvoo\'s job alert system.\r\nIf you are receiving this by error or want to completely unsubscribe from all alerts.\r\nPlease click here:You are receiving this email because you have subscribed to neuvoo\'s job alert system.\r\nIf you are receiving this by error or want to completely unsubscribe from all alerts.\r\nPlease click here:', 'App\\topics', 2, 8, 95377053),
+(16, '2018-10-06 01:34:23', '2018-10-06 01:34:23', 3, 'cost of beauty', 'You are receiving this email because you have subscribed to neuvoo\'s job alert system.\r\nIf you are receiving this by error or want to completely unsubscribe from all alerts.\r\nPlease click here:You are receiving this email because you have subscribed to neuvoo\'s job alert system.\r\nIf you are receiving this by error or want to completely unsubscribe from all alerts.\r\nPlease click here:You are receiving this email because you have subscribed to neuvoo\'s job alert system.\r\nIf you are receiving this by error or want to completely unsubscribe from all alerts.\r\nPlease click here:', 'App\\topics', 3, 8, 25628088),
+(17, '2018-10-06 01:52:43', '2018-10-06 01:52:43', 3, 'young sheldon', 'If you are a real Subscriber, please renew your Subscription by Responding to this Email..\r\nWe\'d like to make sure we got your right email address .If you are a real Subscriber, please renew your Subscription by Responding to this Email..\r\nWe\'d like to make sure we got your right email address .If you are a real Subscriber, please renew your Subscription by Responding to this Email..\r\nWe\'d like to make sure we got your right email address .', 'App\\topics', 4, 8, 20894603),
+(18, '2018-10-06 02:24:21', '2018-10-06 02:24:21', 2, 'clause query using Laravel Eloquent?', 'Competent with cloud computing, Amazon Web Services ideally.Experience with DevOps, Continuous Integration, Git and Linux.\r\n\r\nWork closely with DevOpsParticipate in the scrum planning, process and daily stand-ups.Deliver software according to agreed timelinesSeasoned communicator as regards technical and business / functional aspects of assigned work.\r\n\r\nBe comfortable working in an agile and fast-paced environment.Team player and willing to go beyond the call of duty when the need arises.\r\n\r\nTenacity and the ability to solve complex software bugs.', 'App\\topics', 5, 8, 16209917),
+(19, '2018-10-06 02:25:58', '2018-10-06 02:25:58', 2, 'PHP/Laravel 5 Software Developer', 'Design, innovate and solve complex problems inherent in operating a high scale classifieds platform.Spec and implement new features and enhancements within our software stack (AWS, PHP Laravel, MySQL, HTML, CSS and Javascript)Ensure high tests coverage for Backend, Frontend and APIPlay a key role in reviewing and approving work of your peers as part of the software development process.\r\n\r\nUse prescribed tools and work according to the established Experience with PHP, specifically OOP and Laravel >', 'App\\topics', 6, 8, 4441899);
 
 -- --------------------------------------------------------
 
@@ -532,11 +540,12 @@ CREATE TABLE `topics` (
 --
 
 INSERT INTO `topics` (`id`, `sub_in_id`, `state`, `city`, `topic_name`, `description`, `location`, `topic_id`, `created_at`, `updated_at`, `created_by`) VALUES
-(1, 50357077, 'rivers', 'Port Harcourt', 'Bad responses time', 'I am developing a site at the moment which allows people to create articles in a blog format.\r\n\r\nA feature of the site allows other users to \'like\' and \'comment\' on the article.\r\n\r\nI am wanting to count the number of likes and comments an article has and display the count in a summary at the top of the article page. (A bit like the way Jeffrey displays the number of comments on a forum post in the right side of the listing page)\r\n\r\nCurrently, if a user comments on an article, I post the comment to the Comments table. Similarly, if a user \'likes\' an article, I post the like to the Likes table. Using my current architecture, it means I have to query the comments table and get the count, then query the likes table for the count each time an article is viewed.\r\n\r\nI am wondering if a better architecture would be to add 2 columns (Counts, Comments) to the Articles table and add/remove an increment each time a user adds/removes a like or comment? The idea would then be to simply display the count in the article without having to query or join other tables.', 'ajah', 14577948, '2018-09-27 12:32:13', '2018-09-27 12:32:13', 2),
-(2, 50357077, 'Lagos', 'Lagos', 'Bad responses time', 'I find your service poor tried putting \"$premios->links()\" inside and outside the foreach.Without pagination everything works good', 'Agege', 60042347, '2018-09-27 16:58:09', '2018-09-27 16:58:09', 4),
-(3, 14138155, 'lagos', 'lagos', 'poor network', 'whats up ? I have a little problem with Laravel Paginator.\r\n\r\nI built the function using order by and paginator, but I\'m getting the error message \"Call to undefined method Illuminate \\ Database \\ Query \\ Builder :: links () (View: C: \\ wamp \\ www \\ laravel \\ app \\ views \\ frontend \\ premios.blade.php).', 'ikate', 25002533, '2018-09-28 16:02:00', '2018-09-28 16:02:00', 5),
-(4, 5487464, 'lagos', 'lagos', 'Late payment of salary', 'I believe what you are wanting is z-index. Rather than explaining it here, just do a Google search for it. It is simple to understand.I believe what you are wanting is z-index. Rather than explaining it here, just do a Google search for it. It is simple to understand.I believe what you are wanting is z-index. Rather than explaining it here, just do a Google search for it. It is simple to understand.', 'epe', 18546917, '2018-10-05 16:04:52', '2018-10-05 16:04:52', 7),
-(5, 5487464, 'lagos', 'lagos', 'Late payment of salary', 'I believe what you are wanting is z-index. Rather than explaining it here, just do a Google search for it. It is simple to understand.I believe what you are wanting is z-index. Rather than explaining it here, just do a Google search for it. It is simple to understand.I believe what you are wanting is z-index. Rather than explaining it here, just do a Google search for it. It is simple to understand.', 'epe', 4907381, '2018-10-05 16:05:59', '2018-10-05 16:05:59', 7);
+(1, 77968, 'Delta', 'Warri', 'Bad responses time', 'We provide these links to those who can\'t watch or buy the series from their source so please if you are able to watch and buy the series from their direct source go to their website and watch the series from the source to support their producer thanks for understanding.', 'ajah', 2145476, '2018-10-06 02:28:18', '2018-10-06 02:28:18', 8),
+(2, 3828120, 'kaduna', 'kaduna', 'again goal', 'For downloading the last episode of SEAL Team please click on the link below and for download the rest of the episode please scroll down to find rest season and episodes.', 'kaduna city mall', 95377053, '2018-10-06 02:32:32', '2018-10-06 02:32:32', 8),
+(3, 4609515, 'lagos', 'lagos', 'cost of beauty', 'You are receiving this email because you have subscribed to neuvoo\'s job alert system.\r\nIf you are receiving this by error or want to completely unsubscribe from all alerts.\r\nPlease click here:You are receiving this email because you have subscribed to neuvoo\'s job alert system.\r\nIf you are receiving this by error or want to completely unsubscribe from all alerts.\r\nPlease click here:You are receiving this email because you have subscribed to neuvoo\'s job alert system.\r\nIf you are receiving this by error or want to completely unsubscribe from all alerts.\r\nPlease click here:', 'ajah', 25628088, '2018-10-06 02:34:23', '2018-10-06 02:34:23', 8),
+(4, 402636, 'edo', 'benin', 'young sheldon', 'If you are a real Subscriber, please renew your Subscription by Responding to this Email..\r\nWe\'d like to make sure we got your right email address .If you are a real Subscriber, please renew your Subscription by Responding to this Email..\r\nWe\'d like to make sure we got your right email address .If you are a real Subscriber, please renew your Subscription by Responding to this Email..\r\nWe\'d like to make sure we got your right email address .', 'bold way road', 20894603, '2018-10-06 02:52:43', '2018-10-06 02:52:43', 8),
+(5, 1633034, 'Delta', 'Port Harcourt', 'clause query using Laravel Eloquent?', 'Competent with cloud computing, Amazon Web Services ideally.Experience with DevOps, Continuous Integration, Git and Linux.\r\n\r\nWork closely with DevOpsParticipate in the scrum planning, process and daily stand-ups.Deliver software according to agreed timelinesSeasoned communicator as regards technical and business / functional aspects of assigned work.\r\n\r\nBe comfortable working in an agile and fast-paced environment.Team player and willing to go beyond the call of duty when the need arises.\r\n\r\nTenacity and the ability to solve complex software bugs.', 'lagos', 16209917, '2018-10-06 03:24:21', '2018-10-06 03:24:21', 8),
+(6, 84213, 'delta', 'sapel', 'PHP/Laravel 5 Software Developer', 'Design, innovate and solve complex problems inherent in operating a high scale classifieds platform.Spec and implement new features and enhancements within our software stack (AWS, PHP Laravel, MySQL, HTML, CSS and Javascript)Ensure high tests coverage for Backend, Frontend and APIPlay a key role in reviewing and approving work of your peers as part of the software development process.\r\n\r\nUse prescribed tools and work according to the established Experience with PHP, specifically OOP and Laravel >', 'sapele', 4441899, '2018-10-06 03:25:58', '2018-10-06 03:25:58', 8);
 
 -- --------------------------------------------------------
 
@@ -573,7 +582,8 @@ INSERT INTO `users` (`id`, `name`, `username`, `phone`, `avatar`, `provider`, `p
 (4, 'peace akpan', 'Emi', '0564564564', 'http://localhost/9jareview/img/4Emi.jpg', 'facebook', '1727837450677035', 'EAAEZAmZCtIvvsBAGPXdhAwB5eUYVSohFE9aNiZCn5r67XjPfYtC5wrr27FXzMNz0ogLn5Nq2rOlfMhlxPZCVDj8ZBGhZAtZB3zyWIky6WXLwdLRSGk6woPZBYyZAEDBqxMfjh8fmv5ATSBZAOdMO8QWPNEHZBf3MjrldERuxhVXL8FRCgZDZD', 'default', '::1', 'kenneyg50@gmail.com', '$2y$10$qC5FiJl3IUzk4YysmM8qLOVYal4rhonB6vJciGH/6j3ICZA5LwzXC', 'oN9216N2u6B6HgrgOyLdJa14AcB4jp8Ww4ZIkGrNQKo6VstzcI3fdSvjTEXM', '2018-09-20 16:01:43', '2018-10-05 07:53:07'),
 (5, 'micheal adah', 'mic', '', 'http://localhost/9jareview/img/5mic.jpg', '', '', '', 'default', '::1', 'myckhel123@gmail.com', '$2y$10$iFnJYBTUoBafJ53c6N.bMeBz5DXEB2O.J8.8bgPPPyJUlMQ9D7Xwe', 'f6r6lPh0QwZzoh9bZY1b75e5iZJ6kBqHg1B0Mr8GD0gaL0pX2hHxgTCfVONQ', '2018-09-27 12:41:09', '2018-09-28 14:04:45'),
 (6, 'Godwin Igbokwe', 'Godwin Igbokwe', '1111', 'https://lh6.googleusercontent.com/-f2aD9-c_cqg/AAAAAAAAAAI/AAAAAAAAABw/dpY8GWbQzLA/photo.jpg?sz=50', 'google', '102379792876068981993', 'ya29.GlstBqHmFTZYv8BPdW59XRqAjv7CzI13j6wnoIvedidhrvOej2dIwUSHd4G7ffDkkBIAjK07ClIJnEJAbNR-1_YkXgemaq5N7_DpN7fy3IcrWEo_UXgoRSOA9EGB', 'default', NULL, 'esurfonline@gmail.com', '', 'PchcZG6D2LX8RCXc049cX18dMRoTu5a5wG8QmIuUOAO0D1mOh3wmPwnpkCaN', '2018-10-05 07:21:40', '2018-10-05 07:21:40'),
-(7, 'The Apartment Application', 'Apartment Application', '03346988741', 'http://localhost/9jareview/img/7Apartment Application.jpg', 'google', '112739036808392317661', 'ya29.GlstBjnlQsfy0oBAdcM9Y6q_08BmlSXnmI6T2axXMqAKiyCKcyuN-4GRFpgbNVsM32RR9npHDmTPOI2HDSdop-ATYRXPS4qBu5FjuTUH99dN1UsVjpkBKuqFMPHG', 'default', '::1', 'kenneyg50@gmail.com', '', 'U5juYyey1wHSGRFQ1KnZbrgbCTqydLwmizjrISennboet8MucVD3R7EAiM3C', '2018-10-05 07:25:59', '2018-10-05 10:39:19');
+(7, 'The Apartment Application', 'Apartment Application', '03346988741', 'http://localhost/9jareview/img/7Apartment Application.jpg', 'google', '112739036808392317661', 'ya29.GlstBjnlQsfy0oBAdcM9Y6q_08BmlSXnmI6T2axXMqAKiyCKcyuN-4GRFpgbNVsM32RR9npHDmTPOI2HDSdop-ATYRXPS4qBu5FjuTUH99dN1UsVjpkBKuqFMPHG', 'default', '::1', 'kenneyg50@gmail.com', '', 'DltbEs8UuTCjO4zpspud2BxHGiALfZEFulndprQqBR1D2iOVUs9qvHEC6JPl', '2018-10-05 07:25:59', '2018-10-05 10:39:19'),
+(8, 'Apartment Application', 'Apartment Application', '1111', 'https://lh3.googleusercontent.com/-XHy9Uouyx2M/AAAAAAAAAAI/AAAAAAAAAAA/AAN31DV2l7Won_S7AVqBQg_1Fg-KRQBkqw/mo/photo.jpg?sz=50', 'google', '112739036808392317661', 'ya29.GlwuBiqWwat7h7yEiRErD1Y8BqL13Fp5s0JJZCj8v_IMXLoyYUH1mO8zl4HKeDAtGtj21ndWjdUx6EEFglh3nnvZp88kGXXpSXuoZL086lFfrrxM93lj0zQfr4TW4g', 'default', '::1', 'applicationapartment@gmail.com', '', 'iHgUN3JCxC7IqdaS7jvic84fZGimCVG4nCsPJUsd0Lc9wYem67YVaXp9ILEb', '2018-10-06 01:27:09', '2018-10-06 01:27:09');
 
 -- --------------------------------------------------------
 
@@ -699,7 +709,7 @@ ALTER TABLE `industries`
 -- AUTO_INCREMENT for table `likes`
 --
 ALTER TABLE `likes`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT for table `migrations`
 --
@@ -709,7 +719,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `ratings`
 --
 ALTER TABLE `ratings`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 --
 -- AUTO_INCREMENT for table `replycomments`
 --
@@ -729,12 +739,12 @@ ALTER TABLE `sub_industries`
 -- AUTO_INCREMENT for table `topics`
 --
 ALTER TABLE `topics`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `wwwtopics`
 --
